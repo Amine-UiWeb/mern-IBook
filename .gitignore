@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# production
+build
+
+# misc
+dist
+dist-ssr
+.env
+.env.*
+*.local
+
+# Logs
+logs
+*.log
+*.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
