@@ -1,6 +1,6 @@
 # about
 * creating a simple mern books plateform to lookup books
-details and authors informations, using a set of very popular mern-stach technologies and tools
+details and authors informations, using a set of popular mern-stack technologies and tools
 
 
 # contribution: 
