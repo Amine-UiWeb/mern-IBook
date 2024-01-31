@@ -23,9 +23,6 @@ const app = express();
 middlewares
 -----------*/
 
-// set security HTTP headers
-app.use(helmet());
-
 // parse json and urlencoded in request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
