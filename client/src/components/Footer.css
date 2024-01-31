@@ -1,0 +1,22 @@
+footer.footer {
+  border-block: 5px solid silver;
+  padding: 2rem;
+  background: #eee;
+}
+
+footer.footer .copyright {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+footer.footer span:first-child{
+  font-size: .85rem;
+  font-weight: 600;
+}
+footer.footer span:last-child{
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: silver;
+  text-decoration-thickness: 4px;
+}
+footer.footer span:last-child a { cursor: pointer; }
