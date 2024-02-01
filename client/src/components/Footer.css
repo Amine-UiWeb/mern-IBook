@@ -1,14 +1,19 @@
 footer.footer {
-  border-block: 5px solid silver;
   padding: 2rem;
   background: #eee;
 }
 
-footer.footer .copyright {
-  text-align: center;
-  margin-bottom: 0;
+/* footer grid */
+footer.footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
+/* copyright */
+footer.footer .copyright {
+  text-align: center;
+  margin-block: 2rem 0;
+}
 footer.footer span:first-child{
   font-size: .85rem;
   font-weight: 600;
