@@ -13,6 +13,7 @@ import helmet from "helmet";
 import { requestLogger } from "./middlewares/requestLogger.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 
+import authRouter from "./routers/authRouter.js"
 
 /*------------
 configurations
@@ -51,9 +52,10 @@ app.use(cors());
 Route Handlers
 --------------*/
 
-app.get("/", (req, res) => {
-  res.send("connected");
-});
+app.use('/auth', authRouter)
+// app.use('/user', userRouter)
+// app.use('/author', authRouter)
+// app.use('/book', bookRouter)
 
 // custom 404
 app.use('*', (req, res) => {
