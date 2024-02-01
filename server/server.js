@@ -33,6 +33,9 @@ export const __dirname = path.dirname(__filename)
 middlewares
 -----------*/
 
+// requests logger
+app.use(requestLogger)
+
 // set security HTTP headers
 app.use(helmet());
 
@@ -42,9 +45,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // enable cors
 app.use(cors());
-
-// reqLogger
-app.use(requestLogger)
 
 
 /*------------
@@ -60,7 +60,7 @@ app.use('*', (req, res) => {
   res.status(404).send('Sorry, page not found')
 })
 
-// errLogger
+// errors handler
 app.use(errorHandler)
 
 
