@@ -1,5 +1,11 @@
+// Components
 import Footer from "./components/Footer"
 import Header from "./components/Header"
+
+// Pages
+import LoginPage from "./pages/LoginPage"
+import RegisterPage from "./pages/RegisterPage"
+import LandingPage from "./pages/LandingPage"
 
 function App() {
 
@@ -10,6 +16,9 @@ function App() {
       
       <main className="main">
         {/* dynamic main content */}
+        {/* <LoginPage /> */}
+        {/* <RegisterPage /> */}
+        {/* <LandingPage /> */}
       </main>
       
       <Footer />
