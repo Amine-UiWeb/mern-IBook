@@ -1,22 +1,36 @@
+// Libraries
+import { NavLink } from "react-router-dom"
+
+// Assets
 import Logo from "../assets/logo.svg"
 import "./Navbar.css"
 
-const Navbar = () => {
 
+const Navbar = () => {
   return (
     <nav className="nav">
 
       <div className="logo-wrapper p-0-5">
-        <a href="/">
+        <NavLink to='/'>
           <img className="logo" src={Logo} alt="logo" />
-        </a>
+        </NavLink>
       </div>
 
       <div className="nav-links">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Log In</a></li>
-          <li><a href="#">Register</a></li>
+
+          <li>
+            <NavLink to='/'>Home</NavLink>
+          </li>
+          
+          <li>
+            <NavLink to='/login'>LogIn</NavLink>
+          </li>
+          
+          <li>
+            <NavLink to='/register'>Register</NavLink>
+          </li>
+          
         </ul>
       </div>
 

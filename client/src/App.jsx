@@ -1,6 +1,5 @@
 // libraries
-import { createBrowserRouter, RouterProvider, Routes, Route, Outlet } 
-  from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 // Components
 import Footer from "./components/Footer"
@@ -10,6 +9,7 @@ import Header from "./components/Header"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import LandingPage from "./pages/LandingPage"
+
 
 function App() {
 
