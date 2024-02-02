@@ -20,11 +20,11 @@ const LoginPage = () => {
   return (
     <div className="login p-2">
 
-      <h3 className="mbo-1">Login</h3>
+      <h3 className="mbo-1-5">Login</h3>
 
       <form className="login-form">
 
-        <label htmlFor="password">Username</label>
+        <label htmlFor="password" className="fw-500">Username</label>
         <input 
           type="text" 
           id="username"
@@ -34,7 +34,7 @@ const LoginPage = () => {
           autoComplete="off"
         />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="fw-500">Password</label>
         <input 
           type="password" 
           id="password"
@@ -47,7 +47,7 @@ const LoginPage = () => {
           Log in
         </button>
         
-        <div className="fs-0-9">
+        <div className="fs-0-9 fw-500">
           Don't have an account yet?{" "}
           <a href="#" className="underline">Register</a>
         </div>

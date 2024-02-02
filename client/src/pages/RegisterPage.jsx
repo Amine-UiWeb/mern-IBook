@@ -22,11 +22,11 @@ const RegisterPage = () => {
   return (
     <div className="login p-2">
 
-      <h3 className="mbo-1">Register</h3>
+      <h3 className="mbo-1-5">Register</h3>
 
       <form className="login-form">
 
-        <label htmlFor="password">Username</label>
+        <label htmlFor="password" className="fw-500">Username</label>
         <input 
           type="text" 
           id="username"
@@ -36,7 +36,7 @@ const RegisterPage = () => {
           autoComplete="off"
         />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="fw-500">Password</label>
         <input 
           type="password" 
           id="password"
@@ -45,7 +45,7 @@ const RegisterPage = () => {
           onChange={(e) => onPasswordChange(e.target.value)}
         />
 
-        <label htmlFor="confirmPwd">Confirm Password</label>
+        <label htmlFor="confirmPwd" className="fw-500">Confirm Password</label>
         <input 
           type="password" 
           id="confirmPwd"

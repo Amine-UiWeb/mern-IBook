@@ -179,6 +179,7 @@ font-size
 .fs-0-9 { font-size: var(--fs-0-9); }
 .fs-1 { font-size: var(--fs-1); }
 
+
 /*---------
 font-weight
 -----------*/
@@ -196,7 +197,8 @@ decoration
 ----------*/
 
 .underline { text-decoration: underline; }
-
+.uppercase { text-transform: uppercase; }
+.cap { text-transform: capitalize; }
 
 /*------
 headings

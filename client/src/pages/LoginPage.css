@@ -1,6 +1,7 @@
 .login {
   max-width: 28rem;
-  width: 28rem;
+  width: 100%;
+  min-width: 16rem;
   margin-inline: auto;
   border: 2px solid var(--pri-blue-200);
   border-radius: 2rem;
