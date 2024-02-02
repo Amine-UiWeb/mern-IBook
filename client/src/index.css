@@ -171,6 +171,13 @@ button:focus-visible {
 * reusable classes 
 */
 
+/*---------
+font-familly
+-----------*/
+
+.ff-times { font-family: 'Times New Roman', Times, serif; }
+
+
 /*-------
 font-size
 ---------*/
@@ -197,6 +204,7 @@ decoration
 ----------*/
 
 .underline { text-decoration: underline; }
+.hover-underline:hover { text-decoration: underline; }
 .uppercase { text-transform: uppercase; }
 .cap { text-transform: capitalize; }
 
