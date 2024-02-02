@@ -1,0 +1,11 @@
+
+
+.landing-page :is(a, a:hover, a:visited) {
+  color: initial;
+}
+
+.books-list {
+  border: 1px solid silver;
+  height: 5rem;
+  width: 100%;
+}
