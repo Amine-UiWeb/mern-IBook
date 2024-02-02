@@ -123,15 +123,17 @@ label {
 }
 input {
   width: 100%;
+  font-size: 1rem;
   line-height: 1.5;
   padding: .3rem .6rem;
-  border-radius: .6rem;
-  font-size: 1rem;
   border: 1px solid gray;
+  border-radius: .6rem;
+  background: var(--light-bluish);
+  transition: all .3s;
 }
 input:focus-within {
-  outline-color: #18552a;
-  background: #eee;
+  outline-color: var(--pri-blue-600);
+  background: #fff;
 }
 
 button {

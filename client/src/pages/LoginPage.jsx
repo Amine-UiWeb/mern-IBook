@@ -48,7 +48,7 @@ const LoginPage = () => {
         </button>
         
         <div className="fs-0-9">
-          Don't have an account?{" "}
+          Don't have an account yet?{" "}
           <a href="#" className="underline">Register</a>
         </div>
 

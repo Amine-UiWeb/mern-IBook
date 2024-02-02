@@ -4,7 +4,6 @@
   margin-inline: auto;
   border: 2px solid var(--pri-blue-200);
   border-radius: 2rem;
-  background: var(--light-bluish);
 }
 
 .login-form button {
