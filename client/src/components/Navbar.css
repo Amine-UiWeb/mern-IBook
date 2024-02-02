@@ -32,19 +32,22 @@ nav.nav ul {
 }
 
 nav.nav ul li{
-  padding: .3rem;
   border-radius: .3rem;
   background: #eee;
   transition: .1s ease-out;
+  outline: 1px solid transparent;
 }
 nav.nav ul li:hover {
   background: skyblue;
   cursor: pointer;
   color: #fff;
+  outline-color: var(--wheat-4);
 }
 
 nav.nav ul li a {
   text-wrap: nowrap;
+  padding: .3rem;
+  display: block;
 }
 nav.nav ul li:hover a {
   color: var(--wheat-4);
