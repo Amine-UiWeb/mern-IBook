@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780345806789-L.jpg",
+      "title": "The Shining"
+    },
+
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780143039983-L.jpg",
+      "title": "The Haunting of Hill House"
+    },
+
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9781501143106-L.jpg",
+      "title": "Misery"
+    },
+
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9788445006696-L.jpg",
+      "title": "Good Omens"
+    },
+    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780802130204-L.jpg",
+      "title": "A Confederacy of Dunces"
+    },
+    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780671003753-L.jpg",  
+      "title": "She's Come Undone"
+    },
+
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780452284234-L.jpg",
+      "title": "1984"
+    },
+    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780060935467-L.jpg",
+      "title": "To Kill a Mockingbird"
+    },
+    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780142437230-L.jpg",
+      "title": "Don Quixote"
+    }
+  ]
+}
