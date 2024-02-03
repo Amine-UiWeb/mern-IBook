@@ -1,3 +1,4 @@
+import BooksCaroussel from "../components/main/BooksCarousel"
 import "./LandingPage.css"
 
 const LandingPage = () => {
@@ -11,8 +12,9 @@ const LandingPage = () => {
           </a>
 
         </h3>
-        <div className="list-container">{/* <BooksCarrousel /> */}</div>
-
+        <div className="list-container">
+          <BooksCaroussel />
+        </div>
 
       </section>
 
