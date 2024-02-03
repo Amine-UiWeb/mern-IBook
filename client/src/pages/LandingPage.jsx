@@ -4,7 +4,7 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
 
-      <section className="list-container">
+      <section className="books-section">
         <h3 className="h3 ff-times p-1">
           <a href="#" className="hover-underline">
             Most Popular Books
@@ -12,6 +12,8 @@ const LandingPage = () => {
 
         </h3>
         <div className="list-container">{/* <BooksCarrousel /> */}</div>
+
+
       </section>
 
       <section className="books-section">
@@ -41,7 +43,7 @@ const LandingPage = () => {
           </a>
         </h3>
 
-        <div className="books-slide">{/* <BooksCarrousel /> */}</div>
+        <div className="books-container">{/* <BooksCarrousel /> */}</div>
       </section>
       
     </div>

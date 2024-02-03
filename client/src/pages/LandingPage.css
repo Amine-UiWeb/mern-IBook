@@ -1,11 +1,15 @@
-
+/* .landing-page {} */
 
 .landing-page :is(a, a:hover, a:visited) {
   color: initial;
 }
 
-.books-list {
+.books-section {
+  margin-bottom: 2rem;
+}
+
+.list-container {
   border: 1px solid silver;
-  height: 5rem;
+  height: 13rem;
   width: 100%;
 }
