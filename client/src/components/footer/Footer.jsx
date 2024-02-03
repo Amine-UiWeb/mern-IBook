@@ -1,10 +1,10 @@
 import "./Footer.css"
-import app_ios from "../assets/app_ios.svg"
-import app_android from "../assets/app_android.png"
-import footer_fb from "../assets/footer_fb.svg"
-import footer_in from "../assets/footer_in.svg"
-import footer_li from "../assets/footer_li.svg"
-import footer_tw from "../assets/footer_tw.svg"
+import app_ios from "../../assets/app_ios.svg"
+import app_android from "../../assets/app_android.png"
+import footer_fb from "../../assets/footer_fb.svg"
+import footer_in from "../../assets/footer_in.svg"
+import footer_li from "../../assets/footer_li.svg"
+import footer_tw from "../../assets/footer_tw.svg"
 
 const Footer = () => {
   return (
