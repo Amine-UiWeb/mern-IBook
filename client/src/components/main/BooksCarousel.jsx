@@ -1,5 +1,7 @@
 import "./BooksCarousel.css"
 
+import data from "../../assets/db/data.json"
+
 const BooksCarousel = () => {
 
   return (      

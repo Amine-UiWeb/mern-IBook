@@ -1,18 +1,26 @@
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
 .carousel-container {
   display: flex;
   align-items: center;
   overflow-x: scroll;
-  /* height: fit-content; */
-  /* overflow-y: hidden; */
+  scroll-snap-type: mandatory mandatory;
+  scroll-behavior: smooth;
+  scroll-snap-align: center center;
 }
 
 .carousel-card {
   padding: .3rem;
   border: 1px solid navajowhite;
-  width: auto;
+  width: fit-content;
   height: 240px;
   min-height: 240px;
   max-height: 240px;
+  scroll-snap-type: mandatory mandatory;
+  scroll-behavior: smooth;
+  scroll-snap-align: center;
 }
 .carousel-card img {
   height: 100%;
