@@ -1,10 +1,9 @@
-
 // @desc Register user
 // @route POST /auth/register
 // @access Public
 export const register = (req, res) => {
   console.log(req.url)
-  res.status(200).json({ message: 'User Created.'})
+  res.status(200).json({ message: 'User Registered seccessfully.'})
 }
 
 // @desc Login user
