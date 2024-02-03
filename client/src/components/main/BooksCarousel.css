@@ -1,0 +1,22 @@
+.carousel-container {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  /* height: fit-content; */
+  /* overflow-y: hidden; */
+}
+
+.carousel-card {
+  padding: .3rem;
+  border: 1px solid navajowhite;
+  width: auto;
+  height: 240px;
+  min-height: 240px;
+  max-height: 240px;
+}
+.carousel-card img {
+  height: 100%;
+}
+.carousel-card p {
+  display: none;
+}
