@@ -32,24 +32,24 @@ nav.nav ul {
 }
 
 nav.nav ul li{
-  border-radius: .3rem;
   background: #eee;
-  transition: .1s ease-out;
+  border-radius: .23rem;
   outline: 1px solid transparent;
+  transition: .1s ease-out;
 }
-nav.nav ul li:hover {
+nav.nav ul li:is(:hover, :has(> a.active)) {
   background: skyblue;
-  cursor: pointer;
   color: #fff;
   outline-color: var(--wheat-4);
+  cursor: pointer;
 }
 
 nav.nav ul li a {
-  text-wrap: nowrap;
-  padding: .3rem;
   display: block;
+  padding: .25rem .5rem;
+  text-wrap: nowrap;
 }
-nav.nav ul li:hover a {
+nav.nav ul :is(li:hover a, li a.active) {
   color: var(--wheat-4);
   text-decoration: underline;
 }
