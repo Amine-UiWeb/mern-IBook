@@ -1,4 +1,4 @@
-import BooksCaroussel from "../components/main/BooksCarousel"
+import BooksCarousel from "../components/main/BooksCarousel"
 import "./LandingPage.css"
 
 const LandingPage = () => {
@@ -13,7 +13,7 @@ const LandingPage = () => {
 
         </h3>
         <div className="list-container">
-          <BooksCaroussel />
+          <BooksCarousel />
         </div>
 
       </section>
@@ -25,7 +25,9 @@ const LandingPage = () => {
           </a>
         </h3>
 
-        <div className="list-container">{/* <BooksCarrousel /> */}</div>
+        <div className="list-container">
+          <BooksCarousel />
+        </div>
       </section>
 
       <section className="books-section">
@@ -35,7 +37,9 @@ const LandingPage = () => {
           </a>
         </h3>
 
-        <div className="list-container">{/* <BooksCarrousel /> */}</div>
+        <div className="list-container">
+          <BooksCarousel />
+        </div>
       </section>
 
       <section className="books-section">
@@ -45,7 +49,9 @@ const LandingPage = () => {
           </a>
         </h3>
 
-        <div className="books-container">{/* <BooksCarrousel /> */}</div>
+        <div className="books-container">
+          <BooksCarousel />
+        </div>
       </section>
       
     </div>
