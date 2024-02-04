@@ -1,14 +1,9 @@
-
 import "./BooksCarousel.css"
 
 import data from "../../assets/db/data.json"
+import CarouselCard from "./CarouselCard"
 
 const BooksCarousel = () => {
-
-  
-  
-
-  console.log(data.data.length)
 
   return (      
     <div className="carousel-container">
@@ -17,10 +12,7 @@ const BooksCarousel = () => {
 
       { 
         data.data.length && data.data.map((book, i) => (
-            <div key={i} className="carousel-card">
-              <img src={book.cover} />
-              <p>{book.title}</p>
-            </div>
+            <CarouselCard key={i} book={book} />
           )
         )
       }
