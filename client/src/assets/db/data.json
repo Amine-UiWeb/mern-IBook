@@ -43,6 +43,30 @@
     {
       "cover": "http://covers.openlibrary.org/b/isbn/9780142437230-L.jpg",
       "title": "Don Quixote"
-    }
-  ]
+    },
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9781509848492-L.jpg",
+      "title": "The Pillars of The Earth"
+    },    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780312427290-L.jpg",
+      "title": "The Red Tent"
+    },    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780679781585-L.jpg",
+      "title": "Memoirs of a Geisha"
+    },
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9781250301703-L.jpg",
+      "title": "The Silent Patient"
+    },
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9781594634024-L.jpg",
+      "title": "The Girl on the Train"
+    },    
+    {
+      "cover": "http://covers.openlibrary.org/b/isbn/9780312924584-M.jpg",
+      "title": "The Silence of the Lambs"
+  }
+]
 }
