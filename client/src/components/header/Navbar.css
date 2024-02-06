@@ -18,9 +18,7 @@ nav.nav .logo-wrapper:hover {
 
 nav.nav img.logo {
   background: transparent;
-  min-height: 1.6rem;
-  height: 4vw;
-  max-height: 2.6rem;
+  height: 1.8rem;
 }
 
 /* nav links */
@@ -52,4 +50,10 @@ nav.nav ul li a {
 nav.nav ul :is(li:hover a, li a.active) {
   color: var(--wheat-4);
   text-decoration: underline;
+}
+
+/* media queries */
+
+@media (min-width: 767px) {
+  nav.nav img.logo { height: 2.4rem; }
 }
