@@ -1,11 +1,15 @@
+import { useEffect, useState } from "react"
 import "./CarouselCard.css"
 
 const CarouselCard = ({ book }) => {
 
-  return (
+  return (  
     <div className="carousel-card">
-      <img src={book.cover}/>
-      <p>{book.title}</p>
+      <img 
+        src={
+          `https://covers.openlibrary.org/b/id/${book?.cover_id}-L.jpg`
+        }/>
+      <p>{book?.title}</p>
     </div>
   )
 }
