@@ -1,9 +1,10 @@
+import { useState, useEffect } from "react"
 import CarouselCard from "./CarouselCard"
 import "./BooksCarousel.css"
 
-import data from "../../assets/db/data.json"
+const BooksCarousel = ({ books }) => {
 
-const BooksCarousel = () => {
+  console.log(books)
 
   return (      
     <div className="carousel-container">
@@ -11,10 +12,8 @@ const BooksCarousel = () => {
       {/* display books with placeholer data (3 books in each genre) */}
 
       { 
-        data?.books?.length && data.books.map((book, i) => (
-            <CarouselCard key={i} book={book} />
-          )
-        )
+        books?.length > 0 && 
+          books.map((book, i) => <CarouselCard key={i} book={book} />)
       }
 
     </div>
