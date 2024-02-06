@@ -9,9 +9,7 @@ const BooksCarousel = ({ books }) => {
   return (      
     <div className="carousel-container">
       
-      {/* display books with placeholer data (3 books in each genre) */}
-
-      { 
+      {
         books?.length > 0 && 
           books.map((book, i) => <CarouselCard key={i} book={book} />)
       }
