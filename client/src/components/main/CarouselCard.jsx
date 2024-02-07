@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react"
 import "./CarouselCard.css"
 
-const CarouselCard = ({ book }) => {
+const CarouselCard = (props) => {
 
-  return (  
+  return ( 
     <div className="carousel-card">
-      <img 
-        src={
-          `https://covers.openlibrary.org/b/id/${book?.cover_id}-L.jpg`
-        }/>
-      <p>{book?.title}</p>
+      <label>
+        <a href="#">
+          <img src={
+            `https://covers.openlibrary.org/b/id/${props.book?.cover_id}-L.jpg`
+          }/>
+        </a>
+      </label>
     </div>
   )
 }
