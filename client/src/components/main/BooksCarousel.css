@@ -8,8 +8,9 @@
   position: relative;
   width: 100%;
   display: flex;
-  overflow-x: auto;
   align-items: center;
+  gap: .5rem;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
