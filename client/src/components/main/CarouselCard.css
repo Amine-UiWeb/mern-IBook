@@ -1,14 +1,11 @@
 .carousel-card {
   padding: .3rem;
-  margin-right: .6rem;
   border: 3px solid navajowhite;
   width: fit-content;
   min-height: 240px;
   height: 240px;
   max-height: 240px;
-  scroll-snap-type: mandatory mandatory;
-  scroll-behavior: smooth;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .carousel-card img {

@@ -1,12 +1,17 @@
 .carousel-container::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: normal;
+  scrollbar-color: hsl(0 0% 50%);
+  /* display: none; */
 }
 
 .carousel-container {
   position: relative;
+  width: 100%;
   display: flex;
+  overflow-x: auto;
   align-items: center;
-  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 .carousel-container button {
   position: absolute;
