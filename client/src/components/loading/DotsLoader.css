@@ -1,6 +1,9 @@
 .dotsLoader {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-inline: 1.6rem;
 }
 
 .dotsLoader > div {
