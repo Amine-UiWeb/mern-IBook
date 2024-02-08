@@ -6,6 +6,7 @@
 
 .carousel-container {
   position: relative;
+  border-block: 3px solid navajowhite;  
   width: 100%;
   display: flex;
   align-items: center;
