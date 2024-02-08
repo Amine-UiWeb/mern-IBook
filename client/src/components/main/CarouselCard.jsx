@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import "./CarouselCard.css"
+import DotsLoader from "../loading/DotsLoader"
 
 const CarouselCard = ({ book }) => {
 
@@ -24,7 +25,10 @@ const CarouselCard = ({ book }) => {
   return ( 
     <div className="carousel-card">
       <a href="#">
-        <img src={image}/>
+        {
+          !image ? <DotsLoader /> 
+          : <img src={image}/>
+        }
       </a>
     </div>
   )
