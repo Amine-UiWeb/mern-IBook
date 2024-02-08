@@ -1,4 +1,4 @@
-const CardLoading = () => {
+const DotsLoader = () => {
   return (
     <div className="dotsLoader">
       <div></div>
@@ -7,4 +7,4 @@ const CardLoading = () => {
     </div>
   )
 }
-export default CardLoading
+export default DotsLoader
