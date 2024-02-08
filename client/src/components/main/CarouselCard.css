@@ -1,5 +1,5 @@
 .carousel-card {
-  padding: 5px;
+  padding-block: 5px;
   scroll-snap-align: start;
 }
 
