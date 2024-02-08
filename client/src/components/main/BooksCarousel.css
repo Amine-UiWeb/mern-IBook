@@ -1,7 +1,7 @@
 .carousel-container::-webkit-scrollbar {
   scrollbar-width: normal;
   scrollbar-color: hsl(0 0% 50%);
-  /* display: none; */
+  display: none;
 }
 
 .carousel-container {
@@ -18,13 +18,19 @@
 .carousel-container button {
   position: absolute;
   width: fit-content;
-  opacity: .5;
-  border: 3px solid gainsboro;
-  outline: 1px solid transparent;
+  background: #4949491e;
+  color: aliceblue;
+  border: 2px solid #dcdcdc57;
+  outline: 2px solid #dcdcdc25;
   font-size: 1.4rem;
   padding: 0 .4rem;
+  bottom: 1rem;
 }
-.carousel-container button:hover { opacity: .8; outline-color: silver; }
+.carousel-container button:is(:hover, :focus, :focus-visible) { 
+  background: grey;
+  border-color: gray;
+  outline-color: gainsboro; 
+}
 
 .carousel-container button:first-child {
   left: 1rem;
