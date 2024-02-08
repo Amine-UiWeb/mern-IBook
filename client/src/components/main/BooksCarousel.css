@@ -18,6 +18,7 @@
 .carousel-container button {
   position: absolute;
   width: fit-content;
+  opacity: 0;
   background: #4949491e;
   color: aliceblue;
   border: 2px solid #dcdcdc57;
@@ -28,9 +29,10 @@
 }
 .carousel-container button:is(:hover, :focus, :focus-visible) { 
   background: grey;
-  border-color: gray;
+  border-color: #ddecdd;
   outline-color: gainsboro; 
 }
+.carousel-container:hover button { opacity: 1; }
 
 .carousel-container button:first-child {
   left: 1rem;
