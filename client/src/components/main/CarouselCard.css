@@ -1,14 +1,11 @@
 .carousel-card {
   padding: .3rem;
-  border: 3px solid navajowhite;
-  width: fit-content;
-  min-height: 240px;
-  height: 240px;
-  max-height: 240px;
+  border: 3px solid navajowhite;  
   scroll-snap-align: start;
 }
 
 .carousel-card img {
-  height: 100%;
-  min-width: 120px;  /* todo: remove this after using a loading component */
+  height: 240px;
+  width: 170px;
+  object-fit: fill;
 }
