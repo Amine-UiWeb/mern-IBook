@@ -3,10 +3,27 @@
 }
 
 .carousel-container {
+  position: relative;
   display: flex;
   align-items: center;
   overflow-x: scroll;
-  scroll-snap-type: mandatory mandatory;
-  scroll-behavior: smooth;
-  scroll-snap-align: center center;
+}
+.carousel-container button {
+  position: absolute;
+  width: fit-content;
+  opacity: .5;
+  border: 3px solid gainsboro;
+  outline: 1px solid transparent;
+  font-size: 1.4rem;
+  padding: 0 .4rem;
+}
+.carousel-container button:hover { opacity: .8; outline-color: silver; }
+
+.carousel-container button:first-child {
+  left: 1rem;
+  border-radius: 50% .3rem .3rem 50%;
+}
+.carousel-container button:last-child {
+  right: 1rem;
+  border-radius: .3rem 50% 50% .3rem;
 }
