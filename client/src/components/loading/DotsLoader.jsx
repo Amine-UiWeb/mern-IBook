@@ -1,6 +1,10 @@
 const CardLoading = () => {
   return (
-    <div className="CardLoading"></div>
+    <div className="dotsLoader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   )
 }
 export default CardLoading
