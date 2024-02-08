@@ -25,10 +25,7 @@ const CarouselCard = ({ book }) => {
   return ( 
     <div className="carousel-card">
       <a href="#">
-        {
-          !image ? <DotsLoader /> 
-          : <img src={image}/>
-        }
+        { !image ? <DotsLoader /> : <img src={image}/> }
       </a>
     </div>
   )
