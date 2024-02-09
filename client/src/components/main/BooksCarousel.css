@@ -1,31 +1,28 @@
-.carousel-container::-webkit-scrollbar {
-  scrollbar-width: normal;
-  scrollbar-color: hsl(0 0% 50%);
-  display: none;
-}
-
 .carousel-container {
   position: relative;
-  border-block: 3px solid navajowhite;  
-  width: 100%;
   display: flex;
   align-items: center;
-  gap: .5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  border-block: 5px solid navajowhite;  
+  border-radius: .1rem;
 }
+
+.carousel-container ::-webkit-scrollbar { display: none; }
+
+.carousel-container .carousel-wrapper {
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+}
+
 .carousel-container button {
   position: absolute;
   width: fit-content;
-  opacity: 0;
-  background: #4949491e;
+  background: #49494954;
   color: aliceblue;
   border: 2px solid #dcdcdc57;
-  outline: 2px solid #dcdcdc25;
-  font-size: 1.4rem;
-  padding: 0 .4rem;
-  bottom: 1rem;
+  outline: 2px solid #16161625;
+  font-size: 1.8rem;
+  padding: 0 .6rem;
 }
 .carousel-container button:is(:hover, :focus, :focus-visible) { 
   background: grey;
@@ -35,10 +32,10 @@
 .carousel-container:hover button { opacity: 1; }
 
 .carousel-container button:first-child {
-  left: 1rem;
+  left: -1rem;
   border-radius: 50% .3rem .3rem 50%;
 }
 .carousel-container button:last-child {
-  right: 1rem;
+  right: -1rem;
   border-radius: .3rem 50% 50% .3rem;
 }
