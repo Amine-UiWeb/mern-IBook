@@ -20,7 +20,7 @@ const Footer = () => {
         </div>
 
         <div className="p-0-5">
-          <div className="h5 mb-1">FOLLOW US</div>
+          <div className="h5 m-bl-1">FOLLOW US</div>
 
           <div className="flex-row gap-0-5 wrap">
             <a href="#" className="social-link">

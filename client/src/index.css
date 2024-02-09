@@ -229,17 +229,17 @@ margins
 .m-1-5 { margin: 1.5rem; }
 .m-2 { margin: 2rem; }
 
-.mb-0 { margin-block: 0; }
-.mb-0-5 { margin-block: .5rem; }
-.mb-1 { margin-block: 1rem; }
-.mb-1-5 { margin-block: 1.5rem; }
-.mb-2 { margin-block: 2rem; }
+.m-bl-0 { margin-block: 0; }
+.m-bl-0-5 { margin-block: .5rem; }
+.m-bl-1 { margin-block: 1rem; }
+.m-bl-1-5 { margin-block: 1.5rem; }
+.m-bl-2 { margin-block: 2rem; }
 
-.mi-0 { margin-inline: 0; }
-.mi-0-5 { margin-inline: .5rem; }
-.mi-1 { margin-inline: 1rem; }
-.mi-1-5 { margin-inline: 1.5rem; }
-.mi-2 { margin-inline: 2rem; }
+.m-in-0 { margin-inline: 0; }
+.m-in-0-5 { margin-inline: .5rem; }
+.m-in-1 { margin-inline: 1rem; }
+.m-in-1-5 { margin-inline: 1.5rem; }
+.m-in-2 { margin-inline: 2rem; }
 
 .mt-0 { margin-top: 0; }
 .mt-0-5 { margin-top: .5rem; }
@@ -247,11 +247,11 @@ margins
 .mt-1-5 { margin-top: 1.5rem; }
 .mt-2 { margin-top: 2rem; }
 
-.mbo-0 { margin-bottom: 0; }
-.mbo-0-5 { margin-bottom: .5rem; }
-.mbo-1 { margin-bottom: 1rem; }
-.mbo-1-5 { margin-bottom: 1.5rem; }
-.mbo-2 { margin-bottom: 2rem; }
+.mb-0 { margin-bottom: 0; }
+.mb-0-5 { margin-bottom: .5rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-1-5 { margin-bottom: 1.5rem; }
+.mb-2 { margin-bottom: 2rem; }
 
 .mr-0 { margin-right: 0; }
 .mr-0-5 { margin-right: .5rem; }
@@ -276,17 +276,17 @@ paddings
 .p-1-5 { padding: 1.5rem; }
 .p-2 { padding: 2rem; }
 
-.pb-0 { padding-block: 0; }
-.pb-0-5 { padding-block: .5rem; }
-.pb-1 { padding-block: 1rem; }
-.pb-1-5 { padding-block: 1.5rem; }
-.pb-2 { padding-block: 2rem; }
+.p-bl-0 { padding-block: 0; }
+.p-bl-0-5 { padding-block: .5rem; }
+.p-bl-1 { padding-block: 1rem; }
+.p-bl-1-5 { padding-block: 1.5rem; }
+.p-bl-2 { padding-block: 2rem; }
 
-.pi-0 { padding-inline: 0; }
-.pi-0-5 { padding-inline: .5rem; }
-.pi-1 { padding-inline: 1rem; }
-.pi-1-5 { padding-inline: 1.5rem; }
-.pi-2 { padding-inline: 2rem; }
+.p-in-0 { padding-inline: 0; }
+.p-in-0-5 { padding-inline: .5rem; }
+.p-in-1 { padding-inline: 1rem; }
+.p-in-1-5 { padding-inline: 1.5rem; }
+.p-in-2 { padding-inline: 2rem; }
 
 .pt-0 { padding-top: 0; }
 .pt-0-5 { padding-top: .5rem; }
@@ -294,11 +294,11 @@ paddings
 .pt-1-5 { padding-top: 1.5rem; }
 .pt-2 { padding-top: 2rem; }
 
-.pbo-0 { padding-bottom: 0; }
-.pbo-0-5 { padding-bottom: .5rem; }
-.pbo-1 { padding-bottom: 1rem; }
-.pbo-1-5 { padding-bottom: 1.5rem; }
-.pbo-2 { padding-bottom: 2rem; }
+.pb-0 { padding-bottom: 0; }
+.pb-0-5 { padding-bottom: .5rem; }
+.pb-1 { padding-bottom: 1rem; }
+.pb-1-5 { padding-bottom: 1.5rem; }
+.pb-2 { padding-bottom: 2rem; }
 
 .pr-0 { padding-right: 0; }
 .pr-0-5 { padding-right: .5rem; }

@@ -20,7 +20,7 @@ const LoginPage = () => {
   return (
     <div className="login p-2">
 
-      <h3 className="mbo-1-5">Login</h3>
+      <h3 className="mb-1-5">Login</h3>
 
       <form className="login-form">
 
