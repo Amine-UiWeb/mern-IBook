@@ -43,9 +43,7 @@ const LoginPage = () => {
           onChange={(e) => onPasswordChange(e.target.value)}
         />
 
-        <button onClick={handleSubmit}>
-          Log in
-        </button>
+        <button className="btn" onClick={handleSubmit}>Log in</button>
         
         <div className="fs-0-9 fw-500">
           Don't have an account yet?{" "}

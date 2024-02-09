@@ -54,16 +54,16 @@ const RegisterPage = () => {
           onChange={(e) => onConfirmPwdChange(e.target.value)}
         />
 
-        <button onClick={handleSubmit}>
-          Register
-        </button>
+        <button className="btn" onClick={handleSubmit}>Register</button>
         
         <div className="fs-0-9">
           Already have an account?{" "}
           <a href="#" className="underline">Log in</a>
         </div>
 
-      </form>    </div>
+      </form>    
+      
+    </div>
   )
 }
 export default RegisterPage
