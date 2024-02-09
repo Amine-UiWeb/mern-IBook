@@ -9,6 +9,7 @@ import Header from "./components/header/Header"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import LandingPage from "./pages/LandingPage"
+import BookDetailsPage from "./pages/BookDetailsPage"
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
       { 
         path: '/register', 
         element: <RegisterPage /> 
+      },
+      { 
+        path: '/book/details', 
+        element: <BookDetailsPage /> 
       }
     ]
   }])
