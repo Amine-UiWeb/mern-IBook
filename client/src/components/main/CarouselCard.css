@@ -6,6 +6,7 @@
 .carousel-card button {
   all: unset;
   border: 0;
+  cursor: pointer;
 }
 
 .carousel-card button img {

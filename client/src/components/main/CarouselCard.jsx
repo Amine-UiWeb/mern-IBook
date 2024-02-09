@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 import DotsLoader from "../loading/DotsLoader"
 import "./CarouselCard.css"
 
 
 const CarouselCard = ({ book }) => {
+
+  const navigate = useNavigate()
 
   // i'm requesting images as blob to force caching them
   // couldn't cache the images by just setting the url in the src 
@@ -23,12 +25,15 @@ const CarouselCard = ({ book }) => {
     })()
   }, [])
 
+  const handleNavigate = () => {
+    navigate('book/details', { state: book })
+  }
   
   return ( 
     <div className="carousel-card">
       { 
         !image ? <DotsLoader /> 
-          : <button to="book/details"><img src={image}/></button>
+          : <button onClick={handleNavigate}><img src={image}/></button>
       }
     </div>
   )

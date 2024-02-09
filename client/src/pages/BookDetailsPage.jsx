@@ -1,6 +1,7 @@
 import "./BookDetailsPage.css"
 
 const BookDetailsPage = () => {
+  
   return (
     <div className="bookDetails">
       <h3 className="h3">The history of everything</h3>
