@@ -16,7 +16,7 @@
   scroll-behavior: smooth;
 }
 
-.carousel-container button {
+.carousel-container button.carousel-arrow {
   position: absolute;
   width: fit-content;
   background: #49494954;
@@ -26,18 +26,18 @@
   font-size: 1.8rem;
   padding: 0 .6rem;
 }
-.carousel-container button:is(:hover, :focus, :focus-visible) { 
+.carousel-container button.carousel-arrow:is(:hover, :focus, :focus-visible) { 
   background: grey;
   border-color: #ddecdd;
   outline-color: gainsboro; 
 }
-.carousel-container:hover button { opacity: 1; }
+.carousel-container:hover button.carousel-arrow { opacity: 1; }
 
-.carousel-container button:first-child {
+.carousel-container button.carousel-arrow:first-child {
   left: -1rem;
   border-radius: 50% .3rem .3rem 50%;
 }
-.carousel-container button:last-child {
+.carousel-container button.carousel-arrow:last-child {
   right: -1rem;
   border-radius: .3rem 50% 50% .3rem;
 }

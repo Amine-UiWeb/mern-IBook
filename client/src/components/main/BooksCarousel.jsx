@@ -17,7 +17,9 @@ const BooksCarousel = ({ books }) => {
   return (      
     <div className="carousel-container">
 
-      <button onClick={() => handleScroll('left')}>{"\u2770"}</button>
+      <button className="carousel-arrow" onClick={() => handleScroll('left')}>{
+        "\u2770"}
+      </button>
       
       <div className="carousel-wrapper" ref={myRef}>
         {
@@ -27,7 +29,9 @@ const BooksCarousel = ({ books }) => {
         }
       </div>
       
-      <button onClick={() => handleScroll('right')}>{"\u2771"}</button>
+      <button className="carousel-arrow" onClick={() => handleScroll('right')}>
+        {"\u2771"}
+      </button>
     
     </div>
   )
