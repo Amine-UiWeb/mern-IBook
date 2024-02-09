@@ -1,0 +1,8 @@
+import "./BookDetailsPage.css"
+
+const BookDetailsPage = () => {
+  return (
+    <div>BookDetailsPage</div>
+  )
+}
+export default BookDetailsPage
