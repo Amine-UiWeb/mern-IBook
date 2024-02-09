@@ -32,11 +32,11 @@ nav.nav ul {
 nav.nav ul li{
   background: #eee;
   border-radius: .23rem;
-  outline: 1px solid transparent;
+  outline: 2px solid transparent;
   transition: .1s ease-out;
 }
 nav.nav ul li:is(:hover, :has(> a.active)) {
-  background: skyblue;
+  background: #96bac99c;
   color: #fff;
   outline-color: var(--wheat-4);
   cursor: pointer;
