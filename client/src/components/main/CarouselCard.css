@@ -5,9 +5,10 @@
 
 .carousel-card button {
   all: unset;
+  border: 0;
 }
 
-.carousel-card img {
+.carousel-card button img {
   height: 240px;
   width: 170px;
   object-fit: fill;
