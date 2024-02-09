@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./CarouselCard.css"
 import DotsLoader from "../loading/DotsLoader"
+import { Link } from "react-router-dom"
 
 
 const CarouselCard = ({ book }) => {
@@ -24,9 +25,10 @@ const CarouselCard = ({ book }) => {
 
   return ( 
     <div className="carousel-card">
-      <a href="#">
-        { !image ? <DotsLoader /> : <img src={image}/> }
-      </a>
+      { 
+        !image ? <DotsLoader /> 
+          : <Link to="book/details"><img src={image}/></Link>
+      }
     </div>
   )
 }
