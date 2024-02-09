@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import "./CarouselCard.css"
+
 import DotsLoader from "../loading/DotsLoader"
-import { Link } from "react-router-dom"
+import "./CarouselCard.css"
 
 
 const CarouselCard = ({ book }) => {
@@ -23,11 +23,12 @@ const CarouselCard = ({ book }) => {
     })()
   }, [])
 
+  
   return ( 
     <div className="carousel-card">
       { 
         !image ? <DotsLoader /> 
-          : <Link to="book/details"><img src={image}/></Link>
+          : <button to="book/details"><img src={image}/></button>
       }
     </div>
   )

@@ -3,6 +3,10 @@
   scroll-snap-align: start;
 }
 
+.carousel-card button {
+  all: unset;
+}
+
 .carousel-card img {
   height: 240px;
   width: 170px;
