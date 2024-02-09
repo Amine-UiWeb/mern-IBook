@@ -7,8 +7,9 @@ const BooksCarousel = ({ books }) => {
   const myRef = useRef()
 
   const handleScroll = (direction) => {
-    if (direction === 'left') myRef.current.scrollLeft -= 175
-    else myRef.current.scrollLeft += 175
+    // set scrolling width to 350 instead of 175, to scroll 2 times faster
+    if (direction === 'left') myRef ? myRef.current.scrollLeft -= 350 : null
+    else myRef ? myRef.current.scrollLeft += 350 : null
   }
 
   console.log(books)
