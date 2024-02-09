@@ -7,12 +7,8 @@ const BooksCarousel = ({ books }) => {
   const myRef = useRef()
 
   const handleScroll = (direction) => {
-    if (direction === 'left') {
-      myRef.current.scrollLeft -= 170
-    }
-    else {
-      myRef.current.scrollLeft += 170
-    }
+    if (direction === 'left') myRef.current.scrollLeft -= 175
+    else myRef.current.scrollLeft += 175
   }
 
   console.log(books)

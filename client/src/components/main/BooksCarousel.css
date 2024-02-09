@@ -10,8 +10,10 @@
 
 .carousel-container .carousel-wrapper {
   display: flex;
+  gap: 5px;
   overflow: auto;
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 .carousel-container button {
