@@ -28,22 +28,10 @@ function App() {
     path: '/',
     element: <Root />,
     children: [
-      { 
-        index: true, 
-        element: <LandingPage /> 
-      },
-      { 
-        path: '/login', 
-        element: <LoginPage /> 
-      },
-      { 
-        path: '/register', 
-        element: <RegisterPage /> 
-      },
-      { 
-        path: '/book/details', 
-        element: <BookDetailsPage /> 
-      }
+      { index: true, element: <LandingPage /> },
+      { path: '/login', element: <LoginPage /> },
+      { path: '/register', element: <RegisterPage /> },
+      { path: '/book/details', element: <BookDetailsPage /> }
     ]
   }])
 
