@@ -82,7 +82,8 @@ body {
 }
 
 main.main {
-  padding: 2rem 4% 4rem;
+  padding: 2rem 1rem 4rem;
+  min-height: 80vh;
 }
 
 .container {
@@ -350,11 +351,10 @@ flex
 }
 
 @media (min-width: 576px) {
-
 }
 
 @media (min-width: 768px) {
-
+  main.main { padding-inline: 2rem; }
 }
 
 @media (min-width: 992px) {
