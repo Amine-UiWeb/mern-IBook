@@ -40,7 +40,7 @@ const BookDetailsPage = () => {
 
       {/* details */}
 
-      <div className="details-grid">
+      <section className="details-grid">
         
         <div className="cover">
           <img src={image} alt="book-cover_id" className="" />
@@ -66,16 +66,24 @@ const BookDetailsPage = () => {
           <b>Description:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis veniam iste rem error corporis, voluptate sequi nobis assumenda ea repellat quo quasi ipsum facilis. Nobis, tenetur! Maxime ut modi explicabo blanditiis earum repellat iste dolorum itaque sint. Quod, libero!
         </div>
 
-      </div>
+      </section>
       
 
       {/* comments */}
-
+      <section className="comments">
+        comment
+      </section>
 
       {/* similar works */}
+      <section className="similar-books">
+        similar works you might like
+      </section>
 
 
       {/* other works by the author */}
+      <section className="author-books">
+        other works for the same author
+      </section>
 
 
     </div>
