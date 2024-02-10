@@ -47,10 +47,10 @@ const BookDetailsPage = () => {
         </div>
         
         <div className="info">
-          <h5 className="h5 author">Author: <Link to="#">{authors?.[0]?.name}</Link></h5>
-          <h5 className="h5">Editions: {edition_count}</h5>
-          <h5 className="h5">First Published: {first_publish_year}</h5>
-          <h5 className="h5 subjects">Subjects:{" "}
+          <h5 className="h5 author"><b>Author:</b> <Link to="#">{authors?.[0]?.name}</Link></h5>
+          <h5 className="h5"><b>Editions:</b> {edition_count}</h5>
+          <h5 className="h5"><b>First Published:</b> {first_publish_year}</h5>
+          <h5 className="h5 subjects"><b>Subjects:</b>{" "}
             {
               // display only first ten subjects 
               subject.splice(0, 10).map((subject, i) => (
@@ -63,7 +63,7 @@ const BookDetailsPage = () => {
         </div>
 
         <div className="description">
-          <b><u>Description:</u></b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis veniam iste rem error corporis, voluptate sequi nobis assumenda ea repellat quo quasi ipsum facilis. Nobis, tenetur! Maxime ut modi explicabo blanditiis earum repellat iste dolorum itaque sint. Quod, libero!
+          <b>Description:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis veniam iste rem error corporis, voluptate sequi nobis assumenda ea repellat quo quasi ipsum facilis. Nobis, tenetur! Maxime ut modi explicabo blanditiis earum repellat iste dolorum itaque sint. Quod, libero!
         </div>
 
       </div>

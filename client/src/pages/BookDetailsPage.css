@@ -24,7 +24,7 @@
   color: black;
   text-decoration: underline;
 }
-.details-grid .h5.subjects { font-size: .8rem; }
+.details-grid .h5.subjects a { font-size: .8rem; }
 .details-grid .h5.author a { font-size: 1rem; }
 
 
