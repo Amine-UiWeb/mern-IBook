@@ -13,7 +13,7 @@
 
 .details-grid { margin-inline: auto; }
 
-.details-grid :is(.cover, .details-grid img) { width: 100%; }
+.details-grid :is(.cover, .details-grid img) { width: 100%; margin-inline: auto; }
 
 .details-grid .info > * { margin-bottom: 1rem; }
 
@@ -58,8 +58,9 @@
   .details-grid {
     gap: 3rem;
     max-width: 1000px;
+    margin-inline: auto;
     grid-template-areas: 'cover info desc';
-    place-items: center;
+    grid-template-columns: 3fr 2fr 3fr;
   }
 }
 
@@ -67,7 +68,11 @@
 /* comments section */
 
 
+
 /* works carousel (general similar works) */
 
 
+
 /* works carousel (other author works) */
+
+
