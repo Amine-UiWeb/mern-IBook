@@ -13,17 +13,18 @@
 
 .details-grid { margin-inline: auto; }
 
-.details-grid :is(.cover, .details-grid img) { width: 100%; margin-inline: auto; }
+.details-grid .cover{ margin-inline: auto; }
+.details-grid img { width: 100%; } 
 
 .details-grid .info > * { margin-bottom: 1rem; }
-
-.details-grid .h5 a { font-size: .8rem; }
-.details-grid .h5.author a { font-size: 1rem; }
 
 .details-grid a {
   color: black;
   text-decoration: underline;
 }
+.details-grid .h5.subjects { font-size: .8rem; }
+.details-grid .h5.author a { font-size: 1rem; }
+
 
 @media (max-width: 575px) {
   .details-grid { text-align: center; }
@@ -54,9 +55,8 @@
 
   .cover { min-width: 160px; max-width: 200px; }
   .details-grid {
-    gap: 3rem;
     max-width: 1000px;
-    margin-inline: auto;
+    gap: 3rem;
     grid-template-areas: 'cover info desc';
     grid-template-columns: 3fr 2fr 3fr;
   }

@@ -50,7 +50,7 @@ const BookDetailsPage = () => {
           <h5 className="h5 author">Author: <Link to="#">{authors?.[0]?.name}</Link></h5>
           <h5 className="h5">Editions: {edition_count}</h5>
           <h5 className="h5">First Published: {first_publish_year}</h5>
-          <h5 className="h5">Subjects:{" "}
+          <h5 className="h5 subjects">Subjects:{" "}
             {
               // display only first ten subjects 
               subject.splice(0, 10).map((subject, i) => (
