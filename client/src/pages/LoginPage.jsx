@@ -1,5 +1,8 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
+
 import "./LoginPage.css"
+
 
 const LoginPage = () => {
 
@@ -47,7 +50,7 @@ const LoginPage = () => {
         
         <div className="fs-0-9 fw-500">
           Don't have an account yet?{" "}
-          <a href="#" className="underline">Register</a>
+          <Link to="/register" className="underline">Register</Link>
         </div>
 
       </form>
