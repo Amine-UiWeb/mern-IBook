@@ -1,10 +1,18 @@
 .login {
-  max-width: 28rem;
+  max-width: 26rem;
   width: 100%;
   min-width: 16rem;
   margin-inline: auto;
   border: 2px solid var(--pri-blue-200);
-  border-radius: 2rem;
+  border-radius: 1rem;
+}
+
+.login h3 {
+  background: var(--sec-green-200);
+  text-align: center;
+  color: var(--sec-green-800);
+  padding: .6rem;
+  border-radius: .31rem;
 }
 
 .login-form button {

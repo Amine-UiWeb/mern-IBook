@@ -18,7 +18,7 @@ const LoginPage = () => {
 
 
   return (
-    <div className="login p-2">
+    <div className="login p-1 mt-1">
 
       <h3 className="mb-1-5">Login</h3>
 
