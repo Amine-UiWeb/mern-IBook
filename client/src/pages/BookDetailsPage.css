@@ -36,8 +36,6 @@
 }
 
 @media (min-width: 575px) {
-  .h5 { margin-bottom: 1rem; }
-  
   .cover { grid-area: cover; }
   .info { grid-area: info; }
   .description { grid-area: desc; }
