@@ -25,6 +25,8 @@ const CarouselCard = ({ book }) => {
     })()
   }, [])
 
+  // pass the book data as state when navigating to the BookDetailsPage
+  // instead on refetching it there
   const handleNavigate = () => {
     navigate('book/details', { state: book })
   }
