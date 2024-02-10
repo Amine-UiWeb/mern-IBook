@@ -1,3 +1,74 @@
-.bookDetails > * {
-  margin-bottom: 2rem;
+.book-details { max-width: 1000px; }
+
+.book-details h3.h3 { 
+  text-align: center; 
+  font-size: 2.4rem;
+  text-decoration: underline double slategray 1px;
 }
+
+.book-details > *:not(:last-child) { margin-bottom: 2rem; }
+
+
+/* details */
+
+.details-grid { margin-inline: auto; }
+
+.details-grid :is(.cover, .details-grid img) { width: 100%; }
+
+.details-grid .info > * { margin-bottom: 1rem; }
+
+.details-grid .h5 a { font-size: .8rem; }
+.details-grid .h5.author a { font-size: 1rem; }
+
+.details-grid a {
+  color: black;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 575px) {
+  .details-grid { text-align: center; }
+  .details-grid > *:not(:last-child) { margin-bottom: 2rem; }
+
+  .details-grid .cover {
+    margin-inline: auto;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 575px) {
+  .h5 { margin-bottom: 1rem; }
+  
+  .cover { grid-area: cover; }
+  .info { grid-area: info; }
+  .description { grid-area: desc; }
+
+  .details-grid {
+    max-width: 600px;
+    text-align: left;
+    display: grid;
+    grid-template-areas: 'cover info' 'desc desc';
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 767px) {
+  .h5 { margin-bottom: 1rem; }
+
+  .cover { min-width: 160px; max-width: 200px; }
+  .details-grid {
+    gap: 3rem;
+    max-width: 1000px;
+    grid-template-areas: 'cover info desc';
+    place-items: center;
+  }
+}
+
+
+/* comments */
+
+
+/* similar works */
+
+
+/* other works by the author */
