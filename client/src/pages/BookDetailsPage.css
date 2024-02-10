@@ -9,7 +9,7 @@
 .book-details > *:not(:last-child) { margin-bottom: 2rem; }
 
 
-/* details */
+/* details-grid */
 
 .details-grid { margin-inline: auto; }
 
@@ -24,7 +24,6 @@
   color: black;
   text-decoration: underline;
 }
-
 
 @media (max-width: 575px) {
   .details-grid { text-align: center; }
@@ -65,10 +64,10 @@
 }
 
 
-/* comments */
+/* comments section */
 
 
-/* similar works */
+/* works carousel (general similar works) */
 
 
-/* other works by the author */
+/* works carousel (other author works) */
