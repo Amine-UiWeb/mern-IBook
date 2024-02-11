@@ -5,10 +5,15 @@ const useFetchData = (url) => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-      (() =>
-        fetch(url, { cache: 'force-cache' }).then(res => res.json())
-          .then(data => setData(data))
-      )()
+    
+    fetch(url, { cache: 'force-cache' })
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setData(prev => data)
+      })
+    
   }, [])
 
   return { data, setData }
