@@ -4,4 +4,5 @@
 - [ ] create an AuthorDetails page
 - [ ] implement form validation and display validation errors for login and registration 
 - [ ] add login and registration api logic
-- [ ] implement state management for user auth
+- [ ] add login and registration client logic
+- [ ] implement state management for user authentication
