@@ -15,7 +15,7 @@ const useFetchImage = (url) => {
       }
       reader.readAsDataURL(blob)
     })()
-  })
+  }, [])
 
   return { image, setImage }
 }
