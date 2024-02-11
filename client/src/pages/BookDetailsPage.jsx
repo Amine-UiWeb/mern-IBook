@@ -12,7 +12,7 @@ const BookDetailsPage = () => {
   // accessing the state data passed to the navigated location  
   const location = useLocation()
   const data = location.state
-  console.log(data)
+  // console.log(data)
   
   // destructuring
   const {
@@ -49,17 +49,10 @@ const BookDetailsPage = () => {
   const rating = ratings?.summary?.average?.toFixed(2)
   
   
-  // // fetch author info
-  // const { data: authorInfo } = 
-  //   useFetchData(`https://openlibrary.org/authors/${author}.json`)
-  // console.log(authorInfo)
-  // const {  } = authorInfo
-
-  // // fetch author works
-  // const { data: authorWorks } = 
-  //   useFetchData(`https://openlibrary.org/authors/OL23919A/works.json`)
-  // console.log(authorWorks)
-
+  // fetch author works
+  const { data: authorWorks } 
+    = useFetchData(`https://openlibrary.org${authorKey}/works.json`)
+  
 
   return (
     <div className="book-details">
