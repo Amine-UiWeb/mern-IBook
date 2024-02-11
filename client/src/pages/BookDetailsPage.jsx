@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 
 import useFetchImage from "../utils/hooks/useFetchImage.js"
+import useFetchData from "../utils/hooks/useFetchData.js"
 
 import "./BookDetailsPage.css"
 
@@ -21,28 +22,24 @@ const BookDetailsPage = () => {
     subject,
     availability, key
   } = data
-  
-  console.log(data)
 
+  // extract informations
+  const author = authors?.[0]?.name
+  const olWork = availability?.openlibrary_work || key?.split('/works/')[1] 
+  const oledition = availability?.openlibrary_edition
+  // console.log("olWork: ", olWork, "oledition: ", oledition)
+  // console.log(data)
   
-  // cover endpoint
+  
+  // fetch book cover
   const coverUrl = `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
   const { image, setImage } = useFetchImage(coverUrl)
 
 
-  // books endpoint
-  const olid = availability?.openlibrary_work || key?.split('/works/')[1] 
-  const oledition = availability?.openlibrary_edition
-
-  console.log("olid: ", oledition, "oledition: ", oledition)
-
-  const booksUrl = `https://openlibrary.org/books/${olid}.json`
-  useEffect(() => {
-    (() =>
-      fetch(booksUrl, { cache: 'force-cache' }).then(res => res.json())
-        .then(data => console.log(data))
-    )()
-  })
+  // fetch work
+  const workUrl = `https://openlibrary.org/works/${olWork}.json`
+  const { data: workData, setData: setWorkData } = useFetchData(workUrl)
+  const description = workData?.description?.value
 
 
   return (
@@ -59,7 +56,7 @@ const BookDetailsPage = () => {
         </div>
         
         <div className="info">
-          <h5 className="h5 author"><b>Author:</b> <Link to="#">{authors?.[0]?.name}</Link></h5>
+          <h5 className="h5 author"><b>Author:</b> <Link to="#">{author}</Link></h5>
           <h5 className="h5"><b>Editions:</b> {edition_count}</h5>
           <h5 className="h5"><b>First Published:</b> {first_publish_year}</h5>
           <h5 className="h5 subjects"><b>Subjects:</b>{" "}
@@ -75,7 +72,7 @@ const BookDetailsPage = () => {
         </div>
 
         <div className="description">
-          <b>Description:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis veniam iste rem error corporis, voluptate sequi nobis assumenda ea repellat quo quasi ipsum facilis. Nobis, tenetur! Maxime ut modi explicabo blanditiis earum repellat iste dolorum itaque sint. Quod, libero!
+          <b>Description: </b>{description ? description : '...'}
         </div>
 
       </section>
