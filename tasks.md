@@ -1,0 +1,7 @@
+- [ ] create a BookDetails page
+- [ ] improve footer appearance
+- [ ] add a dark/light mode toggler in the header
+- [ ] create an AuthorDetails page
+- [ ] implement form validation and display validation errors for login and registration 
+- [ ] add login and registration api logic
+- [ ] implement state management for user auth
