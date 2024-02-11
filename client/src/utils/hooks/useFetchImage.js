@@ -5,7 +5,6 @@ const useFetchImage = (url) => {
   const [image, setImage] = useState(null)
   
   useEffect(() => {
-  
     (async () => {
       const res = await fetch(url, { cache: "force-cache" })
       const blob = await res.blob()
@@ -16,7 +15,6 @@ const useFetchImage = (url) => {
       }
       reader.readAsDataURL(blob)
     })()
-
   })
 
   return { image, setImage }

@@ -1,36 +1,48 @@
+import { useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
+
+import useFetchImage from "../utils/hooks/useFetchImage.js"
+
 import "./BookDetailsPage.css"
-import { useEffect, useState } from "react"
+
 
 const BookDetailsPage = () => {
 
   // accessing the state data passed to the navigated location  
   const location = useLocation()
   const data = location.state
+    
+  const {
+    title, 
+    cover_id, 
+    authors, 
+    edition_count, 
+    first_publish_year, 
+    subject,
+    availability, key
+  } = data
+  
   console.log(data)
-  const { title, authors, edition_count, cover_id, first_publish_year, subject } = data
 
-  const [image, setImage] = useState(null)
-  const url = `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
+  
+  // cover endpoint
+  const coverUrl = `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
+  const { image, setImage } = useFetchImage(coverUrl)
 
+
+  // books endpoint
+  const olid = availability?.openlibrary_work || key?.split('/works/')[1] 
+  const oledition = availability?.openlibrary_edition
+
+  console.log("olid: ", oledition, "oledition: ", oledition)
+
+  const booksUrl = `https://openlibrary.org/books/${olid}.json`
   useEffect(() => {
-    (async () => {
-      const res = await fetch(url, { cache: 'force-cache' })
-      const blob = await res.blob()
-      
-      let reader = new FileReader()
-      reader.onload = function() { setImage(this.result) }
-      reader.readAsDataURL(blob)
-    })()
-  }, [])
-
-  // useEffect(() => {
-  //   (() => {
-  //     fetch(`https://openlibrary.org/works/${cover_id}.json`)
-  //       .then(res => res.json())
-  //       .then(data => console.log(data))
-  //   })()
-  // })
+    (() =>
+      fetch(booksUrl, { cache: 'force-cache' }).then(res => res.json())
+        .then(data => console.log(data))
+    )()
+  })
 
 
   return (
@@ -71,8 +83,9 @@ const BookDetailsPage = () => {
 
       {/* comments */}
       <section className="comments">
-        comment
+        comments
       </section>
+
 
       {/* similar works */}
       <section className="similar-books">
