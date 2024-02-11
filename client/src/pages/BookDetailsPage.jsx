@@ -40,6 +40,11 @@ const BookDetailsPage = () => {
   const workUrl = `https://openlibrary.org/works/${olWork}.json`
   const { data: workData, setData: setWorkData } = useFetchData(workUrl)
   const description = workData?.description?.value
+  
+  // fetch rating
+  const ratingUrl = `https://openlibrary.org/works/${olWork}/ratings.json`
+  const { data: ratings, setData: setRatingsData } = useFetchData(ratingUrl)
+  const rating = ratings?.summary?.average?.toFixed(2)
 
 
   return (
@@ -56,13 +61,14 @@ const BookDetailsPage = () => {
         </div>
         
         <div className="info">
-          <h5 className="h5 author"><b>Author:</b> <Link to="#">{author}</Link></h5>
-          <h5 className="h5"><b>Editions:</b> {edition_count}</h5>
+          <h5 className="h5 author"><b>Author: </b><Link to="#">{author}</Link></h5>
+          <h5 className="h5"><b>Rating: </b>{rating}</h5>
+          <h5 className="h5"><b>Editions: </b>{edition_count}</h5>
           <h5 className="h5"><b>First Published:</b> {first_publish_year}</h5>
           <h5 className="h5 subjects"><b>Subjects:</b>{" "}
             {
               // display only first ten subjects 
-              subject.splice(0, 10).map((subject, i) => (
+              subject.splice(0, 6).map((subject, i) => (
                 <span key={i}>
                   {" "}<Link to="#">{subject}{","}</Link>{" "}
                 </span>)
