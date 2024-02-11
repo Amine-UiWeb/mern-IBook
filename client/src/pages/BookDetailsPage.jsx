@@ -12,6 +12,7 @@ const BookDetailsPage = () => {
   // accessing the state data passed to the navigated location  
   const location = useLocation()
   const data = location.state
+  // console.log(data)
     
   const {
     title, 
@@ -28,22 +29,23 @@ const BookDetailsPage = () => {
   const olWork = availability?.openlibrary_work || key?.split('/works/')[1] 
   const oledition = availability?.openlibrary_edition
   // console.log("olWork: ", olWork, "oledition: ", oledition)
-  // console.log(data)
   
   
+
   // fetch book cover
   const coverUrl = `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
-  const { image, setImage } = useFetchImage(coverUrl)
+  const { image } = useFetchImage(coverUrl)
 
 
   // fetch work
   const workUrl = `https://openlibrary.org/works/${olWork}.json`
-  const { data: workData, setData: setWorkData } = useFetchData(workUrl)
-  const description = workData?.description?.value
+  const { data: workData } = useFetchData(workUrl)
+  const description = workData?.description?.value ?? workData?.description
+  console.log(workData)
   
   // fetch rating
   const ratingUrl = `https://openlibrary.org/works/${olWork}/ratings.json`
-  const { data: ratings, setData: setRatingsData } = useFetchData(ratingUrl)
+  const { data: ratings } = useFetchData(ratingUrl)
   const rating = ratings?.summary?.average?.toFixed(2)
 
 
@@ -62,7 +64,7 @@ const BookDetailsPage = () => {
         
         <div className="info">
           <h5 className="h5 author"><b>Author: </b><Link to="#">{author}</Link></h5>
-          <h5 className="h5"><b>Rating: </b>{rating}</h5>
+          <h5 className="h5"><b>Rating: </b>{rating ?? '...' }</h5>
           <h5 className="h5"><b>Editions: </b>{edition_count}</h5>
           <h5 className="h5"><b>First Published:</b> {first_publish_year}</h5>
           <h5 className="h5 subjects"><b>Subjects:</b>{" "}
@@ -78,7 +80,7 @@ const BookDetailsPage = () => {
         </div>
 
         <div className="description">
-          <b>Description: </b>{description ? description : '...'}
+          <b>Description: </b>{description ?? '...'}
         </div>
 
       </section>
