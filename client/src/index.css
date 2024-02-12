@@ -47,10 +47,12 @@
   /* additional colors */
   --light-bluish: #f0f1f3;
   --light-greenish: #eaeeec;
-  --wheat-1: wheat;
-  --wheat-2: #cab48c;
-  --wheat-3: #917a4f;
-  --wheat-4: #534326;
+  --wheat-light: #f5efe5;
+  --wheat-200: wheat;
+  --wheat-400: #cab48c;
+  --wheat-600: #917a4f;
+  --wheat-800: #534326;
+  --wheat-dark: #2c2311;
   --add-red-danger: #6b2027;
   --add-green-info: var(--sec-green-600);
   

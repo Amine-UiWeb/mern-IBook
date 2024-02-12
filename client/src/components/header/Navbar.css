@@ -38,7 +38,7 @@ nav.nav ul li{
 nav.nav ul li:is(:hover, :has(> a.active)) {
   background: #96bac99c;
   color: #fff;
-  outline-color: var(--wheat-4);
+  outline-color: var(--wheat-800);
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@ nav.nav ul li a {
   text-wrap: nowrap;
 }
 nav.nav ul :is(li:hover a, li a.active) {
-  color: var(--wheat-4);
+  color: var(--wheat-800);
   text-decoration: underline;
 }
 

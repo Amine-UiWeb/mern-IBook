@@ -49,9 +49,18 @@ const BookDetailsPage = () => {
   const rating = ratings?.summary?.average?.toFixed(2)
   
   
+  // // fetch author works
+  // const { data: authorWorks } 
+  //   = useFetchData(`https://openlibrary.org${authorKey}/works.json`)
+
+  // console.log(authorWorks)
+  
+
   // fetch author works
-  const { data: authorWorks } 
-    = useFetchData(`https://openlibrary.org${authorKey}/works.json`)
+  const authorWorks
+    = useFetchData(`https://openlibrary.org/search.json?author=${encodeURIComponent(authorName)}`)
+
+  console.log(authorWorks)
   
 
   return (
@@ -91,16 +100,33 @@ const BookDetailsPage = () => {
       </section>
       
 
-      {/* comments */}
-      <section className="comments">
-        comments
+      {/* author */}
+      <section className="author-brief">
+        <h3 className="h4 mb-1">Brief overview on the author:</h3>
+        
+        <div className="author-grid">
+          
+          <div className="profile">
+            <img src="#" alt="author profile" />
+            <h5>{authorName}</h5>
+          </div>
+
+          
+
+        </div>
       </section>
+
+
+      {/* comments */}
+      {/* <section className="comments">
+        comments
+      </section> */}
 
 
       {/* similar works */}
-      <section className="similar-books">
+      {/* <section className="similar-books">
         similar works you might like
-      </section>
+      </section> */}
 
 
       {/* other works by the author */}

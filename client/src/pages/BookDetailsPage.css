@@ -7,6 +7,7 @@
 .book-details > *:not(:last-child) { margin-bottom: 3rem; }
 
 .details-grid,
+.author-brief,
 .comments,
 .similar-books,
 .author-books { 
@@ -48,6 +49,7 @@
 
 @media (min-width: 575px) {
   .details-grid,
+  .author-brief,
   .comments,
   .similar-books,
   .author-books { 
@@ -68,6 +70,7 @@
 
 @media (min-width: 767px) {
   .details-grid,
+  .author-brief,
   .comments,
   .similar-books,
   .author-books { 
@@ -92,6 +95,7 @@
 
 @media (min-width: 991px) {
   .details-grid,
+  .author-brief,
   .comments,
   .similar-books,
   .author-books { 
@@ -105,6 +109,19 @@
     grid-template-columns: 2fr 2fr 4fr;
   }
 }
+
+
+/* comments section */
+.author-brief {
+  background: var(--wheat-light);
+  border: 2px solid var(--wheat-600);
+}
+
+.author-brief .author-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 
 /* comments section */
 
