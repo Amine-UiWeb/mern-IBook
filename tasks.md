@@ -6,3 +6,5 @@
 - [ ] add login and registration api logic
 - [ ] add login and registration client logic
 - [ ] implement state management for user authentication
+- [ ] add a searchBar in the header to search by book name or author name
+- [ ] add dropdown menus the header to search books by subject

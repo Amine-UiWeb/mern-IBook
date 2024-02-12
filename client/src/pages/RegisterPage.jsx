@@ -37,6 +37,7 @@ const RegisterPage = () => {
           value={username}
           onChange={(e) => onUsernameChange(e.target.value)}
           autoComplete="off"
+          placeholder="xxxxxxxx@gmail.com"
         />
 
         <label htmlFor="password" className="fw-500">Password</label>
@@ -46,6 +47,7 @@ const RegisterPage = () => {
           name="password"
           value={password}
           onChange={(e) => onPasswordChange(e.target.value)}
+          placeholder="Must be 8-24 charachters long"
         />
 
         <label htmlFor="confirmPwd" className="fw-500">Confirm Password</label>
@@ -55,6 +57,7 @@ const RegisterPage = () => {
           name="confirmPwd"
           value={confirmPwd}
           onChange={(e) => onConfirmPwdChange(e.target.value)}
+          placeholder="Retype password..."
         />
 
         <button className="btn" onClick={handleSubmit}>Register</button>
