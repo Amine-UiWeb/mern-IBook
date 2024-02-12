@@ -1,4 +1,5 @@
 - [ ] create a BookDetails page
+- [ ] add a loader for BookDetails page
 - [ ] improve footer appearance
 - [ ] add a dark/light mode toggler in the header
 - [ ] create an AuthorDetails page
@@ -6,5 +7,5 @@
 - [ ] add login and registration api logic
 - [ ] add login and registration client logic
 - [ ] implement state management for user authentication
-- [ ] add a searchBar in the header to search by book name or author name
-- [ ] add dropdown menus the header to search books by subject
+- [ ] add a searchBar in the header (under the navbar), to search by book name (display book details) or author name (display author page)
+- [ ] add dropdown menus in the header (under the navbar) to search books by subject

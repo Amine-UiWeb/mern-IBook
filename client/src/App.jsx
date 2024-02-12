@@ -31,7 +31,7 @@ function App() {
       { index: true, element: <LandingPage /> },
       { path: '/login', element: <LoginPage /> },
       { path: '/register', element: <RegisterPage /> },
-      { path: '/book/details', element: <BookDetailsPage /> }
+      { path: '/works/:olWork', element: <BookDetailsPage /> }
     ]
   }])
 

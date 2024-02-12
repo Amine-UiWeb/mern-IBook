@@ -12,7 +12,7 @@ const BooksCarousel = ({ books }) => {
     else myRef ? myRef.current.scrollLeft += 350 : null
   }
 
-  console.log(books)
+  // console.log(books)
 
   return (      
     <div className="carousel-container">
