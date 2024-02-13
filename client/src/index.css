@@ -168,6 +168,15 @@ button {
   }
 }
 
+select {
+  padding: .4rem .6rem;
+  border-radius: .3rem;
+  font-weight: 800;
+  color: var(--pri-blue-600);
+  width: fit-content;
+}
+
+
 /* -------------------------------- */
 
 /** 
@@ -342,7 +351,6 @@ flex
 
 
 /* -------------------------------- */
-
 
 /** 
 * media-query
