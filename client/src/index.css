@@ -138,9 +138,7 @@ input:focus-within {
   outline-color: var(--pri-blue-600);
   background: #fff;
 }
-input::placeholder {
-  font-size: var(--fs-0-9);
-}
+input::placeholder { font-size: var(--fs-0-9); }
 
 button {
   font-family: inherit;
