@@ -33,6 +33,7 @@
   /* colors */
 
   /* primary color */
+  --pri-blue-100: #bcc4ce;
   --pri-blue-200: #89939e;
   --pri-blue-400: #395574; 
   --pri-blue-600: #263442; 
@@ -84,7 +85,7 @@ body {
 }
 
 main.main {
-  padding: 2rem 1rem 4rem;
+  padding: 3rem 1rem 4rem;
   min-height: 80vh;
 }
 

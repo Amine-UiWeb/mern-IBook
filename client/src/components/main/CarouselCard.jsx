@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import DotsLoader from "../loading/DotsLoader"
+import DotsLoader from "../loading/dotsLoader/DotsLoader"
 import "./CarouselCard.css"
 
 

@@ -1,16 +1,13 @@
 .book-details h3.h3 { 
   text-align: center; 
   font-size: 2.4rem;
+  line-height: 2.8rem;
   text-decoration: underline double slategray 1px;
 }
 
 .book-details > *:not(:last-child) { margin-bottom: 3rem; }
 
-.details-grid,
-.author-brief,
-.comments,
-.similar-books,
-.author-books { 
+.book-details > *:not(:first-child) { 
   margin-inline: auto; 
   padding: 1rem;
 }
@@ -18,14 +15,14 @@
 
 /* details-grid */
 
-.details-grid {
-  background: var(--light-greenish);
-}
+.details-grid { background: var(--light-greenish); }
 
 .details-grid img { width: 100%; } 
+.details-grid .dotsLoader { border-color: #86b193; } 
 
 .details-grid .info > * { margin-bottom: 1rem; }
 
+.details-grid b { color: var(--wheat-400) }
 .details-grid a {
   color: black;
   text-decoration: underline;
@@ -33,58 +30,68 @@
 .details-grid .h5.subjects a { font-size: .8rem; }
 .details-grid .h5.author a { font-size: 1rem; }
 
-
-@media (max-width: 575px) {
-  /* add these styles only when grid items are stucked vertically */
-
+@media (max-width: 576px) {
   .details-grid { text-align: center; }
 
   .details-grid > *:not(:last-child) { margin-bottom: 2rem; }
 
   .details-grid .cover {
     margin-inline: auto;
-    max-width: 400px;
+    max-width: 320px;
+    width: 90%;
   }
+
+  .details-grid .dotsLoader { 
+    aspect-ratio: 3/4;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .details-grid .skeleton-text { margin-inline: auto; }
 }
 
-@media (min-width: 575px) {
-  .details-grid,
-  .author-brief,
-  .comments,
-  .similar-books,
-  .author-books { 
+@media (min-width: 576px) {
+  .book-details > *:not(:first-child) { 
     max-width: 660px; 
   }
 
   .details-grid {
     text-align: left;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 'cover info' 'desc desc';
     gap: 2rem;
   }
 
-  .cover { grid-area: cover; }
+  .cover { 
+    grid-area: cover; 
+    max-width: 100%;
+  }
+  .details-grid .dotsLoader { 
+    aspect-ratio: 3/4;
+    width: 100%; 
+    height: auto;
+  }
+
   .info { grid-area: info; }
+  
   .description { grid-area: desc; }
 }
 
 @media (min-width: 767px) {
-  .details-grid,
-  .author-brief,
-  .comments,
-  .similar-books,
-  .author-books { 
+  .book-details > *:not(:first-child) { 
     max-width: 860px; 
     padding-inline: 1rem;
   }
 
   .details-grid {
-    gap: 1rem;
+    gap: 1rem 2rem;
     grid-template-areas: 'cover info' 'cover desc';
     grid-template-columns: 2fr 4fr;
   }
 
-  .cover { min-width: 160px; max-width: 200px; }
+  .cover { min-width: 200px; max-width: 300px; }
 
   .description { 
     border-left: .2rem solid var(--sec-green-200);
@@ -94,32 +101,39 @@
 }
 
 @media (min-width: 991px) {
-  .details-grid,
-  .author-brief,
-  .comments,
-  .similar-books,
-  .author-books { 
+  .book-details > *:not(:first-child) { 
     max-width: 1200px; 
     padding-inline: 3rem;
   }
 
+  .cover { min-width: 200px; max-width: 100px; }
+
   .details-grid {
-    gap: 3rem;
     grid-template-areas: 'cover info desc';
-    grid-template-columns: 2fr 2fr 4fr;
+    grid-template-columns: auto 2fr 4fr;
+    gap: 3rem;
   }
 }
 
 
-/* comments section */
+/* author section */
 .author-brief {
   background: var(--wheat-light);
   border: 2px solid var(--wheat-600);
 }
 
-.author-brief .author-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.author-brief .profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-flex .profile-wrapper img {
+  max-width: 5rem;
+  height: fit-content;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 

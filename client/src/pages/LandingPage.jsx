@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-import { urls } from "../utils/constants"
+import { subjects } from "../utils/constants"
 
 import BooksCarousel from "../components/main/BooksCarousel"
 import "./LandingPage.css"
@@ -9,6 +9,7 @@ import "./LandingPage.css"
 const LandingPage = () => {
 
   const [books, setBooks] = useState({})
+  console.log(books)
 
   useEffect(() => {
 
@@ -22,8 +23,8 @@ const LandingPage = () => {
     }
     
     // fetch books for each specified subject 
-    Object.keys(urls).forEach(subject => {
-      fetchBooks(urls[subject])
+    Object.keys(subjects).forEach(subject => {
+      fetchBooks(`https://openlibrary.org/subjects/${subjects[subject]}.json`)
     })
 
   }, [])
