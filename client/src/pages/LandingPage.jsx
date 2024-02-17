@@ -38,6 +38,7 @@ const LandingPage = () => {
         Object.keys(books).map(book => (
           <section key={book} className="books-section">
             
+            {/* todo: make this look like the ones in imdb website */}
             <h3 className="h3 ff-times p-1">
               <a href="#" className="hover-underline">
                 {book.toString().toUpperCase()}

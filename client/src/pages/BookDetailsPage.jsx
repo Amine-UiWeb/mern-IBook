@@ -4,9 +4,10 @@ import useFetchImage from "../utils/hooks/useFetchImage.js"
 import useFetchData from "../utils/hooks/useFetchData.js"
 
 import BooksCarousel from "../components/main/BooksCarousel.jsx"
+import NoData from "../components/noData/NoData.jsx"
 import DotsLoader from "../components/loading/dotsLoader/DotsLoader.jsx"
-import { HeaderSkeleton, ParagrahSkeleton } from "../components/loading/SkeletonLoaders/Skeleton.jsx"
-import { TextSkeleton } from "../components/loading/SkeletonLoaders/Skeleton.jsx"
+import { HeaderSkeleton, ParagrahSkeleton, TextSkeleton } from 
+  "../components/loading/SkeletonLoaders/Skeleton.jsx"
 import "./BookDetailsPage.css"
 
 
@@ -17,72 +18,83 @@ const BookDetailsPage = () => {
 
 
   /* ---------------------------- */
-  // fetch work info (use workId)
+  // Fetch book info (use workId)
   /* ---------------------------- */
   const workUrl = `https://openlibrary.org${path}.json`
-  const { data: workData, fetchCompleted: workFetched } = useFetchData(workUrl)
+  const { data: workData, fetched: workFetched } = useFetchData(workUrl)
 
   const olWork = path?.split('/works/')[1]
   const cover_id = `${workData?.covers?.[0]}`
-  const title = workData?.title 
-  const authorKey = workData?.authors?.[0]?.author?.key
-  const subjects = workData?.subjects?.splice(0, 6) 
+  const title = workData?.title
+  const authorKey = workData?.authors?.[0]?.author?.key || workData?.author?.key
+  const subjects = workData?.subjects?.sort().splice(0, 6)
+  // todo: subjects values change while rendering
+  // todo: subjects dont appear allways (e.g. for book 'misery')
   const description = workData?.description?.value || workData?.description
 
 
-  /* ---------------------------------- */
-  // fetch other information seperately
-  /* ---------------------------------- */
-  // cover:
+  /* -------------------------------- */
+  // Fetch other book info seperately
+  /* -------------------------------- */
+  // Cover:
   const coverUrl = `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
   const { image } = useFetchImage(coverUrl)
   
-  // rating: 
+  // Rating: 
   const ratingUrl = `https://openlibrary.org/works/${olWork}/ratings.json`
-  const { data: ratings, fetchCompleted: ratingFetched } = useFetchData(ratingUrl) 
+  const { data: ratings, fetched: ratingFetched } = useFetchData(ratingUrl) 
   const rating = ratings?.summary?.average?.toFixed(2)
  
-  // author name
+  // Author Name
   const encodedTitle = encodeURIComponent(title)
   const baseUrl = 'https://openlibrary.org/search.json'
   const urlParams = `?q=${encodedTitle}&fields=author_name,first_publish_year&limit=1`
   const url = baseUrl + urlParams
-  const { data: bookData, fetchCompleted: bookFetched } = useFetchData(url) 
+  const { data: bookData, fetched: bookFetched } = useFetchData(url) 
   const authorName = bookData?.docs?.[0]?.author_name?.[0] 
-  // publish date
+  // Publish Date
   const publishDate = bookData?.docs?.[0]?.first_publish_year
   /* ------------------------- */
   
 
   /* ----------------------------- */
-  // fetch author profile and info
+  // Fetch author profile and info
   /* ----------------------------- */
-  // profile
+  // Profile
   const olid = authorKey?.split('/authors/')[1]
   const authorProfileUrl = `https://covers.openlibrary.org/a/olid/${olid}-M.jpg`
-  const { image: authorProfile, isImageLoading: authorLoading } 
-    = useFetchImage(authorProfileUrl)
+  const { image: authorProfile } = useFetchImage(authorProfileUrl)
 
-  // info 
+  // Info 
   const encodedAuthor = encodeURIComponent(authorName)
   const authorUrl = `https://openlibrary.org/search/authors.json?q=${encodedAuthor}`
   const authorurl = 'https://openlibrary.org/authors/OL23919A.json'
-  const { data: authorData, fetchCompleted: authorDataFetched } 
-    = useFetchData(authorurl)
-  console.log(authorData)
-
-  // todo: in author page use url https://openlibrary.org/authors/<authorkey>.json
+  const { data: authorData } = useFetchData(authorurl)
+  const authorInfo = authorData?.[0]
+  // todo: display brief author infos (2 ~ 3)
   /* ------------------ */
 
 
   /* ------------------ */
-  // fetch author works 
+  // Fetch author works 
   /* ------------------ */
   const uriAuthor = encodeURIComponent(authorName)
   const authorWorksUrl = `https://openlibrary.org/search.json?author=${uriAuthor}`
   const { data: authorWorks } = useFetchData(authorWorksUrl)
-  // console.log(authorWorks)
   /* ------------------ */
+
+
+  // todo: in author page use url https://openlibrary.org/authors/<authorkey>.json
+  // to display author information
+
+  // // todo: try to use this endpoint 
+  // const someLink = 'https://openlibrary.org/api/books?bibkeys=ISBN:9780980200447&jscmd=data&format=json'
+  // const { data: someData } = useFetchData(`${someLink}`)
+  // console.log(someData)
+
+
+  // if fetching is completed and there is no data
+  if (workFetched && !workData) return <NoData />
   
 
   return (
@@ -98,6 +110,7 @@ const BookDetailsPage = () => {
 
       {/* details */}
       <section className="details-grid">
+
         <div className="cover">
           {
             image ? <img src={image} alt="book-cover_id" className="" />
@@ -115,7 +128,7 @@ const BookDetailsPage = () => {
               </h5>
             )
           }
-          
+
           { (!ratingFetched || rating) && (
               <h5 className="h5">
                 { !rating ? <TextSkeleton /> : <><b>Rating: </b>{rating}</> }
@@ -123,24 +136,27 @@ const BookDetailsPage = () => {
             )
           }
             
-          { (!bookFetched || publishDate) &&
-            <h5 className="h5"> 
-              { !publishDate ? <TextSkeleton />
-                : <><b>First Published:</b> {publishDate}</>
-              }
-            </h5>
+          { (!bookFetched || publishDate) && (
+              <h5 className="h5"> 
+                { !publishDate ? <TextSkeleton />
+                  : <><b>First Published:</b> {publishDate}</>
+                }
+              </h5>
+            )
           }
-
-          { !subjects ? <ParagrahSkeleton nLines={3} />
-            : <h5 className="h5 subjects"><b>Subjects:</b>{" "}
+  
+          { (!workFetched || subjects) && (
+              !subjects ? <ParagrahSkeleton nLines={3} />
+              : <h5 className="h5 subjects"><b>Subjects:</b>{" "}   
                 {
-                  Object.keys(subjects)?.map((subject, i) => (
+                  workData?.subjects?.splice(0, 6)?.map((subject, i) => ( 
                     <span key={i}>
-                      {" "}<Link to="#">{subjects[subject]}{","}</Link>{" "}
+                      {" "}<Link to="#">{subject}{","}</Link>{" "}
                     </span>)
                   )
                 }...
               </h5>
+            )
           }
 
         </div>
@@ -157,6 +173,7 @@ const BookDetailsPage = () => {
       </section>
       
 
+      {/* todo: display a section loader */}
       {/* author */}
       { authorName && (
           <section className="author-brief">
@@ -176,12 +193,14 @@ const BookDetailsPage = () => {
       }
 
 
+      {/* todo: display a section loader */}
       {/* reviews */}
       {/* <section className="reviews">
         reviews
       </section> */}
 
 
+      {/* todo: display a section loader */}
       {/* other works by the author */}
       { authorWorks?.docs?.length > 0 && (
           <section className="author-books">
@@ -193,6 +212,7 @@ const BookDetailsPage = () => {
       }
 
 
+      {/* todo: display a section loader */}
       {/* similar works */}
       {/* <section className="similar-books">
         similar works you might like

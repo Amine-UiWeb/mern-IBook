@@ -18,7 +18,7 @@ const useFetchData = (url) => {
                 setTimeout(() => {
                   setData(prev => data)
                   setFetchCompleted(true)
-                }, 100000)
+                }, 3000)
               })
           } 
           catch (err) { setFetchError(prev => ({ error: err.message })) } 

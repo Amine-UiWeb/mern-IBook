@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 
 const useFetchImage = (url) => {
+  
   const [image, setImage] = useState(null)
   const [isImageLoading, setIsImageLoading] = useState(false)
   const [isImageError, setIsImageError] = useState(false)

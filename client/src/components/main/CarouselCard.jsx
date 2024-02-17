@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+
 import DotsLoader from "../loading/dotsLoader/DotsLoader"
 import "./CarouselCard.css"
 
@@ -7,15 +8,13 @@ import "./CarouselCard.css"
 const CarouselCard = ({ book }) => {
 
   const navigate = useNavigate()
-
-  // i'm requesting images as blob to force caching them
-  // couldn't cache the images by just setting the url in the src 
-
   const [image, setImage] = useState(null)
-  const url = `https://covers.openlibrary.org/b/id/${book?.cover_id || book?.cover_i}-L.jpg`
+  
 
   useEffect(() => {
     (async () => {
+      const baseUrl = 'https://covers.openlibrary.org'
+      const url = `${baseUrl}/b/id/${book?.cover_id || book?.cover_i}-L.jpg`
       const res = await fetch(url, { cache: 'force-cache' })
       const blob = await res.blob()
       
@@ -25,20 +24,17 @@ const CarouselCard = ({ book }) => {
     })()
   }, [])
 
-
-  // pass the book data as state when navigating to the BookDetailsPage
-  // instead on refetching it there
-  const handleNavigate = () => {
-    navigate(`${book?.key}`, { state: book })
-  }
   
+  const handleNavigate = () => navigate(`${book?.key}`)
+  
+
   return ( 
     <div className="carousel-card">
-      { 
-        !image ? <DotsLoader /> 
+      { !image ? <DotsLoader /> 
           : <button onClick={handleNavigate}><img src={image}/></button>
       }
     </div>
   )
 }
+
 export default CarouselCard
