@@ -111,6 +111,15 @@ a:hover {
   cursor: pointer;
 }
 
+.a {
+  color: #646cff;
+  text-decoration: underline;
+}
+.a:hover {
+  color: #534326;
+  cursor: pointer;
+}
+
 img {
   display: block;
 }
@@ -210,14 +219,18 @@ font-weight
 .fw-800 { font-weight: 800; }
 
 
-/*--------
-decoration
-----------*/
+/*-------------
+text appearance
+---------------*/
+
+.ta-c { text-align: center; }
+.ta-l { text-align: left; }
 
 .underline { text-decoration: underline; }
 .hover-underline:hover { text-decoration: underline; }
 .uppercase { text-transform: uppercase; }
 .cap { text-transform: capitalize; }
+
 
 /*------
 headings
@@ -325,9 +338,9 @@ paddings
 .pl-2 { padding-left: 2rem; }
 
 
-/*-----
+/*--
 flex
--------*/
+----*/
 
 .flex-row {
   display: flex;
@@ -347,6 +360,11 @@ flex
 
 .wrap { flex-wrap: wrap; }
 .no-wrap { flex-wrap: nowrap; }
+
+
+/*--
+misc
+----*/
 
 
 /* -------------------------------- */

@@ -9,7 +9,7 @@ import "./LandingPage.css"
 const LandingPage = () => {
 
   const [books, setBooks] = useState({})
-  console.log(books)
+  // console.log(books)
 
   useEffect(() => {
 

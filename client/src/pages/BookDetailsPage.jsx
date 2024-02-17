@@ -49,7 +49,6 @@ const BookDetailsPage = () => {
   const url = baseUrl + urlParams
   const { data: bookData, fetchCompleted: bookFetched } = useFetchData(url) 
   const authorName = bookData?.docs?.[0]?.author_name?.[0] 
-
   // publish date
   const publishDate = bookData?.docs?.[0]?.first_publish_year
   /* ------------------------- */
@@ -64,7 +63,15 @@ const BookDetailsPage = () => {
   const { image: authorProfile, isImageLoading: authorLoading } 
     = useFetchImage(authorProfileUrl)
 
-  // info
+  // info 
+  const encodedAuthor = encodeURIComponent(authorName)
+  const authorUrl = `https://openlibrary.org/search/authors.json?q=${encodedAuthor}`
+  const authorurl = 'https://openlibrary.org/authors/OL23919A.json'
+  const { data: authorData, fetchCompleted: authorDataFetched } 
+    = useFetchData(authorurl)
+  console.log(authorData)
+
+  // todo: in author page use url https://openlibrary.org/authors/<authorkey>.json
   /* ------------------ */
 
 
@@ -74,7 +81,8 @@ const BookDetailsPage = () => {
   const uriAuthor = encodeURIComponent(authorName)
   const authorWorksUrl = `https://openlibrary.org/search.json?author=${uriAuthor}`
   const { data: authorWorks } = useFetchData(authorWorksUrl)
-  /* ---------------------------------- */
+  // console.log(authorWorks)
+  /* ------------------ */
   
 
   return (
@@ -152,13 +160,14 @@ const BookDetailsPage = () => {
       {/* author */}
       { authorName && (
           <section className="author-brief">
-            <h3 className="h4 mb-1">Brief overview on the author:</h3>
+            <h3 className="h5 mb-1">Brief overview on the author:</h3>
             
             <div className="author-flex">
               
               <div className="profile-wrapper">
                 <img src={authorProfile} alt="author profile" />
-                <h5>{authorName}</h5>
+                <h5><Link to="#">{authorName}</Link></h5>
+
               </div>
 
             </div>

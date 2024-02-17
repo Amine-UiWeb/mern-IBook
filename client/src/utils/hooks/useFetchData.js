@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 const useFetchData = (url) => {
 
   const [data, setData] = useState(null)
-  const [fetchCompleted, setFetchCompleted] = useState(false)
+  const [fetched, setFetchCompleted] = useState(false)
   const [fetchError, setFetchError] = useState(false)
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const useFetchData = (url) => {
                 setTimeout(() => {
                   setData(prev => data)
                   setFetchCompleted(true)
-                }, 1000)
+                }, 100000)
               })
           } 
           catch (err) { setFetchError(prev => ({ error: err.message })) } 
@@ -26,7 +26,7 @@ const useFetchData = (url) => {
       }
     }, [url])
 
-  return { data, fetchCompleted, fetchError }
+  return { data, fetched, fetchError }
 }
 
 export default useFetchData

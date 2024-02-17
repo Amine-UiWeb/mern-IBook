@@ -1,0 +1,9 @@
+.no-data {
+  border: 1px solid var(--wheat-200);
+  padding: 2rem 1rem;
+}
+
+.no-data button {
+  border: none;
+  background: transparent;
+}

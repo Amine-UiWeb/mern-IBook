@@ -23,7 +23,7 @@
 .details-grid .info > * { margin-bottom: 1rem; }
 
 .details-grid b { color: var(--wheat-400) }
-.details-grid a {
+.details-grid a, .author-flex a {
   color: black;
   text-decoration: underline;
 }
