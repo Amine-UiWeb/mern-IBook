@@ -4,19 +4,10 @@ const userSchema = Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  profile: { type: String, required: true },
-  favorite_books: { 
-    type: Array(Schema.Types.ObjectId),
-    ref: 'Book'
-  },
-  favorite_genres: { 
-    type: Array(Schema.Types.ObjectId),
-    ref: 'Book'
-  },
-  favorite_authors: { 
-    type: Array(Schema.Types.ObjectId),
-    ref: 'Author'
-  }
+  profile: { type: String, required: false },
+  favorite_books: { type: Array, required: false },
+  favorite_genres: { type: Array, required: false },
+  favorite_authors: { type: Array, required: false }
 })
 
 export default model('User', userSchema)
