@@ -33,6 +33,9 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
+
+      {/* todo: add a landing section with intro and image */}
+      
       {
         // pass each subject books to a BooksCarousel componenet
         Object.keys(books).map(book => (

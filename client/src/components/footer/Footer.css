@@ -24,4 +24,7 @@ footer.footer span:last-child{
   text-decoration-color: silver;
   text-decoration-thickness: 4px;
 }
-footer.footer span:last-child a { cursor: pointer; }
+footer.footer span:last-child a { 
+  display: inline-block;
+  cursor: pointer; 
+}

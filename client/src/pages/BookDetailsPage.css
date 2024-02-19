@@ -12,6 +12,8 @@
   padding: 1rem;
 }
 
+.book-details a { display: inline-block; }
+
 
 /* details-grid */
 

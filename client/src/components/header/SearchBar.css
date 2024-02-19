@@ -37,7 +37,6 @@
   right: .7rem;
 }
 .search-bar span.search-icon svg {
-  display: block;
   fill: var(--pri-blue-400);
 }
 
@@ -74,7 +73,7 @@
   left: 0;
   width: fit-content;
   background: var(--wheat-light);
-  color: var(--add-red-danger);
+  color: var(--crimson-600);
   opacity: 0;
   border: 1px solid var(--wheat-400);
   padding: 1rem;

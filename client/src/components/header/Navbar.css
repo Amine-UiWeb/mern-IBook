@@ -7,9 +7,10 @@ nav.nav {
 
 
 /* panel toggler */
+
 .panel-toggler {
-  padding: .4rem;
-  border: 3px dashed salmon;
+  padding: .2rem;
+  border: 3px dashed var(--crimson-400);
   border-style: solid double;
   color: saddlebrown;
   border-radius: .3rem;
@@ -63,8 +64,7 @@ nav.nav ul li:is(:hover, :has(> a.active)) {
 }
 
 nav.nav ul li a {
-  display: block;
-  padding: .25rem .5rem;
+  padding: .15rem .3rem;
   text-wrap: nowrap;
 }
 nav.nav ul :is(li:hover a, li a.active) {

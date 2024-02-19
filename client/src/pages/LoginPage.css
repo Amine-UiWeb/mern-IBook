@@ -1,24 +1,63 @@
 .login {
-  max-width: 26rem;
+  max-width: 24rem;
+  padding: 1rem;
   width: 100%;
   min-width: 16rem;
-  margin-inline: auto;
-  border: 2px solid var(--pri-blue-200);
-  border-radius: 1rem;
+  margin: 3rem auto;
+  border: 1px solid var(--pri-blue-200);
+  box-shadow: 0 0 3px 2px #bbb;
+  border-radius: .6rem;
 }
 
 .login h3 {
-  background: var(--sec-green-200);
   text-align: center;
-  color: var(--sec-green-800);
-  padding: .6rem;
-  border-radius: .31rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--sec-green-200);
+  text-decoration: wavy underline var(--sec-green-400) .1rem;
+}
+
+.login-form label { font-weight: 500; }
+
+.login-form input {
+  color: var(--pri-blue-600);
+  border-radius: .8rem;
+  padding: .4rem .8rem;
+  font-weight: 400;
+  font-size: .9rem;
+}
+
+.login-form span { 
+  background: var(--crimson-light-1);
+  display: grid;
+  align-items: start; 
+  gap: .25rem;
+  grid-template-columns: auto 1fr;
+  font-size: .8rem; 
+  border-radius: .1rem;
+  padding: .3rem;
+  margin: .25rem 0 0;
+}
+
+.login-form span svg {
+  background: var(--sec-green-600);
+  fill: var(--light-greenish);
+  border-radius: 50%;
+}
+.login-form span p { 
+  color: var(--wheat-600); 
+  font-weight: 500;
 }
 
 .login-form button {
-  margin-block: 1.5rem;
-  margin-inline: auto;
-  display: block;
-  border-color: gainsboro;
+  margin: 1.5rem auto 1rem;
   padding-inline: 2rem;
+  border: .15rem solid var(--crimson-light-1);
+  box-shadow: 0 0 1px 1px #aaa;
 }
+.login-form button:hover { 
+  color: whitesmoke;
+  background: var(--sec-green-200); 
+}
+
+.login-form a { display: inline-block; }

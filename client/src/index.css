@@ -22,7 +22,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgb(36, 36, 36);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,28 +33,39 @@
   /* colors */
 
   /* primary color */
-  --pri-blue-100: #bcc4ce;
-  --pri-blue-200: #89939e;
-  --pri-blue-400: #395574; 
-  --pri-blue-600: #263442; 
-  --pri-blue-800: #1e2b38;
+  --pri-blue-100: rgb(188, 196, 206);
+  --pri-blue-200: rgb(137, 147, 158);
+  --pri-blue-400: rgb(57, 85, 116); 
+  --pri-blue-600: rgb(38, 52, 66);
+  --pri-blue-800: rgb(30, 43, 56);
   
   /* secondary color */
-  --sec-green-200: #549668;
-  --sec-green-400: #34854c; 
-  --sec-green-600: #18552a; 
-  --sec-green-800: #122e1a;
+  --sec-green-200: rgb(84, 150, 104);
+  --sec-green-400: rgb(52, 133, 76); 
+  --sec-green-600: rgb(24, 85, 42); 
+  --sec-green-800: rgb(18, 46, 26);
 
   /* additional colors */
-  --light-bluish: #f0f1f3;
-  --light-greenish: #eaeeec;
-  --wheat-light: #f5efe5;
-  --wheat-200: wheat;
-  --wheat-400: #cab48c;
-  --wheat-600: #917a4f;
-  --wheat-800: #534326;
-  --wheat-dark: #2c2311;
-  --add-red-danger: #6b2027;
+  --light-bluish: rgb(240, 241, 243);
+  --light-greenish: rgb(234, 238, 236);
+  
+  --wheat-light: rgb(245, 239, 229);
+  --wheat-200: rgb(245, 222, 179);
+  --wheat-400: rgb(202, 180, 140);
+  --wheat-600: rgb(145, 122, 79);
+  --wheat-800: rgb(83, 67, 38);
+  --wheat-dark: rgb(44, 35, 17);
+
+  --crimson-light-1: rgb(235, 217, 220);
+  --crimson-light-2: rgb(235, 182, 192);
+  --crimson-light-3: rgb(240, 153, 170);
+  --crimson-100: rgb(238, 59, 95);
+  --crimson-200: rgb(219, 46, 81);
+  --crimson-400: rgb(168, 37, 64);
+  --crimson-600: rgb(128, 28, 48);
+  --crimson-800: rgb(73, 17, 28);
+  --crimson-dark: rgb(40, 10, 16);
+
   --add-green-info: var(--sec-green-600);
   
   /* border-color */
@@ -101,6 +112,8 @@ h1 {
   text-align: center;
 }
 
+a, ul, li, button, label, input, img, svg { display: block; }
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -120,32 +133,22 @@ a:hover {
   cursor: pointer;
 }
 
-img {
-  display: block;
-}
+li { list-style: none; }
 
-li {
-  list-style: none;
-}
+label { margin-block: .6rem 0.1rem; }
 
-label, input {
-  display: block;
-}
-label {
-  margin-block: .6rem .2rem;
-}
 input {
   width: 100%;
   font-size: 1rem;
   line-height: 1.5;
   padding: .3rem .6rem;
   border: 1px solid gray;
-  border-radius: .6rem;
+  border-radius: .3rem;
   background: var(--light-bluish);
   transition: all .3s;
 }
 input:focus-within {
-  outline-color: var(--pri-blue-600);
+  outline-color: var(--pri-blue-400);
   background: #fff;
 }
 input::placeholder { font-size: var(--fs-0-9); }
@@ -164,7 +167,7 @@ button {
   transition: border-color 0.25s;
 }
 .btn:hover { border-color: #646cff; }
-.btn:focus, .btn:focus-visible { outline: 4px auto -webkit-focus-ring-color; }
+.btn:focus, .btn:focus-visible { outline: none; }
 
 @media (prefers-color-scheme: light) {
   :root {

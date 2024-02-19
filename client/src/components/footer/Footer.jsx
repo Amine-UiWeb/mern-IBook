@@ -7,6 +7,9 @@ import footer_li from "../../assets/icons/footer_li.svg"
 import footer_tw from "../../assets/icons/footer_tw.svg"
 
 const Footer = () => {
+
+  // todo: improve footer appearance
+
   return (
     <footer className="footer">
       

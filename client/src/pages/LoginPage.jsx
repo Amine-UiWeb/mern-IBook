@@ -21,9 +21,9 @@ const LoginPage = () => {
 
 
   return (
-    <div className="login p-1 mt-1">
+    <div className="login">
 
-      <h3 className="mb-1-5">Login</h3>
+      <h3>Login</h3>
 
       <form className="login-form">
 
@@ -35,7 +35,6 @@ const LoginPage = () => {
           value={username}
           onChange={(e) => onUsernameChange(e.target.value)}
           autoComplete="off"
-          placeholder="xxxxxxxx@gmail.com"
         />
 
         <label htmlFor="password" className="fw-500">Password</label>
@@ -45,7 +44,6 @@ const LoginPage = () => {
           name="password"
           value={password}
           onChange={(e) => onPasswordChange(e.target.value)}
-          placeholder="8-24 charachters long"
         />
 
         <button className="btn" onClick={handleSubmit}>Log in</button>
