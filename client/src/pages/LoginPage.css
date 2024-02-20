@@ -12,47 +12,91 @@
 .login h3 {
   text-align: center;
   font-size: 1.8rem;
+  line-height: 1.4;
   margin-bottom: 1.5rem;
   color: var(--sec-green-200);
   text-decoration: wavy underline var(--sec-green-400) .1rem;
 }
 
+
+/* label */
+
 .login-form label { font-weight: 500; }
 
-.login-form input {
-  color: var(--pri-blue-600);
-  border-radius: .8rem;
-  padding: .4rem .8rem;
-  font-weight: 400;
-  font-size: .9rem;
+.login-form label svg { 
+  display: inline-block; 
+  stroke: var(--sec-green-400);
+  stroke-width: 1;
+}
+.login-form :is(label > *, label span > *) { vertical-align: middle; }
+.login-form label span svg { 
+  display: inline-block; 
+  stroke: var(--sec-green-400);
+  stroke-width: 1;
 }
 
-.login-form span { 
-  background: var(--crimson-light-1);
+.login-form label span.eye { 
+  width: 4.5rem;
+  padding-inline: .4rem;
+}
+.login-form label span.eye:last-child { font-size: .8rem; color: var(--dark-800); }
+.login-form label span.eye svg {
+  stroke: none;
+  fill: var(--dark-800);
+}
+
+
+/* input */
+
+.login-form input {
+  color: var(--pri-blue-400);
+  border-radius: 1rem;
+  font-weight: 400;
+}
+
+
+/* validation notes */
+
+.login-form > div { 
+  background: var(--light-greenish);
   display: grid;
   align-items: start; 
-  gap: .25rem;
   grid-template-columns: auto 1fr;
+  gap: .25rem;
+  line-height: 1.2;
   font-size: .8rem; 
   border-radius: .1rem;
   padding: .3rem;
-  margin: .25rem 0 0;
+  margin-block: .25rem 0.5rem;
+}
+.login-form > div.offScreen {
+  position: absolute;
+  left: -10000px;
+}
+.login-form > div.error {
+  background: var(--crimson-100);
+  color: var(--wheat-200);
+  font-weight: 600;
 }
 
-.login-form span svg {
+.login-form > div.note svg {
   background: var(--sec-green-600);
   fill: var(--light-greenish);
   border-radius: 50%;
 }
-.login-form span p { 
+.login-form > div.note p { 
   color: var(--wheat-600); 
   font-weight: 500;
 }
 
+
+/* button and link */
+
 .login-form button {
   margin: 1.5rem auto 1rem;
-  padding-inline: 2rem;
+  padding: .4rem 1.6rem;
   border: .15rem solid var(--crimson-light-1);
+  border-radius: 1rem;
   box-shadow: 0 0 1px 1px #aaa;
 }
 .login-form button:hover { 

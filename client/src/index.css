@@ -32,6 +32,16 @@
 
   /* colors */
 
+  /* black and white shades */
+  --light-1: rgb(245, 245, 245);
+  --light-2: rgb(238, 238, 238);
+  --light-3: rgb(221, 221, 221);
+  --dark-200: rgb(170, 170, 170);
+  --dark-400: rgb(158, 158, 158);
+  --dark-600: rgb(102, 102, 102);
+  --dark-800: rgb(68, 68, 68);
+  --dark-dark: rgb(46, 46, 46);
+
   /* primary color */
   --pri-blue-100: rgb(188, 196, 206);
   --pri-blue-200: rgb(137, 147, 158);
@@ -135,11 +145,14 @@ a:hover {
 
 li { list-style: none; }
 
-label { margin-block: .6rem 0.1rem; }
+label { 
+  font-size: .9rem;
+  margin-block: .5rem .1rem;
+}
 
 input {
   width: 100%;
-  font-size: 1rem;
+  font-size: .95rem;
   line-height: 1.5;
   padding: .3rem .6rem;
   border: 1px solid gray;
@@ -355,8 +368,10 @@ flex
 }
 
 .jc-c { justify-content: center; }
+.jc-sb { justify-content: space-between; }
 .ai-c { align-items: center; }
 
+.gap-0-25 { gap: .25rem; }
 .gap-0-5 { gap: .5rem; }
 .gap-1 { gap: 1rem; }
 .gap-1-5 { gap: 1.5rem; }

@@ -22,7 +22,11 @@ const LoginPage = () => {
 
   return (
     <div className="login">
+      
+      {/* add the same validation functionality as in register page */}
 
+      {/* improve submit button border color on hover */}
+      
       <h3>Login</h3>
 
       <form className="login-form">

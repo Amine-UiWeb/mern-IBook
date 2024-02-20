@@ -1,52 +1,85 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 
 import "./LoginPage.css"
 import ExclamationMark from "../components/svgs/ExclamationMark";
+import Check from "../components/svgs/Check";
+import Eye from "../components/svgs/Eye";
+import EyeSlash from "../components/svgs/EyeSlash";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-const USERNAME_REGEX = /^[0-9A-Za-z]{6,16}$/
-const PASSWORD_REGEX = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,32}$/
+const UN_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
+const PW_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 
 const RegisterPage = () => {
+  
+  const emailRef = useRef()
+  const unRef = useRef()
+  const pwRef = useRef()
+  const confPwRef = useRef()
+  const errorRef = useRef()
 
   const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPwd, setConfirmPwd] = useState('')
-  const [isValid, setIsValid] = useState({})
+  const [un, setUn] = useState('')
+  const [pw, setPw] = useState('')
+  const [confPw, setConfPw] = useState('')
 
+  const [visiblePwd, setVisiblePwd] = useState(false)
+  const [invalidInputs, setInvalidInputs] = useState({})
+  const [focusedInput, setFocusedInput] = useState(null)
+  const [validationError, setValidationError] = useState('')
   
+
+  useEffect(() => emailRef.current.focus(), [])
+
+  useEffect(() => { setValidationError('') }, [email, un, pw, confPw])
+
   useEffect(() => {
-    if (email && !EMAIL_REGEX.test(email)) 
-      setIsValid(prev => ({ ...prev, email: true }))
-    else setIsValid(prev => ({ ...prev, email: false }))
+    setInvalidInputs(prev => ({ ...prev, email: !EMAIL_REGEX.test(email) }))
   }, [email])
 
   useEffect(() => {
-    if (username && !USERNAME_REGEX.test(username)) 
-      setIsValid(prev => ({ ...prev, username: true }))
-    else setIsValid(prev => ({ ...prev, username: false }))
-  }, [username])
+    setInvalidInputs(prev => ({ ...prev, un: !UN_REGEX.test(un) }))
+  }, [un])
 
   useEffect(() => {
-    if (password && !PASSWORD_REGEX.test(password)) 
-      setIsValid(prev => ({ ...prev, password: true })) 
-    else setIsValid(prev => ({ ...prev, password: false }))
-  }, [password])
+    setInvalidInputs(prev => ({ ...prev, pw: !PW_REGEX.test(pw) }))
+    setInvalidInputs(prev => 
+      ({ ...prev, confPw: (pw !== confPw) || !PW_REGEX.test(confPw) })
+    ) 
+  }, [pw, confPw])
 
 
-  const onEmailChange = (value) => setEmail(prev => value)
-  const onUsernameChange = (value) => setUsername(prev => value)
-  const onPasswordChange = (value) => setPassword(prev => value)
-  const onConfirmPwdChange = (value) => setConfirmPwd(prev => value)
+  const onEmailChange = (e) => setEmail(prev => e.target.value)
+  const onUnChange = (e) => setUn(prev => e.target.value)
+  const onPwdChange = (e) => setPw(prev => e.target.value)
+  const onConfPwdChange = (e) => setConfPw(prev => e.target.value)
 
+  const onBlur = () => setFocusedInput(null)
 
+  const togglePwdVisible = () => setVisiblePwd(prev => !prev)
+
+  const isSomeFieldsEmpty = () => !email || !un || !pw || !confPw
+
+  
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    setValidationError('')
 
-    // alert('register')
+    const v1 = EMAIL_REGEX.test(email);
+    const v2 = UN_REGEX.test(un);
+    const v3 = PW_REGEX.test(pw);
+    const v4 = pw === confPw;
+
+    if (!v1 || !v2 || !v3 || !v4) {
+      setValidationError('Invalid inputs! Make sure each field match the required rules.')
+      errorRef.current.focus()
+    }
+    
+    else {
+      // todo: register to the api
+    }
   }
 
 
@@ -55,86 +88,157 @@ const RegisterPage = () => {
 
       <h3>Register</h3>
 
-      {/* todo: manage accessibility for all fields */}
       <form className="login-form">
 
-        <label htmlFor="email">Email</label>
+        <div 
+          ref={errorRef}
+          className={validationError ? "error" : "offScreen"}
+          aria-live="assertive"
+        >
+          {validationError}
+        </div>
+
+        {/* ------------------ email ------------------ */ }
+        <label htmlFor="email">
+          Email { (email && !invalidInputs.email) && <Check /> }
+        </label>
+
         <input 
           type="email" 
+          ref={emailRef}
           id="email"
-          name="email"
           value={email}
-          onChange={(e) => onEmailChange(e.target.value)}
+          onChange={onEmailChange}
+          aria-invalid={(email && invalidInputs?.email) ? "true" : "false"}
+          aria-describedby="emailNote"
           autoComplete="off"
           placeholder="xxxxxxxx@gmail.com"
+          onFocus={() => setFocusedInput('email')}
+          onBlur={onBlur}
+          required
         />
-        { isValid?.email && (
-            <span>
-              <ExclamationMark />
-              <p>Expected format: (text)@(text).(2-4 characters)</p>
-            </span>
-          )
-        }
 
-        <label htmlFor="username">Username</label>
-        <input 
+        <div 
+          id="emailNote" 
+          className={ invalidInputs?.email && focusedInput == "email" ? "note" : "offScreen" }
+        >
+          <ExclamationMark />
+          <p>Expected format: (text)@(text).(2-4 characters)</p>
+        </div>
+
+        {/* ------------------ username ------------------ */}
+        <label htmlFor="username">
+          Username { (un && !invalidInputs.un) && <Check /> }
+        </label>
+
+        <input
           type="text" 
+          ref={unRef}
           id="username"
-          name="username"
-          value={username}
-          onChange={(e) => onUsernameChange(e.target.value)}
+          value={un}
+          onChange={onUnChange}
+          aria-invalid={un && invalidInputs?.un ? "true" : "false"}
+          aria-describedby="unNote"
           autoComplete="off"
           placeholder="Enter a username, e.g.: Mark"
+          onFocus={() => setFocusedInput('un')}
+          onBlur={onBlur}
+          required
         />
-        { isValid?.username && (
-            <span>
-              <ExclamationMark />
-              <p>Must be between 4~12 characters long.</p>
-            </span>
-          )
-        }
-
-        {/* todo: add an icon to show/hide password on click */}
-        <label htmlFor="password">Password</label>
-        <input 
-          type="password" 
-          id="password"
-          name="password"
-          value={password}
-          onChange={(e) => onPasswordChange(e.target.value)}
-          placeholder="Must be 8-24 charachters long"
-        />
-        { isValid?.password && (
-            <span>
-              <ExclamationMark />
-              <p>Must: be 8~32 characters long, contain at least one number, one uppercase letter and one lowercase letter.</p>
-            </span>
-          )
-        }
-
-        <label htmlFor="confirmPwd">Confirm Password</label>
-        <input 
-          type="password" 
-          id="confirmPwd"
-          name="confirmPwd"
-          value={confirmPwd}
-          onChange={(e) => onConfirmPwdChange(e.target.value)}
-          placeholder="Retype password..."
-        />
-        { isValid?.confirmPwd && (
-            <span>
-              <ExclamationMark />
-              <p>Username must be between 4 and 12 chars long.</p>
-            </span>
-          )
-        }
-
-        <button className="btn" onClick={handleSubmit}>Register</button>
         
-        <div className="fs-0-9">
+        <div 
+          id="unNote" 
+          className={ invalidInputs?.un && focusedInput == "un" ? "note": "offScreen" }
+        >
+          <ExclamationMark />
+          <p>
+            4 to 24 characters.<br />
+            Must begin with a letter.<br />
+            Letters, numbers, underscores, hyphens allowed.
+          </p>
+        </div>
+
+        {/* ------------------ password ------------------ */}
+        <label className="flex-row jc-sb" htmlFor="pw">
+          <span>Password { (pw && !invalidInputs.pw) && <Check /> }</span>
+          
+          <span className="eye flex-row ai-c gap-0-25" onClick={togglePwdVisible}>
+            {visiblePwd ? <Eye /> : <EyeSlash />}
+            {visiblePwd ? "Hide ": "Show"}
+          </span>
+        </label>
+
+        <input 
+          type={visiblePwd ? "text" : "password"} 
+          ref={pwRef}
+          id="pw"
+          value={pw}
+          hidden={false}
+          onChange={onPwdChange}
+          aria-invalid={pw && invalidInputs?.pw ? "true" : "false"}
+          aria-describedby="pwNote"
+          placeholder="Must be 8-24 charachters long"
+          onFocus={() => setFocusedInput('pw')}
+          onBlur={onBlur}
+          required
+        />
+
+        <div 
+          id="pwNote" 
+          className={ invalidInputs?.pw && focusedInput == "pw" ? "note" : "offScreen"}
+        >
+          <ExclamationMark />
+          <p>
+            8 to 24 characters.<br />
+            Must include uppercase and Lowcase letters, 
+            a number and a special characters.<br />
+            Allowed special characters: 
+            <span aria-label="Exclamation mark">!</span>
+            <span aria-label="at symbol">@</span>
+            <span aria-label="hashtag">#</span>
+            <span aria-label="dollar sign">$</span>
+            <span aria-label="percent">%</span>
+          </p>
+        </div>
+      
+
+        {/* ------------------ confirm password ------------------ */}
+        <label htmlFor="confPw">
+          Confirm Password { (confPw && !invalidInputs.confPw) && <Check /> }
+        </label>
+
+        <input 
+          type={visiblePwd ? "text" : "password"} 
+          ref={confPwRef}
+          id="confPw"
+          value={confPw}
+          onChange={onConfPwdChange}
+          aria-invalid={confPw && invalidInputs?.confPw ? "true" : "false"}
+          aria-describedby="confPwNote"
+          placeholder="Retype password..."
+          onFocus={() => setFocusedInput('confPw')}
+          onBlur={onBlur}
+          required
+        />
+
+        <div 
+          id="confPwNote" 
+          className={ 
+            invalidInputs?.confPw && focusedInput == "confPw" ? "note" : "offScreen" 
+          }
+        >
+          <ExclamationMark />
+          <p>Must match password.</p>
+        </div>
+
+        <button className="btn" onClick={handleSubmit} disabled={isSomeFieldsEmpty()} >
+          Register
+        </button>
+        
+        <p className=" fs-0-9">
           Already have an account?{" "}
           <Link to="/login" className="underline">Log in</Link>
-        </div>
+        </p>
 
       </form>    
       
