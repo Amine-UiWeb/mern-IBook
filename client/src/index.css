@@ -40,7 +40,9 @@
   --dark-400: rgb(158, 158, 158);
   --dark-600: rgb(102, 102, 102);
   --dark-800: rgb(68, 68, 68);
-  --dark-dark: rgb(46, 46, 46);
+  --dark-1: rgb(46, 46, 46);
+  --dark-2: rgb(36, 36, 36);
+  --dark-3: rgb(26, 26, 26);
 
   /* primary color */
   --pri-blue-100: rgb(188, 196, 206);
@@ -152,7 +154,7 @@ label {
 
 input {
   width: 100%;
-  font-size: .95rem;
+  font-size: .9rem;
   line-height: 1.5;
   padding: .3rem .6rem;
   border: 1px solid gray;
@@ -161,10 +163,12 @@ input {
   transition: all .3s;
 }
 input:focus-within {
-  outline-color: var(--pri-blue-400);
+  outline-color: var(--pri-blue-100);
   background: #fff;
 }
-input::placeholder { font-size: var(--fs-0-9); }
+input::placeholder { font-size: var(--fs-0-85); }
+
+input:is([type="text"], [type="password"], [type="Email"]) { letter-spacing: .5px; }
 
 button {
   font-family: inherit;
@@ -179,17 +183,24 @@ button {
   font-weight: 500;
   transition: border-color 0.25s;
 }
-.btn:hover { border-color: #646cff; }
+.btn:hover { border-color: var(--light-greenish); }
 .btn:focus, .btn:focus-visible { outline: none; }
+
+.btn-primary:hover { 
+  color: var(--light-1);
+  background: var(--sec-green-200); 
+}
+.btn-primary:focus-within { 
+  color: var(--light-1);
+  background: var(--sec-green-400);
+}
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+  button { background-color: #f9f9f9; }
 }
 
 select {

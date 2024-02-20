@@ -1,61 +1,89 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 
+import Eye from "../components/svgs/Eye";
+import EyeSlash from "../components/svgs/EyeSlash";
 import "./LoginPage.css"
 
 
 const LoginPage = () => {
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+
+  const [pw, setPw] = useState('')
+  const [isPwVisible, setIsPwVisible] = useState(false)
+
+  const [validationError, setValidationError] = useState('')
+  const errorRef = useRef()
 
 
-  const onUsernameChange = (value) => setUsername(prev => value)
-  const onPasswordChange = (value) => setPassword(prev => value)
+  const onEmailChange = (value) => setEmail(prev => value)
+  const onPasswordChange = (value) => setPw(prev => value)
+
+  const isSomeFieldsEmpty = () => !email || !pw
+  const togglePwVisible = () => setIsPwVisible(prev => !prev)
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    alert('login')
+    // if login error set focus on errorRef
   }
 
 
   return (
     <div className="login">
       
-      {/* add the same validation functionality as in register page */}
-
-      {/* improve submit button border color on hover */}
-      
       <h3>Login</h3>
 
       <form className="login-form">
 
-        <label htmlFor="password" className="fw-500">Username</label>
+        <div 
+          ref={errorRef}
+          className={validationError ? "error" : "offScreen"}
+          aria-live="assertive"
+        >
+          {validationError}
+        </div>
+
+        {/* email */}
+        <label htmlFor="email">Email</label>
         <input 
           type="text" 
-          id="username"
-          name="username"
-          value={username}
-          onChange={(e) => onUsernameChange(e.target.value)}
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => onEmailChange(e.target.value)}
           autoComplete="off"
         />
 
-        <label htmlFor="password" className="fw-500">Password</label>
+        {/* password */}
+        <label className="flex-row jc-sb" htmlFor="pw">
+          <span>Password</span>
+          
+          <span className="eye flex-row ai-c gap-0-25" onClick={togglePwVisible}>
+            {isPwVisible ? <Eye /> : <EyeSlash />}
+            {isPwVisible ? "Hide ": "Show"}
+          </span>
+        </label>
         <input 
-          type="password" 
-          id="password"
-          name="password"
-          value={password}
+          type={!isPwVisible ? "password" : "text"} 
+          id="pw"
+          name="pw"
+          value={pw}
           onChange={(e) => onPasswordChange(e.target.value)}
         />
 
-        <button className="btn" onClick={handleSubmit}>Log in</button>
+        <button 
+          className="btn btn-primary" 
+          onClick={handleSubmit} 
+          disabled={isSomeFieldsEmpty()} 
+        >Log in</button>
         
-        <div className="fs-0-9 fw-500">
+        <p className="fs-0-9 fw-500">
           Don't have an account yet?{" "}
           <Link to="/register" className="underline">Register</Link>
-        </div>
+        </p>
 
       </form>
 

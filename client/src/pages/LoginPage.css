@@ -14,8 +14,8 @@
   font-size: 1.8rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
-  color: var(--sec-green-200);
-  text-decoration: wavy underline var(--sec-green-400) .1rem;
+  color: var(--sec-green-400);
+  text-decoration: wavy underline var(--sec-green-200) 2px;
 }
 
 
@@ -61,22 +61,20 @@
   background: var(--light-greenish);
   display: grid;
   align-items: start; 
-  grid-template-columns: auto 1fr;
   gap: .25rem;
+  grid-template-columns: auto 1fr;
+  font-size: .8rem;
   line-height: 1.2;
-  font-size: .8rem; 
-  border-radius: .1rem;
   padding: .3rem;
   margin-block: .25rem 0.5rem;
+  border-radius: .1rem;
+  opacity: .3;
+  transition: all .3s ease-out;
 }
+.login-form > div.note { opacity: 1; }
 .login-form > div.offScreen {
   position: absolute;
-  left: -10000px;
-}
-.login-form > div.error {
-  background: var(--crimson-100);
-  color: var(--wheat-200);
-  font-weight: 600;
+  left: -10000px; 
 }
 
 .login-form > div.note svg {
@@ -89,6 +87,13 @@
   font-weight: 500;
 }
 
+.login-form > div.error {
+  background: var(--crimson-200);
+  color: white;
+  font-weight: 600;
+  opacity: 1;
+}
+
 
 /* button and link */
 
@@ -99,9 +104,6 @@
   border-radius: 1rem;
   box-shadow: 0 0 1px 1px #aaa;
 }
-.login-form button:hover { 
-  color: whitesmoke;
-  background: var(--sec-green-200); 
-}
+
 
 .login-form a { display: inline-block; }

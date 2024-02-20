@@ -25,7 +25,7 @@ const RegisterPage = () => {
   const [pw, setPw] = useState('')
   const [confPw, setConfPw] = useState('')
 
-  const [visiblePwd, setVisiblePwd] = useState(false)
+  const [isPwVisible, setIsPwVisible] = useState(false)
   const [invalidInputs, setInvalidInputs] = useState({})
   const [focusedInput, setFocusedInput] = useState(null)
   const [validationError, setValidationError] = useState('')
@@ -53,12 +53,12 @@ const RegisterPage = () => {
 
   const onEmailChange = (e) => setEmail(prev => e.target.value)
   const onUnChange = (e) => setUn(prev => e.target.value)
-  const onPwdChange = (e) => setPw(prev => e.target.value)
-  const onConfPwdChange = (e) => setConfPw(prev => e.target.value)
+  const onPwChange = (e) => setPw(prev => e.target.value)
+  const onConfPwChange = (e) => setConfPw(prev => e.target.value)
 
   const onBlur = () => setFocusedInput(null)
 
-  const togglePwdVisible = () => setVisiblePwd(prev => !prev)
+  const togglePwVisible = () => setIsPwVisible(prev => !prev)
 
   const isSomeFieldsEmpty = () => !email || !un || !pw || !confPw
 
@@ -162,19 +162,19 @@ const RegisterPage = () => {
         <label className="flex-row jc-sb" htmlFor="pw">
           <span>Password { (pw && !invalidInputs.pw) && <Check /> }</span>
           
-          <span className="eye flex-row ai-c gap-0-25" onClick={togglePwdVisible}>
-            {visiblePwd ? <Eye /> : <EyeSlash />}
-            {visiblePwd ? "Hide ": "Show"}
+          <span className="eye flex-row ai-c gap-0-25" onClick={togglePwVisible}>
+            {isPwVisible ? <Eye /> : <EyeSlash />}
+            {isPwVisible ? "Hide ": "Show"}
           </span>
         </label>
 
         <input 
-          type={visiblePwd ? "text" : "password"} 
+          type={isPwVisible ? "text" : "password"} 
           ref={pwRef}
           id="pw"
           value={pw}
           hidden={false}
-          onChange={onPwdChange}
+          onChange={onPwChange}
           aria-invalid={pw && invalidInputs?.pw ? "true" : "false"}
           aria-describedby="pwNote"
           placeholder="Must be 8-24 charachters long"
@@ -208,11 +208,11 @@ const RegisterPage = () => {
         </label>
 
         <input 
-          type={visiblePwd ? "text" : "password"} 
+          type={isPwVisible ? "text" : "password"} 
           ref={confPwRef}
           id="confPw"
           value={confPw}
-          onChange={onConfPwdChange}
+          onChange={onConfPwChange}
           aria-invalid={confPw && invalidInputs?.confPw ? "true" : "false"}
           aria-describedby="confPwNote"
           placeholder="Retype password..."
@@ -231,11 +231,13 @@ const RegisterPage = () => {
           <p>Must match password.</p>
         </div>
 
-        <button className="btn" onClick={handleSubmit} disabled={isSomeFieldsEmpty()} >
-          Register
-        </button>
+        <button 
+          className="btn btn-primary" 
+          onClick={handleSubmit} 
+          disabled={isSomeFieldsEmpty()} 
+        >Register</button>
         
-        <p className=" fs-0-9">
+        <p className="fs-0-9">
           Already have an account?{" "}
           <Link to="/login" className="underline">Log in</Link>
         </p>
