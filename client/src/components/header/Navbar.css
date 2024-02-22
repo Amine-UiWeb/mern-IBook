@@ -27,7 +27,7 @@ nav.nav {
 
 nav.nav .logo-wrapper {
   border-radius: 1rem;
-  box-shadow: 0 0 4px 1px #7e7e7e;
+  box-shadow: 0 0 2px 1px #7e7e7e;
   padding: 0.25rem;
 }
 nav.nav .logo-wrapper:hover {

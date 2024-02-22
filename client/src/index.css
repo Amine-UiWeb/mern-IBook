@@ -85,9 +85,18 @@
 
   /* fontSize */
   /* text */
+  --fs-0-8: .8rem;
   --fs-0-85: .85rem;
   --fs-0-9: .9rem;
   --fs-1: 1rem;
+  --fs-1-1: 1.1rem;
+  --fs-1-2: 1.2rem;
+  --fs-1-3: 1.3rem;
+  --fs-1-4: 1.4rem;
+  --fs-1-5: 1.5rem;
+  --fs-1-65: 1.65rem;
+  --fs-1-8: 1.8rem;
+  --fs-2: 2rem;
 }
 
 /* -------------------------------- */
@@ -154,12 +163,13 @@ label {
 
 input {
   width: 100%;
+  background: var(--light-bluish);
   font-size: .9rem;
   line-height: 1.5;
   padding: .3rem .6rem;
+  text-align: left;
   border: 1px solid gray;
   border-radius: .3rem;
-  background: var(--light-bluish);
   transition: all .3s;
 }
 input:focus-within {
@@ -229,13 +239,22 @@ font-familly
 font-size
 ---------*/
 
+.fs-0-8 { font-size: var(--fs-0-85); }
 .fs-0-85 { font-size: var(--fs-0-85); }
 .fs-0-9 { font-size: var(--fs-0-9); }
 .fs-1 { font-size: var(--fs-1); }
+.fs-1-1 { font-size: 1.1rem; }
+.fs-1-2 { font-size: 1.2rem; }
+.fs-1-3 { font-size: 1.3rem; }
+.fs-1-4 { font-size: 1.4rem; }
+.fs-1-5 { font-size: 1.5rem; }
+.fs-1-65 { font-size: 1.65rem; }
+.fs-1-8 { font-size: 1.8rem; }
+.fs-2 { font-size: 2rem; }
 
 
 /*---------
-font-weight
+font- }weight
 -----------*/
 
 .fw-300 { font-weight: 300; }
@@ -247,14 +266,21 @@ font-weight
 
 
 /*-------------
-text appearance
+display / appearance
 ---------------*/
+
+.d-in { display: inline; }
+.d-bl { display: block; }
+.d-inbl { display: inline-block; }
 
 .ta-c { text-align: center; }
 .ta-l { text-align: left; }
 
 .underline { text-decoration: underline; }
 .hover-underline:hover { text-decoration: underline; }
+.underline-children > * { text-decoration: underline; }
+.hover-underline-children > *:hover { text-decoration: underline; }
+
 .uppercase { text-transform: uppercase; }
 .cap { text-transform: capitalize; }
 
@@ -380,12 +406,14 @@ flex
 
 .jc-c { justify-content: center; }
 .jc-sb { justify-content: space-between; }
+.jc-sa { justify-content: space-around; }
 .ai-c { align-items: center; }
 
 .gap-0-25 { gap: .25rem; }
 .gap-0-5 { gap: .5rem; }
 .gap-1 { gap: 1rem; }
 .gap-1-5 { gap: 1.5rem; }
+.gap-2 { gap: 2rem; }
 
 .wrap { flex-wrap: wrap; }
 .no-wrap { flex-wrap: nowrap; }
