@@ -27,6 +27,7 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    // todo: register to the api
     // if login error set focus on errorRef
   }
 

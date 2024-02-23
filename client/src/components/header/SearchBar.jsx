@@ -19,7 +19,7 @@ const SearchBar = () => {
           type="search"
           id="search"
           name="search"
-          placeholder="Search book title or Author name..."
+          placeholder="Search titles or Authors..."
         />
       </div>
 

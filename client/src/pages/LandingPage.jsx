@@ -4,6 +4,7 @@ import { subjects } from "../utils/constants"
 
 import BooksCarousel from "../components/main/BooksCarousel"
 import "./LandingPage.css"
+import { ChevronRight } from "../components/svgs/ChevronRight"
 
 
 const LandingPage = () => {
@@ -34,21 +35,23 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
 
-      {/* todo: add a landing section with intro and image */}
+      {/* todo: add a landing banner (contains image and description) */}
+      <div className="landing-banner">
+        <img src="" alt="" />
+      </div>
       
-      {
-        // pass each subject books to a BooksCarousel componenet
+      { // pass each subject books to a BooksCarousel componenet
         Object.keys(books).map(book => (
           <section key={book} className="books-section">
             
-            {/* todo: make this look like the ones in imdb website */}
-            <h3 className="h3 ff-times p-1">
-              <a href="#" className="hover-underline">
-                {book.toString().toUpperCase()}
+            <h3 className="h3 ff-times m-1">
+              <a href="#" className="cap">
+                <span className="mr-0-5">{book}</span>
+                <ChevronRight />
               </a>
             </h3>
 
-            <div className="books-container">
+            <div className="books-carousel">
               <BooksCarousel books={books[book]} />
             </div>
 

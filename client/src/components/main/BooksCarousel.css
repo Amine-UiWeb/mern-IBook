@@ -6,9 +6,11 @@
   border-radius: .1rem;
 }
 
-/* todo: adjust the scrollbar to scoll while hidden */
-.carousel-container ::-webkit-scrollbar { 
-  display: none; 
+.carousel-container ::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* carousel wrapper */
@@ -19,7 +21,7 @@
   white-space: nowrap;
   scroll-behavior: smooth;
   transition: .5s ease-out;
-  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: inline mandatory;
 }
 
 /* carousel arrows */
