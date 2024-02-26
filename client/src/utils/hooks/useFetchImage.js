@@ -11,6 +11,7 @@ const useFetchImage = (url) => {
     if (url.includes('undefined')) setIsImageLoading(true) 
     else {
       (async () => {
+        setImage(null)
         setIsImageLoading(true)
         setIsImageError(false)
         try {

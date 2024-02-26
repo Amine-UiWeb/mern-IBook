@@ -1,0 +1,125 @@
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+  gap: .6rem;
+  padding: .3rem;
+  background: var(--light-1);
+  border: 1px solid var(--wheat-600);
+  border-radius: 1rem;
+  /* justify-self: flex-end; */
+}
+
+
+/* header buttons */
+
+.nav .nav-buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  height: 100%;
+  gap: .3rem;
+}
+
+.nav .nav-buttons button {
+  background: transparent;
+  border-radius: 1rem;
+  border: none;
+}
+.nav .nav-buttons button:hover,
+.nav .browse-wrapper:hover button {
+  background: var(--wheat-800);
+  color: var(--light-bluish);
+}
+
+
+/* browse ul */
+
+.nav ul.browse-ul {
+  position: absolute;
+  display: none;
+  width: fit-content;
+  top: 100%;
+  left: 0;
+  background: var(--wheat-light);
+  color: var(--crimson-600);
+  opacity: 0;
+  border: 1px solid var(--wheat-400);
+  padding: 1rem;
+  transition: opacity .8s ease-in-out;
+  z-index: 10;
+}
+.nav .nav-buttons .browse-wrapper:hover ul.browse-ul {
+  display: block;
+  opacity: 1;
+}
+
+.nav ul.browse-ul li { border-bottom: 1px solid var(--light-bluish); } 
+
+
+/* nav links */
+
+.header ul {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.header ul li{
+  background: #eee;
+  border-radius: .23rem;
+  outline: 2px solid transparent;
+  transition: .1s ease-out;
+}
+.header ul li:is(:hover, :has(> a.active)) {
+  background: #96bac99c;
+  color: #fff;
+  outline-color: var(--wheat-800);
+  cursor: pointer;
+}
+
+.header ul li a {
+  text-wrap: nowrap;
+}
+.header ul :is(li:hover a, li a.active) {
+  color: var(--wheat-800);
+  text-decoration: underline;
+}
+
+
+/* mode toggler */
+
+.mode-toggler {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  padding: .1rem;
+  border-radius: 50%;
+}
+.mode-toggler > input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.mode-toggler > svg {
+  position: absolute;
+  background-color: transparent;
+  inset: 0;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.mode-toggler svg.sun { background: linear-gradient(180deg,#ffcc89,#d8860b); }
+.mode-toggler svg.moon { 
+  padding: .15rem;
+  border: 2px solid var(--dark-600);
+}
+
+
+/* media queries */
+
+@media (min-width: 576px) {
+  .nav .search-container { max-width: 600px; }  
+}

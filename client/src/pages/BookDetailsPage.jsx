@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
 import useFetchImage from "../utils/hooks/useFetchImage.js"
@@ -13,23 +14,24 @@ import "./BookDetailsPage.css"
 
 const BookDetailsPage = () => {
 
-  const location = useLocation()
-  const path = location.pathname  // path is constructed as: /works/<workId>
+  
+  const { pathname } = useLocation() // pathname is structured as: /works/<workId>
+  const [workId, setWorkId] = useState(pathname.split('/works/')[1])
 
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
 
   /* ---------------------------- */
   // Fetch book info (use workId)
   /* ---------------------------- */
-  const workUrl = `https://openlibrary.org${path}.json`
+  const workUrl = `https://openlibrary.org${pathname}.json`
   const { data: workData, fetched: workFetched } = useFetchData(workUrl)
 
-  const olWork = path?.split('/works/')[1]
+  const olWork = pathname?.split('/works/')[1]
   const cover_id = `${workData?.covers?.[0]}`
   const title = workData?.title
   const authorKey = workData?.authors?.[0]?.author?.key || workData?.author?.key
   const subjects = workData?.subjects?.sort().splice(0, 6)
   // todo: subjects values change while rendering
-  // todo: subjects dont appear allways (e.g. for book 'misery')
   const description = workData?.description?.value || workData?.description
 
 
@@ -44,7 +46,7 @@ const BookDetailsPage = () => {
   const ratingUrl = `https://openlibrary.org/works/${olWork}/ratings.json`
   const { data: ratings, fetched: ratingFetched } = useFetchData(ratingUrl) 
   const rating = ratings?.summary?.average?.toFixed(2)
- 
+
   // Author Name
   const encodedTitle = encodeURIComponent(title)
   const baseUrl = 'https://openlibrary.org/search.json'
@@ -69,8 +71,9 @@ const BookDetailsPage = () => {
   const encodedAuthor = encodeURIComponent(authorName)
   const authorUrl = `https://openlibrary.org/search/authors.json?q=${encodedAuthor}`
   const authorurl = 'https://openlibrary.org/authors/OL23919A.json'
-  const { data: authorData } = useFetchData(authorurl)
+  const { data: authorData } = useFetchData(authorUrl)
   const authorInfo = authorData?.[0]
+  // console.log(authorData)
   // todo: display brief author infos (2 ~ 3)
   /* ------------------ */
 
@@ -84,10 +87,7 @@ const BookDetailsPage = () => {
   /* ------------------ */
 
 
-  // todo: in author page use url https://openlibrary.org/authors/<authorkey>.json
-  // to display author information
-
-  // // todo: try to use this endpoint 
+  // // todo: try to use this endpoint
   // const someLink = 'https://openlibrary.org/api/books?bibkeys=ISBN:9780980200447&jscmd=data&format=json'
   // const { data: someData } = useFetchData(`${someLink}`)
   // console.log(someData)
@@ -100,12 +100,7 @@ const BookDetailsPage = () => {
   return (
     <div className="book-details">
       
-      <h3 className="h3 title">
-        {
-          !title ? <HeaderSkeleton />  
-          : title
-        }
-      </h3>
+      <h3 className="h3 title">{ title ?? <HeaderSkeleton /> }</h3>
 
 
       {/* details */}
@@ -146,8 +141,8 @@ const BookDetailsPage = () => {
           }
   
           { (!workFetched || subjects) && (
-              !subjects ? <ParagrahSkeleton nLines={3} />
-              : <h5 className="h5 subjects"><b>Subjects:</b>{" "}   
+              !workFetched ? <ParagrahSkeleton nLines={3} />
+              : subjects.length > 0 ? <h5 className="h5 subjects"><b>Subjects:</b>{" "}   
                 {
                   workData?.subjects?.splice(0, 6)?.map((subject, i) => ( 
                     <span key={i}>
@@ -156,6 +151,7 @@ const BookDetailsPage = () => {
                   )
                 }...
               </h5>
+              : null
             )
           }
 
