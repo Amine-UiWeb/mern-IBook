@@ -1,8 +1,8 @@
 import { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 
-import Eye from "../components/svgs/Eye";
-import EyeSlash from "../components/svgs/EyeSlash";
+import Eye from "../../components/svgs/Eye";
+import EyeSlash from "../../components/svgs/EyeSlash";
 import "./LoginPage.css"
 
 

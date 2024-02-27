@@ -6,10 +6,12 @@ import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 
 // Pages
-import LoginPage from "./pages/LoginPage"
-import RegisterPage from "./pages/RegisterPage"
+import LoginPage from "./pages/auth/LoginPage"
+import RegisterPage from "./pages/auth/RegisterPage"
+import UserPage from "./pages/UserPage"
 import LandingPage from "./pages/LandingPage"
 import BookDetailsPage from "./pages/BookDetailsPage"
+import Browse from "./pages/Browse"
 
 
 function App() {
@@ -31,7 +33,13 @@ function App() {
       { index: true, element: <LandingPage /> },
       { path: '/login', element: <LoginPage /> },
       { path: '/register', element: <RegisterPage /> },
-      { path: '/works/:olWork', element: <BookDetailsPage /> }
+      { path: '/user/collection', element: <UserPage /> },
+      { path: '/works/:olWork', element: <BookDetailsPage /> },
+      { 
+        path: '/browse/*', 
+        element: <Browse />,
+        children: [/* add nested pages later */]
+      }
     ]
   }])
 

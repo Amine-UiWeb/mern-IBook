@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 
 import "./LoginPage.css"
-import ExclamationMark from "../components/svgs/ExclamationMark";
-import Check from "../components/svgs/Check";
-import Eye from "../components/svgs/Eye";
-import EyeSlash from "../components/svgs/EyeSlash";
+import ExclamationMark from "../../components/svgs/ExclamationMark";
+import Check from "../../components/svgs/Check";
+import Eye from "../../components/svgs/Eye";
+import EyeSlash from "../../components/svgs/EyeSlash";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 const UN_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;

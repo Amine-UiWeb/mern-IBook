@@ -93,6 +93,8 @@ const BookDetailsPage = () => {
   // console.log(someData)
 
 
+  // todo: try to implement a deep book content search using search/inside.json endpoint
+
   // if fetching is completed and there is no data
   if (workFetched && !workData) return <NoData />
   
@@ -161,7 +163,7 @@ const BookDetailsPage = () => {
           {
             !description ? <ParagrahSkeleton nLines={8} />
             : <>
-                <b>Description: </b><p className="fs-0-9">{description ?? '...'}</p>
+                <b>Description: </b><p className="fs-0-85 fw-500">{description ?? '...'}</p>
               </>
           }
         </div>

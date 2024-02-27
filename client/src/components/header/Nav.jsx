@@ -2,15 +2,20 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 
 import { Sun, Moon } from "../svgs/ThemeIcons"
+import { GENRES } from "../../utils/constants"
 import "./Nav.css"
+import { ChevronRight } from "../svgs/ChevronRight"
 
 
 const Nav = () => {
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  
+  // todo: replace with rtk state
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   useEffect(() => {
-    // change prefers-theme: dark
+    // toggle prefers-theme: light or dark
   }, [theme])
 
   const toggleTheme = () => {
@@ -21,26 +26,44 @@ const Nav = () => {
   return (
     <nav className="nav">
 
-      <div className="nav-buttons">  
-        <div className="browse-wrapper">
-          <button className="fw-600 fs-0-9">Browse</button>
-          <ul className="browse-ul fw-500 fs-0-9">
-            <li>Genre</li>
-            <li>Awards</li>
-            <li>Recommendations</li>
-            <li>Most Popular</li>
-            <li>Explore</li>
-          </ul>
-        </div>
+      <div className="browse-wrapper">
+        <button className="fw-600 fs-0-9">Browse</button>
+        <ul className="browse-ul fw-500 fs-0-9">
 
-        <button className="fw-600 fs-0-9">My Collection</button>
+          <li className="genres-wrapper scrollbar-1">
+            <a href="#">Genres</a>
+            <ChevronRight />
+            <ul className="genres-ul">
+              { Object.keys(GENRES)?.map((genre, i) => (
+                  <li key={i}>
+                    <NavLink to={`browse/genres/${GENRES[genre]}`}>
+                      {genre}
+                    </NavLink>
+                  </li>
+                ))
+              }
+            </ul>
+          </li>
+          <li><NavLink to="browse/awards">Awards</NavLink></li>
+          <li><NavLink to="browse/recommendations">Recommendations</NavLink></li>
+          <li><NavLink to="browse/popular">Most Popular</NavLink></li>
+          <li><NavLink to="browse/explore">Explore</NavLink></li>
+        
+        </ul>
       </div>
 
       <div className="nav-links">
         <ul>
           <li><NavLink to='/'>Home</NavLink></li>
-          <li><NavLink to='/login'>LogIn</NavLink></li>
-          <li><NavLink to='/register'>Register</NavLink></li>
+          { isLoggedIn ? 
+              <li><NavLink to='/user/collection'>My Collection</NavLink></li>
+              : (
+                <>
+                  <li><NavLink to='/login'>LogIn</NavLink></li>
+                  <li><NavLink to='/register'>Register</NavLink></li>
+                </>
+              )
+          }
         </ul>
       </div>
 

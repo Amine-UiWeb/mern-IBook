@@ -3,87 +3,106 @@
   display: flex;
   align-items: center; 
   justify-content: flex-start;
-  gap: .6rem;
-  padding: .3rem;
+  gap: 1rem;
+  padding: .3rem .5rem;
   background: var(--light-1);
-  border: 1px solid var(--wheat-600);
+  border: 1px solid var(--wheat-200);
   border-radius: 1rem;
-  /* justify-self: flex-end; */
 }
 
 
-/* header buttons */
+/* browse button and menu */
 
-.nav .nav-buttons {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 100%;
-  height: 100%;
-  gap: .3rem;
-}
+.nav .browse-wrapper, .genres-wrapper { position: relative; }
 
-.nav .nav-buttons button {
-  background: transparent;
-  border-radius: 1rem;
-  border: none;
+.nav .browse-wrapper button { 
+  padding: .4rem;
+  border: none; 
+  border-radius: .4rem !important;
 }
-.nav .nav-buttons button:hover,
 .nav .browse-wrapper:hover button {
-  background: var(--wheat-800);
+  background: var(--wheat-400);
   color: var(--light-bluish);
+  border-radius: .4rem .4rem 0 0 !important;
 }
 
 
-/* browse ul */
-
-.nav ul.browse-ul {
+.nav .browse-wrapper ul {
   position: absolute;
   display: none;
-  width: fit-content;
-  top: 100%;
-  left: 0;
-  background: var(--wheat-light);
-  color: var(--crimson-600);
   opacity: 0;
-  border: 1px solid var(--wheat-400);
-  padding: 1rem;
-  transition: opacity .8s ease-in-out;
+  width: fit-content;
+  height: fit-content;
+  padding: .4rem;
+  transition: all .1s ease-in-out;  
+}
+.nav .browse-wrapper ul.browse-ul {
+  left: 0;
+  top: 100%;
+  background: var(--wheat-400);
   z-index: 10;
 }
-.nav .nav-buttons .browse-wrapper:hover ul.browse-ul {
+.nav .genres-ul {
+  max-height: 300px;
+  top: 0%;
+  left: 100%;
+  background: var(--light-bluish);
+  border: 4px solid var(--light-3);
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 20;
+}
+.nav .browse-wrapper:hover ul.browse-ul,
+.nav .genres-wrapper:hover ul.genres-ul { 
   display: block;
-  opacity: 1;
+  opacity: 1; 
 }
 
-.nav ul.browse-ul li { border-bottom: 1px solid var(--light-bluish); } 
+.nav .genres-ul li { border: 1px solid var(--light-3); }
+.nav .genres-wrapper svg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: .8rem;
+  width: fit-content;
+  vertical-align: middle;
+  opacity: .4;
+  transform: translateY(-50%);
+}
+.nav .genres-wrapper:hover svg { opacity: 1; }
+
+.nav ul.browse-ul li { padding-right: 1rem; }
+.nav ul.browse-ul li:not(:last-child) { margin-bottom: .7rem; }
+
+.genres-wrapper:hover .genres-ul { display: block; }
 
 
 /* nav links */
 
-.header ul {
+.nav .nav-links ul {
   display: flex;
   align-items: center;
-  gap: .3rem;
+  gap: .2rem;
 }
 
-.header ul li{
+.nav li, .browse-wrapper button{
   background: #eee;
-  border-radius: .23rem;
-  outline: 2px solid transparent;
+  border-radius: .2rem;
   transition: .1s ease-out;
 }
-.header ul li:is(:hover, :has(> a.active)) {
+.nav .nav-links li:is(:hover, :has(> a.active)) {
   background: #96bac99c;
   color: #fff;
-  outline-color: var(--wheat-800);
   cursor: pointer;
 }
 
-.header ul li a {
+.nav ul li a {
   text-wrap: nowrap;
+  padding: .2rem;
+  font-size: .9rem;
+  text-decoration: none !important;
 }
-.header ul :is(li:hover a, li a.active) {
+.nav ul :is(li:hover > a, li a.active) {
   color: var(--wheat-800);
   text-decoration: underline;
 }
@@ -91,35 +110,39 @@
 
 /* mode toggler */
 
-.mode-toggler {
+.nav .mode-toggler {
   position: relative;
   height: 2rem;
   width: 2rem;
   padding: .1rem;
   border-radius: 50%;
 }
-.mode-toggler > input {
+.nav .mode-toggler > input {
   position: absolute;
   inset: 0;
   opacity: 0;
 }
-.mode-toggler > svg {
+/* todo: make icons jumpy (from width 90% to 100%) when toggling */
+.nav .mode-toggler > svg {
   position: absolute;
-  background-color: transparent;
   inset: 0;
-  border-radius: 50%;
   height: 100%;
   width: 100%;
+  border-radius: 50%;
 }
-.mode-toggler svg.sun { background: linear-gradient(180deg,#ffcc89,#d8860b); }
-.mode-toggler svg.moon { 
-  padding: .15rem;
-  border: 2px solid var(--dark-600);
+.nav .mode-toggler svg.sun { 
+  background: linear-gradient(180deg,#ffcc89,#d8860b); 
+  border: 2px solid #e7cd9a;
+}
+.nav .mode-toggler svg.moon { 
+  background: #ccc;
+  padding: .2rem;
+  border: 2px solid #888;
 }
 
 
 /* media queries */
 
-@media (min-width: 576px) {
-  .nav .search-container { max-width: 600px; }  
+@media (max-width: 767px) {
+  /* .nav { position: absolute; } */
 }

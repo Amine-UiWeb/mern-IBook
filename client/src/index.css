@@ -144,7 +144,7 @@ svg {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: slategray;
   text-decoration: none;
 }
 a:hover {
@@ -431,6 +431,15 @@ flex
 /*--
 misc
 ----*/
+
+
+/* scrollbars */
+
+.scrollbar-1 ::-webkit-scrollbar { width: .5rem; }
+.scrollbar-1 ::-webkit-scrollbar-track { background: lightgoldenrodyellow; }
+.scrollbar-1 ::-webkit-scrollbar-button { background: var(--sec-green-200); }
+.scrollbar-1 ::-webkit-scrollbar-thumb { background: var(--sec-green-200); }
+
 
 /* other classes */
 
