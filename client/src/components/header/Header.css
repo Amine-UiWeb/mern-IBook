@@ -13,35 +13,32 @@
 /* panel toggler */
 
 .panel-toggler {
-  padding: .2rem;
-  border: 2px solid var(--pri-blue-200);
+  background: var(--light-bluish);
   color: saddlebrown;
-  background: var(--wheat-light);
+  padding: .2rem;
+  border: 4px double var(--pri-blue-200);
   border-radius: .3rem;
   line-height: 0;
-  transition: all .15s ease;
+  transition: all .3s ease;
   cursor: pointer;
 }
-.panel-toggler:hover { 
-  border-style: double solid; 
-  background: var(--wheat-200);
-}
-.panel-toggler:focus-within { 
-  border-style: double solid; 
-  background: var(--wheat-600);
+.panel-toggler:hover { background: var(--pri-blue-100); }
+.panel-toggler.active { 
+  border: 4px solid var(--pri-blue-200); 
+  background: var(--pri-blue-100);
 }
 
 
 /* logo wrapper */
 
 .header .logo-wrapper {
+  background: var(--wheat-200); 
   border-radius: 2rem;
-  box-shadow: 0 0 3px 1px rgba(68, 68, 68, 0.5);
   padding: .25rem;
+  box-shadow: 0 0 1px 2px rgba(68, 68, 68, 0.5);
 }
 .header .logo-wrapper:hover { 
-  background: var(--wheat-200); 
-  box-shadow: 0 0 1px 2px rgba(68, 68, 68, 0.5);
+  box-shadow: 0 0 3px 3px rgba(68, 68, 68, 0.5);
 }
 .header img.logo { height: 2rem; }
 
@@ -60,15 +57,13 @@
 .header input[type="search"] {
   color: var(--pri-blue-400);
   background: transparent;
-  padding-inline: .75rem 2rem;
-  border-radius: 2rem;
-  border: 2px solid var(--wheat-400);
+  padding: .4rem 2rem .4rem .75rem;
+  border: 2px solid var(--crimson-light-1);
   outline: none;
+  font-size: .95rem;
+  box-shadow: 0 0 1px 2px var(--crimson-light-1);
 }
-.header input:is(:focus) {
-  background: var(--light-greenish);
-  border-color: var(--wheat-600);
-}
+.header input:is(:focus) { background: var(--crimson-light-1); }
 .header .search-icon {
   position: absolute;
   right: .6rem;
@@ -81,19 +76,13 @@
 
 /* media queries */
 
-@media (max-width: 767px) {
-  .nav { display: none; }
-}
-
 @media (min-width: 767px) {
   .header { 
     padding: .5rem 1rem ; 
     gap: 2rem;
   }
-  .panel-toggler { display: none; }
 
-  .nav .search-container { max-width: 500px; }  
-}
+  .header .panel-toggler { display: none; }
 
-@media (min-width: 991px) {
+  .header .search-container { max-width: 500px; }  
 }

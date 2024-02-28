@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="subscribe-wrapper">
             <div className="text">
               <h5 className="fs-1-3 fw-8">Start using iBook now.</h5>
-              <h6 className="fsd-0-8 fw-800 uppercase mb-1">No credit card required</h6>
+              <h6 className="fsd-0-8 fw-700 uppercase mb-1">No credit card required</h6>
             </div>
             <div className="input-wrapper">
               <input type="email" id="subscribe" placeholder="Your Email" />
@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="brand-wrapper flex-row gap-1-5 ai-c mt-1">
-            <p className="fs-0-85 mb-0-5 fw-700">Make the right decisions that move your business</p>
+            <p className="fs-0-95 mb-0-5 fw-600">Make the right decisions that move your business</p>
             <img src={Logo} alt="" />
           </div>
         </div>

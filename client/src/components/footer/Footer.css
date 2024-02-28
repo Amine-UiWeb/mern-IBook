@@ -43,7 +43,7 @@ footer.footer { border-top: 2px solid var(--light-3); }
   background: var(--pri-blue-100);
 }
 
-.footer-grid h6 { color: var(--pri-blue-400); }
+.footer-grid h6 { color: var(--dark-600); }
 .footer-grid .input-wrapper { 
   position: relative; 
   max-width: 340px;
@@ -51,18 +51,15 @@ footer.footer { border-top: 2px solid var(--light-3); }
 }
 .footer-grid input {
   background-color: transparent;
-  color: var(--wheat-800);
-  font-size: .9rem;
-  border: none;
-  border-bottom: 2px solid var(--wheat-200);
-  border-radius: 0;
+  color: var(--pri-blue-400);
   font-weight: 600;
+  border: none;
+  border-bottom: 1px solid var(--wheat-200);
+  border-radius: 0;
   line-height: 1;
   padding-inline: 1rem 2rem;
-  margin-top: .3rem;
 }
 .footer-grid input:is(:hover, :focus-visible) {
-  border: 0 0 1px 0;
   outline: none;
   background: none;
 }
@@ -70,9 +67,9 @@ footer.footer { border-top: 2px solid var(--light-3); }
   position: absolute;
   right: .6rem;
   top: .3rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  fill: var(--wheat-dark);
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: var(--dark-800);
 }
 
 footer.footer .brand-wrapper img {

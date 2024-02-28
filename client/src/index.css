@@ -89,6 +89,7 @@
   --fs-0-8: .8rem;
   --fs-0-85: .85rem;
   --fs-0-9: .9rem;
+  --fs-0-95: .95rem;
   --fs-1: 1rem;
   --fs-1-1: 1.1rem;
   --fs-1-2: 1.2rem;
@@ -185,7 +186,7 @@ input:focus-within {
 }
 input::placeholder { font-size: var(--fs-0-85); }
 
-input:is([type="text"], [type="password"], [type="Email"]) { letter-spacing: .5px; }
+input:is([type="text"], [type="password"], [type="Email"]) { letter-spacing: .4px; }
 
 button {
   font-family: inherit;
@@ -251,6 +252,7 @@ font-size
 .fs-0-8 { font-size: var(--fs-0-85); }
 .fs-0-85 { font-size: var(--fs-0-85); }
 .fs-0-9 { font-size: var(--fs-0-9); }
+.fs-0-95 { font-size: var(--fs-0-95); }
 .fs-1 { font-size: var(--fs-1); }
 .fs-1-1 { font-size: 1.1rem; }
 .fs-1-2 { font-size: 1.2rem; }
@@ -275,8 +277,14 @@ font- }weight
 
 
 /*-------------
-display / appearance
+position / display / appearance
 ---------------*/
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
 
 .d-in { display: inline; }
 .d-bl { display: block; }

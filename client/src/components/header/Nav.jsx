@@ -2,20 +2,20 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 
 import { Sun, Moon } from "../svgs/ThemeIcons"
+import { ChevronRight } from "../svgs/ChevronRight"
 import { GENRES } from "../../utils/constants"
 import "./Nav.css"
-import { ChevronRight } from "../svgs/ChevronRight"
 
 
-const Nav = () => {
+const Nav = ({ isPanelOpen, handleToggler }) => {
 
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
-  
   // todo: replace with rtk state
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+ 
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
   useEffect(() => {
-    // toggle prefers-theme: light or dark
+    // toggle prefers-theme to: light or dark
   }, [theme])
 
   const toggleTheme = () => {
@@ -23,8 +23,12 @@ const Nav = () => {
     localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light')
   }
 
+
   return (
-    <nav className="nav">
+    <nav 
+      onMouseLeave={handleToggler} 
+      className={isPanelOpen ? 'nav open' : 'nav'}
+    >
 
       <div className="browse-wrapper">
         <button className="fw-600 fs-0-9">Browse</button>
@@ -44,6 +48,7 @@ const Nav = () => {
               }
             </ul>
           </li>
+          
           <li><NavLink to="browse/awards">Awards</NavLink></li>
           <li><NavLink to="browse/recommendations">Recommendations</NavLink></li>
           <li><NavLink to="browse/popular">Most Popular</NavLink></li>
@@ -67,10 +72,9 @@ const Nav = () => {
         </ul>
       </div>
 
-      <div 
-        className="mode-toggler" 
-        style={{ "--theme": theme === 'light' ? '##7e7e7e' : 'var(--pri-blue-200)' }}
-      >
+      <div className="mode-toggler" style={{ 
+          "--theme": theme === 'light' ? '##7e7e7e' : 'var(--pri-blue-200)' 
+      }}>
         { theme === 'light' ? <Sun /> : <Moon /> }
         <input 
           type="checkbox" 

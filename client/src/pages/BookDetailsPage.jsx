@@ -202,7 +202,7 @@ const BookDetailsPage = () => {
       {/* other works by the author */}
       { authorWorks?.docs?.length > 0 && (
           <section className="author-books">
-            <h4 className="h4 mb-1">Other works for the same author</h4>
+            <h4 className="h4 mb-1">Other works by the author:</h4>
 
             <BooksCarousel books={authorWorks?.docs.splice(0, 20)} />
           </section>
