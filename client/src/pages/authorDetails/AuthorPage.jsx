@@ -2,8 +2,7 @@ import { useLocation, useParams } from "react-router-dom"
 
 const AuthorPage = () => {
 
-  const path = useLocation()
-  const authorKey = path.pathname.split('/')[1]
+  const { pathname: authorKey } = useLocation()
   console.log(authorKey)
 
   // todo: in author page use url https://openlibrary.org/authors/<authorkey>.json

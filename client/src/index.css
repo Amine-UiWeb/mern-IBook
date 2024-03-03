@@ -166,10 +166,12 @@ li { list-style: none; }
 
 label { 
   font-size: .9rem;
+  font-weight: 500; 
   margin-block: .5rem .1rem;
 }
 
-input {
+input:where([type="text"], [type="password"], [type="Email"]) { 
+  letter-spacing: .4px; 
   width: 100%;
   background: var(--light-bluish);
   font-size: .9rem;
@@ -185,8 +187,6 @@ input:focus-within {
   background: #fff;
 }
 input::placeholder { font-size: var(--fs-0-85); }
-
-input:is([type="text"], [type="password"], [type="Email"]) { letter-spacing: .4px; }
 
 button {
   font-family: inherit;

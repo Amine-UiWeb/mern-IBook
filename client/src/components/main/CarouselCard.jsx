@@ -30,7 +30,7 @@ const CarouselCard = ({ book }) => {
   return ( 
     <div className="carousel-card">
       { !image ? <DotsLoader /> 
-        // display a bookmark icon that adds book to favorits (if user logged in)
+        // display a bookmark icon that adds a book to favorits (if user logged in)
         : (
           <button onClick={handleNavigate}>
             <img src={image}/>

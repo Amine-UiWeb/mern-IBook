@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
-import useFetchImage from "../utils/hooks/useFetchImage.js"
-import useFetchData from "../utils/hooks/useFetchData.js"
+import useFetchImage from "../../utils/hooks/useFetchImage.js"
+import useFetchData from "../../utils/hooks/useFetchData.js"
 
-import BooksCarousel from "../components/main/BooksCarousel.jsx"
-import NoData from "../components/noData/NoData.jsx"
-import DotsLoader from "../components/loading/dotsLoader/DotsLoader.jsx"
+import BooksCarousel from "../../components/main/BooksCarousel.jsx"
+import NoData from "../../components/noData/NoData.jsx"
+import DotsLoader from "../../components/loading/dotsLoader/DotsLoader.jsx"
 import { HeaderSkeleton, ParagrahSkeleton, TextSkeleton } from 
-  "../components/loading/SkeletonLoaders/Skeleton.jsx"
+  "../../components/loading/SkeletonLoaders/Skeleton.jsx"
 import "./BookDetailsPage.css"
 
 
@@ -25,7 +25,7 @@ const BookDetailsPage = () => {
   /* ---------------------------- */
   const workUrl = `https://openlibrary.org${pathname}.json`
   const { data: workData, fetched: workFetched } = useFetchData(workUrl)
-
+  console.log(pathname)
   const olWork = pathname?.split('/works/')[1]
   const cover_id = `${workData?.covers?.[0]}`
   const title = workData?.title

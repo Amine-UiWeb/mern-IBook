@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 import { Sun, Moon } from "../svgs/ThemeIcons"
 import { ChevronRight } from "../svgs/ChevronRight"

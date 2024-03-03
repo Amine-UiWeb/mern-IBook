@@ -21,8 +21,6 @@
 
 /* label */
 
-.login-form label { font-weight: 500; }
-
 .login-form label svg { 
   display: inline-block; 
   stroke: var(--sec-green-400);
@@ -98,12 +96,11 @@
 /* button and link */
 
 .login-form button {
-  margin: 1.5rem auto 1rem;
+  margin: 1rem auto;
   padding: .4rem 1.6rem;
-  border: .15rem solid var(--crimson-light-1);
+  border: 4px solid var(--crimson-light-1);
   border-radius: 1rem;
   box-shadow: 0 0 1px 1px #aaa;
 }
-
 
 .login-form a { display: inline-block; }

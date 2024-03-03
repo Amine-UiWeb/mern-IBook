@@ -8,10 +8,11 @@ import Header from "./components/header/Header"
 // Pages
 import LoginPage from "./pages/auth/LoginPage"
 import RegisterPage from "./pages/auth/RegisterPage"
-import UserPage from "./pages/UserPage"
-import LandingPage from "./pages/LandingPage"
-import BookDetailsPage from "./pages/BookDetailsPage"
-import Browse from "./pages/Browse"
+import LandingPage from "./pages/landing/LandingPage"
+import BookDetailsPage from "./pages/bookDetails/BookDetailsPage"
+import AuthorPage from "./pages/authorDetails/AuthorPage"
+import Browse from "./pages/browse/Browse"
+import UserPage from "./pages/user/UserPage"
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
       { path: '/register', element: <RegisterPage /> },
       { path: '/user/collection', element: <UserPage /> },
       { path: '/works/:olWork', element: <BookDetailsPage /> },
+      { path: '/author/:key', element: <AuthorPage /> },
       { 
         path: '/browse/*', 
         element: <Browse />,

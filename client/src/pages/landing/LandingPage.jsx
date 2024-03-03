@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
 
-import { subjects } from "../utils/constants"
+import { subjects } from "../../utils/constants"
 
-import BooksCarousel from "../components/main/BooksCarousel"
+import BooksCarousel from "../../components/main/BooksCarousel"
 import "./LandingPage.css"
-import { ChevronRight } from "../components/svgs/ChevronRight"
+import { ChevronRight } from "../../components/svgs/ChevronRight"
 
 
 const LandingPage = () => {
+
+  const userInfo = {  }
 
   const [books, setBooks] = useState({})
   // console.log(books)

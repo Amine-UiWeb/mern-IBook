@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
 
-import "./LoginPage.css"
+import { registerUser } from "../../api/axiosApi";
+import { register } from "../../features/auth/authSlice";
+
 import ExclamationMark from "../../components/svgs/ExclamationMark";
 import Check from "../../components/svgs/Check";
 import Eye from "../../components/svgs/Eye";
 import EyeSlash from "../../components/svgs/EyeSlash";
+import "./LoginPage.css"
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 const UN_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -13,6 +17,9 @@ const PW_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 
 const RegisterPage = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   
   const emailRef = useRef()
   const unRef = useRef()
@@ -20,10 +27,10 @@ const RegisterPage = () => {
   const confPwRef = useRef()
   const errorRef = useRef()
 
-  const [email, setEmail] = useState('')
-  const [un, setUn] = useState('')
-  const [pw, setPw] = useState('')
-  const [confPw, setConfPw] = useState('')
+  const [email, setEmail] = useState('email@gmail.com')
+  const [un, setUn] = useState('username')
+  const [pw, setPw] = useState('Password123%')
+  const [confPw, setConfPw] = useState('Password123%')
 
   const [isPwVisible, setIsPwVisible] = useState(false)
   const [invalidInputs, setInvalidInputs] = useState({})
@@ -73,12 +80,30 @@ const RegisterPage = () => {
     const v4 = pw === confPw;
 
     if (!v1 || !v2 || !v3 || !v4) {
-      setValidationError('Invalid inputs! Make sure each field match the required rules.')
+      setValidationError('Invalid inputs! Make sure the field respect the specified rules.')
       errorRef.current.focus()
     }
     
+    // todo: register to the api
     else {
-      // todo: register to the api
+      (async () => {
+        try {
+          const newUser = { email, username: un, password: pw }
+          const result = await registerUser(newUser)
+          if (result.user) {
+            dispatch(register({ newUser }))
+            navigate('/')
+          }
+          if (result.error) {
+            setValidationError(result.error)
+            errorRef.current.focus()
+          }
+        }
+        catch (err) {
+          setValidationError(err.Message)
+          errorRef.current.focus()
+        }
+      })()
     }
   }
 

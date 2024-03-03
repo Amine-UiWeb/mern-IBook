@@ -1,5 +1,10 @@
 import { useRef, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+
+import { loginUser } from "../../api/axiosApi";
+import { login } from "../../features/auth/authSlice";
+import usePersist from "../../utils/hooks/usePersist"
 
 import Eye from "../../components/svgs/Eye";
 import EyeSlash from "../../components/svgs/EyeSlash";
@@ -8,11 +13,13 @@ import "./LoginPage.css"
 
 const LoginPage = () => {
 
-  const [email, setEmail] = useState('')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { setPersist } = usePersist()
 
-  const [pw, setPw] = useState('')
+  const [email, setEmail] = useState('email@gmail.com')
+  const [pw, setPw] = useState('Password123%')
   const [isPwVisible, setIsPwVisible] = useState(false)
-
   const [validationError, setValidationError] = useState('')
   const errorRef = useRef()
 
@@ -20,15 +27,41 @@ const LoginPage = () => {
   const onEmailChange = (value) => setEmail(prev => value)
   const onPasswordChange = (value) => setPw(prev => value)
 
-  const isSomeFieldsEmpty = () => !email || !pw
+  const togglePersist = (e) => setPersist(e.target.checked)
   const togglePwVisible = () => setIsPwVisible(prev => !prev)
+
+  const isSomeFieldsEmpty = () => !email || !pw
 
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    setValidationError('')
 
+    if (!email || !pw) {
+      setValidationError('All fields must be valid')
+    }
     // todo: register to the api
     // if login error set focus on errorRef
+    else {
+      (async () => {
+        try {
+          const credentials = { email, password: pw }
+          const result = await loginUser(credentials)
+          if (result.user) {
+            // navigate('/')
+            dispatch(login({ ...result.user, token: result.aT }))
+          }
+          if (result.error) {
+            setValidationError(result.error)
+            errorRef.current.focus()
+          }
+        } 
+        catch (err) {
+          setValidationError(err.Message)
+          errorRef.current.focus()
+        }
+      })()
+    }
   }
 
 
@@ -47,7 +80,7 @@ const LoginPage = () => {
           {validationError}
         </div>
 
-        {/* email */}
+        {/* ------------------ email ------------------ */ }
         <label htmlFor="email">Email</label>
         <input 
           type="text" 
@@ -58,7 +91,7 @@ const LoginPage = () => {
           autoComplete="off"
         />
 
-        {/* password */}
+        {/* ------------------ password ------------------ */}
         <label className="flex-row jc-sb" htmlFor="pw">
           <span>Password</span>
           
@@ -74,12 +107,23 @@ const LoginPage = () => {
           value={pw}
           onChange={(e) => onPasswordChange(e.target.value)}
         />
+        
+        <span className="d-inbl mt-1">
+          <input 
+            type="checkbox" 
+            id="persist" 
+            className="d-in" 
+            onChange={togglePersist}
+          />
+          <label htmlFor="persist" className="d-in ml-0-5 fs-0-85">Remember Me</label>
+        </span>
 
         <button 
           className="btn btn-primary" 
           onClick={handleSubmit} 
           disabled={isSomeFieldsEmpty()} 
         >Log in</button>
+
         
         <p className="fs-0-9 fw-500">
           Don't have an account yet?{" "}
