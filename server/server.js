@@ -7,6 +7,7 @@ import path from "path"
 import { fileURLToPath } from "url"
 import dotenv from "dotenv"
 import cors from "cors"
+import cookieParser from "cookie-parser"
 import mongoose from "mongoose";
 import helmet from "helmet";
 
@@ -40,22 +41,19 @@ app.use(requestLogger)
 // set security HTTP headers
 app.use(helmet());
 
-// parse json and urlencoded in request body
+// parse json and urlencoded in request body, and cookies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
 
 // enable cors
-app.use(cors());
-
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
 /*------------
 Route Handlers
 --------------*/
 
 app.use('/auth', authRouter)
-// app.use('/user', userRouter)
-// app.use('/author', authRouter)
-// app.use('/book', bookRouter)
 
 // custom 404
 app.use('*', (req, res) => {

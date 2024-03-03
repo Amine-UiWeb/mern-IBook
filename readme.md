@@ -1,11 +1,9 @@
 # about
-* creating a simple mern books plateform to lookup books
-details and authors informations, using a set of popular mern-stack technologies and tools
+* creating a simple mern books plateform to lookup books details and authors informations, using a set of popular mern-stack technologies and tools
 
 
 # contribution: 
-* Feel free to send pull requests regarding contribution or  
-possible changes and/or improvements to the project
+* Feel free to send pull requests regarding possible changes or improvements to the project
 
 
 # gitignore file:

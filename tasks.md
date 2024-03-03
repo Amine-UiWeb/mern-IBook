@@ -11,24 +11,24 @@
 - [x] Add __dark/light themes__ toggler button (in the navbar right).
 - [ ] Apply __themes__ changes.
 
-- [x] Add a __side menu__ toggler.
-- [ ] Implement __side menu__ toggling.
+- [x] Add a __nav panel__ toggler.
+- [x] Implement __nav panel__ toggling.
 
 - [ ] Create __BookDetails__ page.
 - [ ] Create __AuthorDetails__ page.
 - [ ] Add __skeleton loaders__ for headers, texts and pictures.
 
 - [x] Implement __form validation__, and display __validation errors__, for __login__ and __registration__ forms.
-- [ ] Implement __state management__ for user authentication with __redux-toolkit__.
+- [x] Implement __state management__ for user authentication with __redux-toolkit__.
+- [x] Add login and registration __api endpoints__.
+- [x] Add login and registration __logic for the client__.
 - [ ] Allow persisted user login using __localstorage__.
-- [ ] Add login and registration __api endpoints__.
-- [ ] Add login and registration __logic for the client__.
 
 - [x] Create a __search bar__ to search a book by __title__/__author__.
-- [ ] Display very few search results in a dropdown menu, or much more in a __search results__ page (with pagination) if/when hitting ENTER/search-icon.
-- [ ] Use __debounce__ functionality for searching through the openlibrary api
+- [ ] Display search results (5 ~ 10) in a dropdown menu upon typing (use debounce). 
 - [ ] Create a __search results__ page.
+- [ ] display search results in a __search results__ page when hitting ENTER/search-icon (with pagination).
 - [ ] Handle navigation when selecting a search result (to __BookDetails__ or __AuthorDetails__).
 
 - [x] Add a dropdown menu in the header __nav__ to browse books by different choices.
-- [ ] Add a link to browse the __user collection__ (only if authenticated).
+- [x] Add a link to browse the __user collection__ (only if authenticated).
