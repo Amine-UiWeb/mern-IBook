@@ -13,18 +13,19 @@ import BookDetailsPage from "./pages/bookDetails/BookDetailsPage"
 import AuthorPage from "./pages/authorDetails/AuthorPage"
 import Browse from "./pages/browse/Browse"
 import UserPage from "./pages/user/UserPage"
+import PersistLogin from "./pages/auth/PersistLogin"
 
 
 function App() {
 
   const Root = () => (
-    <>
+    <PersistLogin>
       <Header />
       <main className="main">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </PersistLogin>
   )
 
   const router = createBrowserRouter([{
@@ -45,6 +46,7 @@ function App() {
     ]
   }])
 
+  
   return (
     <div className="App container">
       <RouterProvider router={router} />

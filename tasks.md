@@ -22,7 +22,7 @@
 - [x] Implement __state management__ for user authentication with __redux-toolkit__.
 - [x] Add login and registration __api endpoints__.
 - [x] Add login and registration __logic for the client__.
-- [ ] Allow persisted user login using __localstorage__.
+- [x] Allow persisted user login using __httpOnly jwt cookie__ and __localstorage__.
 
 - [x] Create a __search bar__ to search a book by __title__/__author__.
 - [ ] Display search results (5 ~ 10) in a dropdown menu upon typing (use debounce). 

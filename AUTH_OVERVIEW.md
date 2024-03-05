@@ -1,25 +1,24 @@
-__login:__
+### login:
 * set the state with data received from the api
 
 
-__logout:__
+### logout:
 * reset user state manually, and clear jwt cookie by hitting logout endpoint 
 
 
-__page reload:__
+### page reload:
 
-on persisting login:
+_on persisting login:_
 * refresh the access Token and user data
-* if refresh is unsuccessFull (expired refresh token), redirect user to login page
-<br>
+* if refresh is unsuccessFull (expired refresh token), clear jwt cookie by hitting the logout endpoint
 
-on none persisting login:
+_on none persisting login:_
 * user is technically logged out, because all data is cleared automatically
 
 
-__adding book to favorites__:
+### adding book to favorites:
 * display bookmarking icon only when user is logged in
 
 
-__posting a book review__:
+### posting a book review:
 * display all reviews for the specific book in BookDetails page 

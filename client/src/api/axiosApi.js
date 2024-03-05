@@ -1,6 +1,7 @@
 import axios from "axios"
 
 const baseApi = axios.create({ baseURL: 'http://localhost:5000' })
+baseApi.defaults.withCredentials = true
 
 
 // todo: set interceptors for the apiWithInterceptors
@@ -31,14 +32,12 @@ export const loginUser = async (credentials) => {
 }
 
 
-export const refreshToken = async (credentials) => {
+export const refreshToken = async () => {
   try {
     const res = await baseApi.get('/auth/refresh', {
       headers: { 'Content-Type': 'application/json' },
-      withCredentials: "true"
     })
-    const result = await res.json()
-    return result
+    return res.data
   } 
   catch (err) { return err }
 }
@@ -46,9 +45,8 @@ export const refreshToken = async (credentials) => {
 
 export const logoutUser = async () => {
   try {
-    const res = await fetch('http://localhost:5000/auth/logout')
-    const result = await res.json()
-    return result
+    const res = await baseApi.post('/auth/logout')
+    return res.data
   } 
   catch (err) { return err }
 }

@@ -47,7 +47,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
 // enable cors
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+var allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    
+    // allow requests from the allowed origins
+    if(allowedOrigins.indexOf(origin) !== -1) return callback(null, true);
+
+    return callback(new Error('Requests from this origin are prohibited'), false);  
+  }, 
+  credentials: true,
+  // optionsSuccessStatus: 200,
+}));
+
 
 /*------------
 Route Handlers

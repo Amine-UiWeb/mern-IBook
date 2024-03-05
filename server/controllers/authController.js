@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
-import crypto from "crypto"
 import User from "../models/User.js"
 
 
@@ -35,15 +34,15 @@ export const register = async (req, res) => {
   const user = await User.create(credentials)
 
   // Create jwts 
-  const aT = genAccessToken(user._id, user.email)
+  const aT = genAccessToken(user._id)
   const rT = genRefreshToken(user._id)
 
   // send refreshToken in a cookie
-  res.cookie('jwt', rT, { 
-    maxAge: 3 * 24 * 60 * 60 * 1000, 
-    httpOnly: true, 
-    sameSite: 'None', 
-    secure: true
+  res.cookie('jwt', rT, {
+    maxAge: 3 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
+    httpOnly: false, // accessible only by web server 
+    sameSite: 'None', // cross-site cookie
+    secure: true, // https
   })
 
   // return user information and accessToken
@@ -71,14 +70,15 @@ export const login = async (req, res) => {
   if (!match) return res.status(401).json({ error: 'Invalid credentials!' })
 
   // create jwts 
-  const aT = genAccessToken(user._id, user.email)
+  const aT = genAccessToken(user._id)
   const rT = genRefreshToken(user._id)
+
   // send refreshToken in a cookie
   res.cookie('jwt', rT, {
     maxAge: 3 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
-    httpOnly: true, // accessible only by web server 
-    secure: false, // https
+    httpOnly: true, // accessible only by web server
     sameSite: 'None', // cross-site cookie
+    secure: true, // https
   })
 
   // return user information and accessToken
@@ -93,8 +93,7 @@ export const login = async (req, res) => {
 
 export const refresh = async (req, res) => {
   // Is cookie received? 
-  console.log(req.cookies.jwt)
-  if (!req.cookies?.jwt) return res.status(406).json({ error: "Unauthorized" })
+  if (!req.cookies?.jwt) return res.status(401).json({ error: "Unauthorized" })
 
   if (req.cookies?.jwt) {
     // Destructuring refreshToken from cookie
@@ -103,22 +102,21 @@ export const refresh = async (req, res) => {
     // Verifying refreshToken
     jwt.verify(rT, process.env.SECRET, async (err, decoded) => {
 
-        if (err) return res.status(403).json({ error: 'Forbidden' })
-        else {
-          // User registered?
-          const user = await User.findOne({ _id: decoded._id })
-          if (!user) return res.status(409).json({ error: 'Email is not registered!' })
-          
-          // create new accessToken 
-          const aT = genAccessToken(user._id)
-
-          // return user information and accessToken
-          user.password = null
-          res.status(200).json({ message: 'Login seccessful.', aT, user })
-        }
-
+      if (err) return res.status(403).json({ error: 'Forbidden' })
+      else {
+        // Get user data 
+        const user = await User.findOne({ _id: decoded._id })
+        if (!user) return res.status(409).json({ error: 'Email is not registered!' })
+        
+        // create new accessToken 
+        const aT = genAccessToken(user._id)
+        
+        // return user information and accessToken
+        user.password = null
+        res.status(200).json({ message: 'Login seccessful.', aT, user })
       }
-    )
+
+    })
   }
 }
 
@@ -128,5 +126,5 @@ export const refresh = async (req, res) => {
 // @access Public
 export const logout = async (req, res) => {
   res.clearCookie('jwt')
-  res.status(200).json({ message: 'User logged out seccessfully.'})
+  res.status(200).json({ message: 'Logout seccessful.'})
 }

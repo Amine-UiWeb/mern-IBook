@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
 
+import { selectToken } from "../../features/auth/authSlice"
+
 import { Sun, Moon } from "../svgs/ThemeIcons"
 import { ChevronRight } from "../svgs/ChevronRight"
 import { GENRES } from "../../utils/constants"
@@ -10,9 +12,8 @@ import "./Nav.css"
 
 const Nav = ({ isPanelOpen, handleToggler }) => {
 
-  // todo: replace with rtk state
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
- 
+  const token = useSelector(selectToken)
+
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Nav = ({ isPanelOpen, handleToggler }) => {
       onMouseLeave={handleToggler} 
       className={isPanelOpen ? 'nav open' : 'nav'}
     >
-
+      
       <div className="browse-wrapper">
         <button className="fw-600 fs-0-9">Browse</button>
         <ul className="browse-ul fw-500 fs-0-9">
@@ -61,7 +62,7 @@ const Nav = ({ isPanelOpen, handleToggler }) => {
       <div className="nav-links">
         <ul>
           <li><NavLink to='/'>Home</NavLink></li>
-          { isLoggedIn ? 
+          { token ? 
               <li><NavLink to='/user/collection'>My Collection</NavLink></li>
               : (
                 <>

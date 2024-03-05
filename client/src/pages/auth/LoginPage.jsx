@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { setPersist } = usePersist()
+  const { persist, setPersist } = usePersist()
 
   const [email, setEmail] = useState('email@gmail.com')
   const [pw, setPw] = useState('Password123%')
@@ -113,6 +113,7 @@ const LoginPage = () => {
             type="checkbox" 
             id="persist" 
             className="d-in" 
+            checked={persist ?? false}
             onChange={togglePersist}
           />
           <label htmlFor="persist" className="d-in ml-0-5 fs-0-85">Remember Me</label>

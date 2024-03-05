@@ -61,8 +61,7 @@
   align-items: start; 
   gap: .25rem;
   grid-template-columns: auto 1fr;
-  font-size: .8rem;
-  line-height: 1.2;
+  font-size: .85rem;
   padding: .3rem;
   margin-block: .25rem 0.5rem;
   border-radius: .1rem;

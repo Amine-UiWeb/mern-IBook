@@ -1,11 +1,12 @@
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
+
+import { MagnifyingGlass } from "../svgs/MagnifyingGlass"
+import { Menu } from "../svgs/Menu"
 
 import Nav from "./Nav"
 import Logo from "../../assets/icons/logo.svg"
-import { MagnifyingGlass } from "../svgs/MagnifyingGlass"
 import "./Header.css"
-import { Menu } from "../svgs/Menu"
-import { useState } from "react"
 
 
 const Header = () => {
@@ -19,6 +20,7 @@ const Header = () => {
   
   return (
     <header className="header">
+      {/* todo: make header fixed */}
 
         {/* todo: add a side-panel (like imdb's) */}
 
