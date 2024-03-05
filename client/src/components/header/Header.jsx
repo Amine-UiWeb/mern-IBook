@@ -20,9 +20,6 @@ const Header = () => {
   
   return (
     <header className="header">
-      {/* todo: make header fixed */}
-
-        {/* todo: add a side-panel (like imdb's) */}
 
         <div className="panel-toggler" data-panel-toggler onClick={handleToggler}>
           <Menu />

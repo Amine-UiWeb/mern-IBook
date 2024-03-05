@@ -124,7 +124,6 @@
   inset: 0;
   opacity: 0;
 }
-/* todo: make icons jumpy (from width 90% to 100%) when toggling */
 .nav .mode-toggler > svg {
   position: absolute;
   inset: 0;

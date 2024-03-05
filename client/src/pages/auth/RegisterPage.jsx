@@ -84,7 +84,6 @@ const RegisterPage = () => {
       errorRef.current.focus()
     }
     
-    // todo: register to the api
     else {
       (async () => {
         try {

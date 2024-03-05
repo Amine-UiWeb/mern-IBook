@@ -40,8 +40,6 @@ const LoginPage = () => {
     if (!email || !pw) {
       setValidationError('All fields must be valid')
     }
-    // todo: register to the api
-    // if login error set focus on errorRef
     else {
       (async () => {
         try {

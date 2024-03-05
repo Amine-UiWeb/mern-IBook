@@ -1,4 +1,3 @@
-/* todo: make the header fixed */
 .header { 
   position: fixed;
   width: 100%;
@@ -7,7 +6,7 @@
   justify-content: center;
   gap: 1rem;
   padding: .6rem;
-  border-bottom: 3px solid var(--sec-green-200);
+  border-bottom: 3px solid var(--pri-blue-200);
   background: var(--wheat-light);
   z-index: 10;
 }
