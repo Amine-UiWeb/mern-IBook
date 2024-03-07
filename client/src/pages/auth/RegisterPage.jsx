@@ -110,7 +110,7 @@ const RegisterPage = () => {
   return (
     <div className="login">
 
-      <h3>Register</h3>
+      <h3>REGISTER</h3>
 
       <form className="login-form">
 

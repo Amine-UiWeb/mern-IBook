@@ -25,10 +25,8 @@
 - [x] Allow persisted user login using __httpOnly jwt cookie__ and __localstorage__.
 
 - [x] Create a __search bar__ to search a book by __title__/__author__.
-- [ ] Display search results (5 ~ 10) in a dropdown menu upon typing (use debounce). 
-- [ ] Create a __search results__ page.
+- [x] Display search results(5) in a dropdown menu upon typing (use debouncing). 
 - [ ] display search results in a __search results__ page when hitting ENTER/search-icon (with pagination).
-- [ ] Handle navigation when selecting a search result (to __BookDetails__ or __AuthorDetails__).
 
 - [x] Add a dropdown menu in the header __nav__ to browse books by different choices.
 - [x] Add a link to browse the __user collection__ (only if authenticated).

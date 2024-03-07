@@ -1,9 +1,12 @@
 .header { 
   position: fixed;
   width: 100%;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-inline: auto;
   gap: 1rem;
   padding: .6rem;
   border-bottom: 3px solid var(--pri-blue-200);
@@ -35,6 +38,7 @@
 
 .header .logo-wrapper {
   background: var(--wheat-200); 
+  padding: .3rem;
   border-radius: 2rem;
   box-shadow: 0 0 1px 2px rgba(68, 68, 68, 0.5);
 }
@@ -49,19 +53,21 @@
 .header .search-container {
   position: relative;
   display: flex;
+  min-width: 14rem;
+  max-width: 20rem;
   flex: 1;
   align-items: center;
-  max-width: 360px;
 }
 
 .header input[type="search"]::-webkit-search-cancel-button { display: none; }
 .header input[type="search"] {
-  color: var(--pri-blue-400);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background: transparent;
+  color: var(--pri-blue-400);
+  font-size: 1rem;
   padding: .4rem 2rem .4rem .75rem;
   border: 2px solid var(--crimson-light-1);
   outline: none;
-  font-size: .95rem;
   box-shadow: 0 0 1px 2px var(--crimson-light-1);
 }
 .header input:is(:focus) { background: var(--crimson-light-1); }
@@ -72,6 +78,40 @@
 .header .search-icon svg {
   fill: var(--pri-blue-400);
   display: block;
+}
+
+.search-results {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 100%;
+  background: var(--light-1);
+  z-index: 20;
+}
+.search-container.active .search-results { display: block; }
+
+.search-results li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--light-3);
+  padding: .5rem;
+}
+
+.search-results div:nth-child(2) { overflow: hidden; }
+/* .search-results .thumbnail {  } */
+.search-results img { height: 3.8rem; width: 3.8rem; }
+.search-results li .h5 {
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+.search-results li span {
+  font-size: .8rem;
+  text-decoration: underline;
+  color: var(--wheat-600);
 }
 
 

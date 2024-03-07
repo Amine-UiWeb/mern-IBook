@@ -66,7 +66,7 @@ const LoginPage = () => {
   return (
     <div className="login">
       
-      <h3>Login</h3>
+      <h3>LOGIN</h3>
 
       <form className="login-form">
 

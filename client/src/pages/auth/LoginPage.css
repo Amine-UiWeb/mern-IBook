@@ -1,5 +1,5 @@
 .login {
-  max-width: 24rem;
+  max-width: 26rem;
   padding: 1rem;
   width: 100%;
   min-width: 16rem;
@@ -14,8 +14,9 @@
   font-size: 1.8rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+  font-weight: 400;
   color: var(--sec-green-400);
-  text-decoration: wavy underline var(--sec-green-200) 2px;
+  text-decoration: wavy underline var(--sec-green-200) 1px;
 }
 
 
