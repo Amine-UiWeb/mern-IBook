@@ -1,28 +1,29 @@
 .landing-page :is(a, a:hover, a:visited) { color: initial; }
 
-.landing-cover, .landing-cover img { width: 100%; }
-
-.books-section > .h3 {
-  width: fit-content;
+.carousel-section-header {
   position: relative;
-  padding-left: .75rem;
-  margin-bottom: 1rem;
-  line-height: 1;
+  font-family: Lucida !important;
+  width: 340px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  line-height: 1.2;
 }
-.books-section > .h3::before {
+.carousel-section-header * { font-family: Lucida; }
+.carousel-section-header::before {
   position: absolute;
   content: "";
-  height: 100%;
-  width: 4px;
-  background: var(--crimson-100);
-  border-radius: 1rem;
+  height: 2rem;
+  width: .2rem;
+  background: var(--pri-blue-200);
   margin-left: -0.75rem;
 }
-.books-section > .h3 svg {
+.carousel-section-header svg {
   height: 1rem;
   width: 1rem;
+  color: var(--pri-blue-200);
   transition: color .15s ease 0s;
 }
-.books-section > .h3:hover svg { color: var(--crimson-100); }
+.carousel-section-header:hover svg { color: var(--pri-blue-600); }
 
-.books-section .books-carousel { margin-bottom: 2rem; }
+.carousel-section .books-carousel { margin-bottom: 2rem; }

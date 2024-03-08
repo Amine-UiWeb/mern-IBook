@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
 
 
-const useFetchData = (url) => {
+const useFetchData = (url, deps) => {
 
   const [data, setData] = useState(null)
   const [fetched, setFetchCompleted] = useState(false)
   const [fetchError, setFetchError] = useState(false)
 
     useEffect(() => {
-      if (url.includes('undefined')) setFetchCompleted(false)
+      if (!deps) setFetchCompleted(false)
       else {
-        (async () => {
+        (() => {
           try {
             fetch(url, { cache: 'force-cache' })
               .then(res => res.json())
@@ -24,7 +24,7 @@ const useFetchData = (url) => {
           catch (err) { setFetchError(prev => ({ error: err.message })) } 
         })()
       }
-    }, [url])
+    }, [deps])
 
   return { data, fetched, fetchError }
 }

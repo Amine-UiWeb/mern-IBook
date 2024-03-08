@@ -6,7 +6,7 @@ import { selectToken } from "../../features/auth/authSlice"
 
 import { Sun, Moon } from "../svgs/ThemeIcons"
 import { ChevronRight } from "../svgs/ChevronRight"
-import { GENRES } from "../../utils/constants"
+import { SUBJECTS } from "../../utils/constants"
 import "./Nav.css"
 
 
@@ -33,17 +33,17 @@ const Nav = ({ isPanelOpen, handleToggler }) => {
     >
       
       <div className="browse-wrapper">
-        <button className="fw-600 fs-0-9">Browse</button>
-        <ul className="browse-ul fw-500 fs-0-9">
+        <button className="fw-6 fs-0-9">Browse</button>
+        <ul className="browse-ul fw-5 fs-0-9">
 
           <li className="genres-wrapper scrollbar-1">
             <a href="#">Genres</a>
             <ChevronRight />
             <ul className="genres-ul">
-              { Object.keys(GENRES)?.map((genre, i) => (
+              { Object.keys(SUBJECTS)?.map((subject, i) => (
                   <li key={i}>
-                    <NavLink to={`browse/genres/${GENRES[genre]}`}>
-                      {genre}
+                    <NavLink to={`browse/genres/${SUBJECTS[subject]}`}>
+                      {subject}
                     </NavLink>
                   </li>
                 ))

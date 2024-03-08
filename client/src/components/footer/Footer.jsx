@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="p-0-5 flex-col gap-2 ai-c ta-c">
 
           <div className="social-wrapper">
-            <h5 className="h5 mb-0-5 fs-1-2 fw-700">FOLLOW US</h5>
+            <h5 className="h5 mb-0-5 fs-1-2 fw-7">FOLLOW US</h5>
             <div className="footer-socials">
               <ul className="flex-row gap-0-5 wrap jc-c">
                 <li><Link to="#" title="Instagram" href="#"><InIcon /></Link></li>
@@ -42,8 +42,8 @@ const Footer = () => {
           </div>
 
           <div className="contact-wrapper d-in">
-            <h5 className="h5 d-in mr-1 fs-1-2 fw-700 uppercase">Contact US</h5>
-            <span className="fs-1 fw-500 ">05 - 12345678</span>
+            <h5 className="h5 d-in mr-1 fs-1-2 fw-7 uppercase">Contact US</h5>
+            <span className="fs-1 fw-5 ">05 - 12345678</span>
           </div>
 
         </div>
@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="subscribe-wrapper">
             <div className="text">
               <h5 className="fs-1-3 fw-8">Start using iBook now.</h5>
-              <h6 className="fsd-0-8 fw-700 uppercase mb-1">No credit card required</h6>
+              <h6 className="fsd-0-8 fw-7 uppercase mb-1">No credit card required</h6>
             </div>
             <div className="input-wrapper">
               <input type="email" id="subscribe" placeholder="Your Email" />
@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="brand-wrapper flex-row gap-1-5 ai-c mt-1">
-            <p className="fs-0-95 mb-0-5 fw-600">Make the right decisions that move your business</p>
+            <p className="fs-0-95 mb-0-5 fw-6">Make the right decisions that move your business</p>
             <img src={Logo} alt="" />
           </div>
         </div>

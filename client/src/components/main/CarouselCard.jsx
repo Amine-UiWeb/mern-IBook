@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, redirectDocument } from "react-router-dom"
+import { useNavigate, redirectDocument, Link } from "react-router-dom"
 import DotsLoader from "../loading/dotsLoader/DotsLoader"
 import "./CarouselCard.css"
 
@@ -8,7 +8,7 @@ const CarouselCard = ({ book }) => {
 
   const navigate = useNavigate()
   const [image, setImage] = useState(null)
-  
+
 
   useEffect(() => {
     (async () => {
@@ -24,17 +24,14 @@ const CarouselCard = ({ book }) => {
   }, [])
 
   
-  const handleNavigate = () => navigate(`${book?.key}`)
-  
-
   return ( 
     <div className="carousel-card">
       { !image ? <DotsLoader /> 
         // display a bookmark icon that adds a book to favorits (if user logged in)
         : (
-          <button onClick={handleNavigate}>
+          <Link to={`${book?.key}`}>
             <img src={image}/>
-          </button>
+          </Link>
         )
       }
     </div>

@@ -22,9 +22,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: rgb(36, 36, 36);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -129,7 +126,7 @@ body::-webkit-scrollbar-thumb:hover { background-color: var(--pri-blue-400); }
 
 main.main {
   min-height: 80vh;
-  padding: 6rem 1rem 4rem;
+  padding: 8rem 1rem 4rem;
   border-inline: 2px solid var(--light-3);
 }
 
@@ -172,6 +169,8 @@ a:hover {
 }
 
 li { list-style: none; }
+
+p { font-family: "Lucida Grande", Verdana, sans-serif; }
 
 label { 
   font-size: .9rem;
@@ -233,15 +232,6 @@ button {
   background: var(--sec-green-400);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  button { background-color: #f9f9f9; }
-}
-
-
 select {
   padding: .4rem .6rem;
   border-radius: .3rem;
@@ -287,12 +277,12 @@ font-size
 font- }weight
 -----------*/
 
-.fw-300 { font-weight: 300; }
-.fw-400 { font-weight: 400; }
-.fw-500 { font-weight: 500; }
-.fw-600 { font-weight: 600; }
-.fw-700 { font-weight: 700; }
-.fw-800 { font-weight: 800; }
+.fw-3 { font-weight: 300; }
+.fw-4 { font-weight: 400; }
+.fw-5 { font-weight: 500; }
+.fw-6 { font-weight: 600; }
+.fw-7 { font-weight: 700; }
+.fw-8 { font-weight: 800; }
 
 
 /*-------------
@@ -476,6 +466,12 @@ misc
 */
 
 /* -------------------------------- */
+
+
+@media (prefers-color-scheme: light) {
+  :root {}
+  button { background-color: #f9f9f9; }
+}
 
 /* @media (prefers-color-scheme: light) {
   :root {

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 
 
-const useFetchImage = (url) => {
+const useFetchImage = (url, deps) => {
   
   const [image, setImage] = useState(null)
   const [isImageLoading, setIsImageLoading] = useState(false)
   const [isImageError, setIsImageError] = useState(false)
   
   useEffect(() => {
-    if (url.includes('undefined')) setIsImageLoading(true) 
+    if (!deps) setIsImageLoading(true) 
     else {
       (async () => {
         setImage(null)
@@ -28,7 +28,7 @@ const useFetchImage = (url) => {
         finally { setIsImageLoading(false) }
       })()
     }
-  }, [url])
+  }, [deps])
 
   return { image, isImageLoading, isImageError }
 }

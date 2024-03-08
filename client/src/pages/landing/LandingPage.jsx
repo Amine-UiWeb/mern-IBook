@@ -1,38 +1,43 @@
 import { useState, useEffect } from "react"
+import axios from "axios"
 
-import { subjects } from "../../utils/constants"
+import { GENRES } from "../../utils/constants"
 
 import BooksCarousel from "../../components/main/BooksCarousel"
-import "./LandingPage.css"
 import { ChevronRight } from "../../components/svgs/ChevronRight"
+import "./LandingPage.css"
+
+const BASE_URL = 'https://openlibrary.org/subjects'
 
 
 const LandingPage = () => {
 
-  const userInfo = {  }
-
   const [books, setBooks] = useState({})
-  // console.log(books)
+
+  // https://openlibrary.org/trending/monthly.json
 
   useEffect(() => {
 
-    const fetchBooks = async (url) => {
-      fetch(url, { cache: 'force-cache' })
+    // fetch books for each specified subject
+    Object.keys(GENRES).forEach(genre => {
+      const fields = `fields=key,cover_i,ratings_average`
+      const params = 'limit=12&offset=12'
+      const fetchUrl = `${BASE_URL}/${GENRES[genre]}.json?${fields}&${params}`
+
+      fetchBooks(fetchUrl, genre)
+    })
+
+    function fetchBooks(url, genre) {
+      fetch(url, { method: 'GET', cache: 'force-cache' })
         .then(res => res.json())
         .then(data => {
-          // append the fetched books to the state 
-          setBooks(prev => ({ ...prev, [data.name]: data.works }))
+          setBooks(prev => ({ ...prev, [genre]: data }))
+          console.log(data)
         })
     }
-    
-    // fetch books for each specified subject 
-    Object.keys(subjects).forEach(subject => {
-      fetchBooks(`https://openlibrary.org/subjects/${subjects[subject]}.json`)
-    })
 
   }, [])
 
-  // console.log(books)
 
   return (
     <div className="landing-page">
@@ -43,18 +48,22 @@ const LandingPage = () => {
       </div>
       
       { // pass each subject books to a BooksCarousel componenet
-        Object.keys(books).map(book => (
-          <section key={book} className="books-section">
+        Object.keys(books).map(key => (
+          <section key={key} className="carousel-section">
             
-            <h3 className="h3 ff-times m-1">
-              <a href="#" className="cap">
-                <span className="mr-0-5">{book}</span>
-                <ChevronRight />
-              </a>
-            </h3>
+            <div className="carousel-section-header ff-times m-1">
+              <h3 className="h3 fw-4">
+                <a href="#" className="cap">
+                  <span className="mr-0-5">{key}</span>
+                  <ChevronRight />
+                </a>
+              </h3>
+              {/* display total work count (in far right, in gray color small size )  */}
+              <span className="fw-7">- {books[key]?.work_count} Books -</span>
+            </div>
 
             <div className="books-carousel">
-              <BooksCarousel books={books[book]} />
+              <BooksCarousel books={books[key].works} />
             </div>
 
           </section>

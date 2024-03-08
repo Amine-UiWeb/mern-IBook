@@ -124,7 +124,7 @@ const LoginPage = () => {
         >Log in</button>
 
         
-        <p className="fs-0-9 fw-500">
+        <p className="fs-0-9 fw-5">
           Don't have an account yet?{" "}
           <Link to="/register" className="underline">Register</Link>
         </p>

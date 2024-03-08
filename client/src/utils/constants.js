@@ -1,4 +1,4 @@
-export const subjects = {
+export const GENRES = {
   Literature: 'literature',
   Romance: 'romance',
   Comedy: 'comedy',
@@ -7,7 +7,7 @@ export const subjects = {
   Detective: 'detective',
 }
 
-export const GENRES = {
+export const SUBJECTS = {
   Art: 'art',
   Biography: 'biography',
   Classics: 'classics',

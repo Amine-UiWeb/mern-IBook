@@ -14,24 +14,23 @@ import "./BookDetailsPage.css"
 
 const BookDetailsPage = () => {
 
-  
   const { pathname } = useLocation() // pathname is structured as: /works/<workId>
-  const [workId, setWorkId] = useState(pathname.split('/works/')[1])
 
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  
 
   /* ---------------------------- */
   // Fetch book info (use workId)
   /* ---------------------------- */
+  
   const workUrl = `https://openlibrary.org${pathname}.json`
-  const { data: workData, fetched: workFetched } = useFetchData(workUrl)
-  console.log(pathname)
+  const { data: workData, fetched: workFetched } = useFetchData(workUrl, pathname)  
+
   const olWork = pathname?.split('/works/')[1]
   const cover_id = `${workData?.covers?.[0]}`
   const title = workData?.title
   const authorKey = workData?.authors?.[0]?.author?.key || workData?.author?.key
   const subjects = workData?.subjects?.sort().splice(0, 6)
-  // todo: subjects values change while rendering
   const description = workData?.description?.value || workData?.description
 
 
@@ -40,7 +39,7 @@ const BookDetailsPage = () => {
   /* -------------------------------- */
   // Cover:
   const coverUrl = `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
-  const { image } = useFetchImage(coverUrl)
+  const { image: bookCover } = useFetchImage(coverUrl, workData?.length ?? false)
   
   // Rating: 
   const ratingUrl = `https://openlibrary.org/works/${olWork}/ratings.json`
@@ -109,10 +108,7 @@ const BookDetailsPage = () => {
       <section className="details-grid">
 
         <div className="cover">
-          {
-            image ? <img src={image} alt="book-cover_id" className="" />
-            : <DotsLoader />
-          }
+          { bookCover ? <img src={bookCover} alt="book-cover" /> : <DotsLoader /> }
         </div>
         
         <div className="info">
@@ -163,7 +159,7 @@ const BookDetailsPage = () => {
           {
             !description ? <ParagrahSkeleton nLines={8} />
             : <>
-                <b>Description: </b><p className="fs-0-85 fw-500">{description ?? '...'}</p>
+                <b>Description: </b><p className="fs-0-85 mt-0-5">{description ?? '...'}</p>
               </>
           }
         </div>

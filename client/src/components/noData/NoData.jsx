@@ -12,7 +12,7 @@ const NoData = () => {
   return (
     <div className="no-data">
       <p>
-        <span className="fw-600">Sorry. </span>
+        <span className="fw-6">Sorry. </span>
         <span className="fs-0-9">
           There have been a problem getting the requested book information.
         </span>

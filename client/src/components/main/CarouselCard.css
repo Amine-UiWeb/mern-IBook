@@ -3,12 +3,12 @@
   scroll-snap-align: start;
 }
 
-.carousel-card button {
+.carousel-card a {
   border: 0;
   cursor: pointer;
 }
 
-.carousel-card button img {
+.carousel-card a img {
   height: 240px;
   width: 170px;
   object-fit: fill;
