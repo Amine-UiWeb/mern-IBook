@@ -3,7 +3,7 @@ import axios from "axios"
 
 import { GENRES } from "../../utils/constants"
 
-import BooksCarousel from "../../components/main/BooksCarousel"
+import BooksCarousel from "../../components/main/booksCarousel/BooksCarousel.jsx"
 import { ChevronRight } from "../../components/svgs/ChevronRight"
 import "./LandingPage.css"
 
@@ -32,7 +32,6 @@ const LandingPage = () => {
         .then(res => res.json())
         .then(data => {
           setBooks(prev => ({ ...prev, [genre]: data }))
-          console.log(data)
         })
     }
 

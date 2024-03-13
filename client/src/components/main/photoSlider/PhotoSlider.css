@@ -1,0 +1,22 @@
+button.slider-arrow {
+  all: unset;
+  position: absolute;
+  display: grid;
+  place-content: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: fit-content;
+
+  background: #8a8a8a40;
+  color: #8a8a8a;
+  border: 2px solid #8a8a8a;
+  font-size: 2rem;
+  line-height: 0;
+  font-weight: 800;
+  padding: 1rem;
+}
+button.slider-arrow:disabled { background: #7a7a7a70; }
+button.slider-arrow:not(:disabled):hover { background: #77777080; }
+
+button.slider-prev-arrow { left: 1rem; content: '<'; }
+button.slider-next-arrow { right: 1rem; content: '>'; }

@@ -66,7 +66,7 @@
     gap: 2rem;
   }
 
-  .cover { 
+  .book-details .cover { 
     grid-area: cover; 
     max-width: 100%;
   }
@@ -76,9 +76,9 @@
     height: auto;
   }
 
-  .info { grid-area: info; }
+  .book-details .info { grid-area: info; }
   
-  .description { grid-area: desc; }
+  .book-details .description { grid-area: desc; }
 }
 
 @media (min-width: 767px) {
@@ -93,9 +93,9 @@
     grid-template-columns: 2fr 4fr;
   }
 
-  .cover { min-width: 200px; max-width: 300px; }
+  .book-details .cover { min-width: 200px; max-width: 300px; }
 
-  .description { 
+  .book-details .description { 
     border-left: .2rem solid var(--sec-green-200);
     padding-left: .6rem;
     height: fit-content;
@@ -108,7 +108,7 @@
     padding-inline: 3rem;
   }
 
-  .cover { min-width: 200px; max-width: 100px; }
+  .book-details .cover { min-width: 200px; max-width: 100px; }
 
   .details-grid {
     grid-template-areas: 'cover info desc';

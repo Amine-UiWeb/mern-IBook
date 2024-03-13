@@ -18,6 +18,7 @@ const Nav = ({ isPanelOpen, handleToggler }) => {
 
   useEffect(() => {
     // toggle prefers-theme to: light or dark
+    /* todo: when implementing theme toggling, keep header and footer color static */
   }, [theme])
 
   const toggleTheme = () => {

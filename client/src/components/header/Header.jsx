@@ -8,6 +8,7 @@ import Nav from "./Nav"
 import Logo from "../../assets/icons/logo.svg"
 import { Menu } from "../svgs/Menu"
 import { MagnifyingGlass } from "../svgs/MagnifyingGlass"
+import { Spinner } from "../loading/spinner/Spinner.jsx"
 import "./Header.css"
 
 const BASE_URL = 'https://openlibrary.org/search.json?'
@@ -62,6 +63,7 @@ const Header = () => {
   const hideSearchResults = (e) =>
     e.target.closest('.search-container').classList.remove('active')
 
+  // todo: copy imdb website scrollbar appearance and main container styling
   
   return (
     <header className="header">
@@ -85,8 +87,8 @@ const Header = () => {
         >
           {/* todo: add a dropdown to use search queries */}
           
-          <span className="search-icon">
-            {!isSearching ? <MagnifyingGlass /> : "..."}
+          <span className="search-icon relative">
+            {!isSearching ? <MagnifyingGlass /> : <Spinner />}
             {/* todo: display a spining icon when loading results */}
           </span>
 
@@ -96,7 +98,7 @@ const Header = () => {
             name="search"
             placeholder="Search by: Title, Author, Genre, ..."
             value={searchText}
-            // todo: display search results when cursor is visible 
+            // todo: display search-results when cursor is visible 
             onChange={onSearchChange}
             onPointerDown={displaySearchResults}
           />

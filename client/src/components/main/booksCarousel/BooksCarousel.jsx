@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 
-import { ChevronLeft } from "../svgs/ChevronLeft"
-import { ChevronRight } from "../svgs/ChevronRight"
+import { ChevronLeft } from "../../svgs/ChevronLeft"
+import { ChevronRight } from "../../svgs/ChevronRight"
 import CarouselCard from "./CarouselCard"
 import "./BooksCarousel.css"
 
@@ -40,6 +40,8 @@ const BooksCarousel = ({ books }) => {
 
   return (
     <div className="carousel-container">
+
+      {/* todo: improve card appearance: make it like in openlibrary website */}
 
       { dispLeftArr && 
         <div className="carousel-arrow" onClick={() => handleArrowClick('left')}>

@@ -37,7 +37,7 @@ function App() {
       { path: '/register', element: <RegisterPage /> },
       { path: '/user/collection', element: <UserPage /> },
       { path: '/works/:olWork', element: <BookDetailsPage /> },
-      { path: '/author/:key', element: <AuthorPage /> },
+      { path: '/authors/:key', element: <AuthorPage /> },
       { 
         path: '/browse/*', 
         element: <Browse />,

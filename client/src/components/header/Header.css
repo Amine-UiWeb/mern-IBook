@@ -117,6 +117,10 @@
 
 /* media queries */
 
+@media (max-width: 575px) {
+  .header { padding: .3rem; gap: .4rem 1rem; }
+}
+
 @media (min-width: 767px) {
   .header { 
     padding: .6rem 1rem ; 

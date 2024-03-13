@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, redirectDocument, Link } from "react-router-dom"
-import DotsLoader from "../loading/dotsLoader/DotsLoader"
+
+import DotsLoader from "../../loading/dotsLoader/DotsLoader"
 import "./CarouselCard.css"
 
 

@@ -13,11 +13,12 @@ const PersistLogin = ({ children }) => {
 
   const effectRan = useRef(false)
 
+  // adjusted to work with React.StrictMode
   useEffect(() => {
     if (effectRan.current === true || process.env.NODE_ENV !== "development") {
       if (persist) {
         (async () => {
-          try { 
+          try {
             const data = await refreshToken() 
             dispatch(login({ ...data.user, token: data.aT }))
           }

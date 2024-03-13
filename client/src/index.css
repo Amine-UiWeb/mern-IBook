@@ -108,8 +108,9 @@
 body {
   min-height: 100vh;
   min-width: 320px;
-  margin: 0;
+  border-inline: 1px solid var(--light-3);
   padding: 0;
+  margin: 0;
 }
 
 body::-webkit-scrollbar { width: 16px; }
@@ -127,7 +128,6 @@ body::-webkit-scrollbar-thumb:hover { background-color: var(--pri-blue-400); }
 main.main {
   min-height: 80vh;
   padding: 8rem 1rem 4rem;
-  border-inline: 2px solid var(--light-3);
 }
 
 .container {
@@ -136,7 +136,7 @@ main.main {
   margin-inline: auto;
 }
 
-a, ul, li, button, label, input, img { display: block; }
+label, input, button, img { display: block; }
 
 h1 {
   font-size: 3.2em;
@@ -144,24 +144,28 @@ h1 {
   text-align: center;
 }
 
+h1, h2, h3, h4, h5, h6 { font-family: 'Lucida Grande', Geneva, Verdana, sans-serif; }
+
 svg {
   display: inline-block; 
   vertical-align: middle;
 }
 
 a {
+  display: block;
   font-weight: 500;
   color: slategray;
   text-decoration: none;
 }
 a:hover {
-  color: #534326;
+  color: #8a7a5c;
   cursor: pointer;
 }
 
 .a {
-  color: #646cff;
+  color: #02598b;
   text-decoration: underline;
+  display: inline-block;
 }
 .a:hover {
   color: #534326;
@@ -170,7 +174,10 @@ a:hover {
 
 li { list-style: none; }
 
-p { font-family: "Lucida Grande", Verdana, sans-serif; }
+p { 
+  font-size: .92rem;
+  font-weight: 400;
+}
 
 label { 
   font-size: .9rem;
@@ -190,21 +197,13 @@ input:where([type="search"], [type="text"], [type="password"], [type="Email"]) {
   border-radius: .3rem;
   transition: all .3s;
 }
-input:where(
-  [type="search"], 
-  [type="text"], 
-  [type="password"], 
-  [type="Email"]
-):focus-within {
+input:where([type="search"], [type="text"], [type="password"], [type="Email"])
+:focus-within {
   outline-color: var(--pri-blue-100);
   background: #fff;
 }
-input:where(
-  [type="search"], 
-  [type="text"], 
-  [type="password"], 
-  [type="Email"]
-)::placeholder { font-size: var(--fs-0-95); }
+input:where([type="search"], [type="text"], [type="password"], [type="Email"])
+::placeholder { font-size: var(--fs-0-95); }
 
 button {
   font-family: inherit;
@@ -497,6 +496,7 @@ misc
 
 @media (min-width: 768px) {
   main.main { padding-inline: 2rem; }
+  p { font-size: .95rem; }
 }
 
 @media (min-width: 992px) {

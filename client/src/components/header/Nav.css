@@ -13,7 +13,7 @@
 
 /* browse button and menu */
 
-.nav .browse-wrapper, .genres-wrapper { position: relative; }
+.nav :is(.browse-wrapper, .genres-wrapper) { position: relative; }
 
 .nav .browse-wrapper button { 
   padding: .4rem;
@@ -28,53 +28,47 @@
 
 .nav .browse-wrapper ul {
   position: absolute;
+  top: 100%;
   display: none;
   opacity: 0;
-  width: fit-content;
-  height: fit-content;
   padding: .4rem;
-  border: 2px solid olive;
+  border: 1px solid var(--wheat-400);
   transition: all .1s ease-in-out;  
+  transition-delay: 1s;
 }
-.nav .browse-wrapper ul.browse-ul {
+
+.nav ul.browse-ul {
   left: 0;
-  top: 100%;
   background: var(--light-bluish);
   z-index: 10;
 }
-.nav .genres-ul {
+.nav ul.genres-ul {
   max-height: 300px;
-  top: 100%;
   left: 70%;
   background: var(--light-bluish);
-  padding: 1rem;
   overflow-y: auto;
   z-index: 20;
 }
-.nav .browse-wrapper:hover ul.browse-ul,
-.nav .genres-wrapper:hover ul.genres-ul { 
+.nav .browse-wrapper:hover ul.browse-ul, .nav .genres-wrapper:hover ul.genres-ul { 
   display: block;
   opacity: 1; 
 }
 
-.nav .genres-ul li { border: 1px solid var(--light-3); }
+.nav .browse-ul > li { border-left: 3px solid var(--dark-200); }
+.nav .genres-ul li { border-bottom: 1px solid var(--dark-200); }
 .nav .genres-wrapper svg {
   position: absolute;
   top: 50%;
   right: .5rem;
   height: .8rem;
-  width: fit-content;
   width: .8rem;
-  fill: olive;
-  vertical-align: middle;
+  fill: var(--wheat-400);
   transform: translateY(-50%);
   transition: transform .1s;
 }
-.nav .genres-wrapper:hover svg { 
-  transform: translateY(-50%) rotateZ(90deg);
-}
+.nav .genres-wrapper:hover svg { transform: translateY(-50%) rotateZ(90deg); }
 
-.nav ul.browse-ul li:not(:last-child) { margin-bottom: .7rem; }
+.nav ul.browse-ul li:not(:last-child) { margin-bottom: .5rem; }
 
 .genres-wrapper:hover .genres-ul { display: block; }
 
@@ -163,7 +157,7 @@
   }
   .nav.open {
     height: 6rem;
-    border-block: 2px solid var(--sec-green-200);
+    border-block: 2px solid var(--wheat-600);
   }
   .nav.open:hover { overflow: visible; }
 }

@@ -70,6 +70,8 @@ const LoginPage = () => {
 
       <form className="login-form">
 
+        {/* todo: prevent label click from puting focus on the related input */}
+
         <div 
           ref={errorRef}
           className={validationError ? "error" : "offScreen"}
