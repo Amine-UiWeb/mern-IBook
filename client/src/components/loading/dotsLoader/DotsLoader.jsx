@@ -1,5 +1,6 @@
 import "./DotsLoader.css"
 
+
 const DotsLoader = () => {
   return (
     <div className="dotsLoader">

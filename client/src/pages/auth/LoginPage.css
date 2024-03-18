@@ -4,7 +4,7 @@
   width: 100%;
   min-width: 16rem;
   margin: 3rem auto;
-  border: 1px solid var(--pri-blue-200);
+  border: 1px solid var(--pri-200);
   box-shadow: 0 0 3px 2px #bbb;
   border-radius: .6rem;
 }
@@ -15,8 +15,8 @@
   line-height: 1.4;
   margin-bottom: 1.5rem;
   font-weight: 400;
-  color: var(--sec-green-400);
-  text-decoration: wavy underline var(--sec-green-200) 1px;
+  color: var(--sec-400);
+  text-decoration: wavy underline var(--sec-200) 1px;
 }
 
 
@@ -24,13 +24,13 @@
 
 .login-form label svg { 
   display: inline-block; 
-  stroke: var(--sec-green-400);
+  stroke: var(--sec-400);
   stroke-width: 1;
 }
 .login-form :is(label > *, label span > *) { vertical-align: middle; }
 .login-form label span svg { 
   display: inline-block; 
-  stroke: var(--sec-green-400);
+  stroke: var(--sec-400);
   stroke-width: 1;
 }
 
@@ -38,17 +38,17 @@
   width: 4.5rem;
   padding-inline: .4rem;
 }
-.login-form label span.eye:last-child { font-size: .8rem; color: var(--dark-800); }
+.login-form label span.eye:last-child { font-size: .8rem; color: var(--gray-800); }
 .login-form label span.eye svg {
   stroke: none;
-  fill: var(--dark-800);
+  fill: var(--gray-800);
 }
 
 
 /* input */
 
 .login-form input {
-  color: var(--pri-blue-400);
+  color: var(--pri-400);
   border-radius: 1rem;
   font-weight: 400;
 }
@@ -57,7 +57,7 @@
 /* validation notes */
 
 .login-form > div { 
-  background: var(--light-greenish);
+  background: var(--sec-light-1);
   display: grid;
   align-items: start; 
   gap: .25rem;
@@ -76,8 +76,8 @@
 }
 
 .login-form > div.note svg {
-  background: var(--sec-green-600);
-  fill: var(--light-greenish);
+  background: var(--sec-600);
+  fill: var(--sec-light-1);
   border-radius: 50%;
 }
 .login-form > div.note p { 

@@ -1,9 +1,10 @@
-.no-data {
+.no-page-data {
   border: 1px solid var(--wheat-200);
-  padding: 2rem 1rem;
+  padding: 2rem;
+  margin: 5rem 0;
 }
 
-.no-data button {
+.no-page-data button {
   border: none;
   background: transparent;
 }

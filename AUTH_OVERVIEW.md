@@ -21,4 +21,4 @@ _on none persisting login:_
 
 
 ### posting a book review:
-* display all reviews for the specific book in BookDetails page 
+* display all reviews for the specific book in WorkPage page 

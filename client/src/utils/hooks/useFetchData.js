@@ -4,16 +4,19 @@ import { useEffect, useState } from "react"
 const useFetchData = ({ end, dep, pathname }) => {
 
   const [data, setData] = useState(null)
-  const [isFetched, setFetchCompleted] = useState(false)
+  const [isFetched, setIsFetched] = useState(false)
   const [isFetchError, setIsFetchError] = useState(false)
 
     useEffect(() => {
       // when workdata is still fetching 
-      if (dep !== pathname && !dep) setFetchCompleted(false)
+      if (dep !== pathname && !dep) setIsFetched(false)
+
       else {
         let url
 
-        // BookDetails page
+        // Work page
+
+        // replace with search query (similar to search works in author page)
         if (end == 'b_workdata') url = `https://openlibrary.org${pathname}.json`
 
         else if (end == 'b_rating') {
@@ -39,19 +42,22 @@ const useFetchData = ({ end, dep, pathname }) => {
           url = `https://openlibrary.org/search.json?author=${uriAuthor}`
         } 
 
-        // AuthorDetails page
+
+        // Author page
+
         else if (end == 'a_authordata') url = `https://openlibrary.org${dep}.json`
 
         else if (end == 'a_authorinfo') {
           const encodedAuthor = encodeURIComponent(dep?.name)
           url = `https://openlibrary.org/search/authors.json?q=${encodedAuthor}&limit=1`
         }
+        
 
         fetch(url, { cache: 'force-cache' })
           .then(res => res.json())
           .then(data => setData(prev => data))
           .catch(err => setIsFetchError(prev => err?.message || err )) 
-          .finally(() => setFetchCompleted(true))
+          .finally(() => setIsFetched(true))
       }
     }, [dep, pathname])
 

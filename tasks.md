@@ -16,7 +16,7 @@
 - [x] Add a __nav panel__ toggler.
 - [x] Implement __nav panel__ toggling.
 
-- [x] Create __BookDetails__ page.
+- [x] Create __WorkPage__ page.
 - [ ] Create __AuthorDetails__ page.
 - [ ] Add __skeleton loaders__ for headers, texts and pictures.
 

@@ -9,11 +9,12 @@ import Header from "./components/header/Header"
 import LoginPage from "./pages/auth/LoginPage"
 import RegisterPage from "./pages/auth/RegisterPage"
 import LandingPage from "./pages/landing/LandingPage"
-import BookDetailsPage from "./pages/bookDetails/BookDetailsPage"
-import AuthorPage from "./pages/authorDetails/AuthorPage"
+import WorkPage from "./pages/workPage/WorkPage"
+import AuthorPage from "./pages/authorPage/AuthorPage"
 import Browse from "./pages/browse/Browse"
 import UserPage from "./pages/user/UserPage"
 import PersistLogin from "./pages/auth/PersistLogin"
+import WorkEditionsPage from "./pages/workEditionsPage/WorkEditionsPage"
 
 
 function App() {
@@ -36,9 +37,10 @@ function App() {
       { path: '/login', element: <LoginPage /> },
       { path: '/register', element: <RegisterPage /> },
       { path: '/user/collection', element: <UserPage /> },
-      { path: '/works/:olWork', element: <BookDetailsPage /> },
+      { path: '/works/:olWork', element: <WorkPage /> },
       { path: '/authors/:key', element: <AuthorPage /> },
-      { 
+      { path: '/works/:olWork/editions', element: <WorkEditionsPage /> },
+      {
         path: '/browse/*', 
         element: <Browse />,
         children: [/* add nested pages later */]

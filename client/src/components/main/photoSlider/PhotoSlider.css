@@ -1,22 +1,15 @@
 button.slider-arrow {
   all: unset;
   position: absolute;
-  display: grid;
-  place-content: center;
-  top: 50%;
-  transform: translateY(-50%);
-  width: fit-content;
-
-  background: #8a8a8a40;
-  color: #8a8a8a;
-  border: 2px solid #8a8a8a;
-  font-size: 2rem;
-  line-height: 0;
-  font-weight: 800;
-  padding: 1rem;
+  bottom: .6rem;  
+  color: #ddddddda;
+  border: 1px solid #55557095;
+  outline: 1px solid #ddddddda;
+  border-radius: .2rem;
+  padding: .4rem;
 }
-button.slider-arrow:disabled { background: #7a7a7a70; }
-button.slider-arrow:not(:disabled):hover { background: #77777080; }
+button.slider-arrow:disabled { background: #bdbdbd90; opacity: .4; }
+button.slider-arrow:not(:disabled):hover { background: #55557070; }
 
-button.slider-prev-arrow { left: 1rem; content: '<'; }
-button.slider-next-arrow { right: 1rem; content: '>'; }
+button.slider-prev-arrow { right: calc(50% + 1rem); content: '<'; }
+button.slider-next-arrow { left: calc(50% + 1rem); content: '>'; }

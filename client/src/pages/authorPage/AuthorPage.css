@@ -6,11 +6,17 @@
   z-index: 1;
 }
 
+.author-page :is(h3, h6) { 
+  font-family: 'Lucida Grande', Geneva, Verdana, sans-serif; 
+  font-weight: 600;
+  margin-block: inherit; 
+}
+
 
 /* content head */
 
 .content-head h1 {
-  color: var(--dark-600);
+  color: var(--gray-600);
   font-weight: 500;
 }
 
@@ -23,13 +29,11 @@
   min-height: fit-content;
   overflow: hidden;
 }
-.contentTwothird { border: 1px solid var(--pri-blue-100); }
-.contentOnethird { border: 1px solid var(--crimson-light-1) }
 
 
 /* twothird */
 
-.contentTwothird p { text-indent: .9rem; margin-bottom: .75rem; }
+.contentTwothird .description p { text-indent: .9rem; margin-bottom: .75rem; }
 .contentTwothird h2 { color: #666; }
 
 
@@ -42,15 +46,10 @@
   box-shadow: 1px 1px 2px 0 #c3b683;
 }
 
-.contentOnethird section { 
-  margin-bottom: 1.2rem; 
-  font-size: .8em;
-}
+.contentOnethird section { margin-bottom: 1.2rem; }
+.author-page section { margin-bottom: 1.5rem; }
+.author-page section > * { margin-bottom: 1rem; }
 
-.contentOnethird section :is(h3, h6) { 
-  margin-block: inherit; 
-  font-weight: 600;
-}
 .contentOnethird section h3 { color: #666; }
 .contentOnethird section h6 { 
   text-transform: uppercase; 
@@ -72,7 +71,7 @@
     width: 100%;
     max-width: 606px;
     float: left;
-    padding-right: 16px;
+    padding-right: 2rem;
   }
   .contentOnethird {
     width: 100%;
