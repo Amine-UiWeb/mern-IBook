@@ -8,6 +8,7 @@ import PhotoSlider from "../../components/main/photoSlider/PhotoSlider.jsx"
 import NoPageData from "../../components/noPageData/NoPageData.jsx"
 import { NoSectionData } from "../../components/npSectionData/NoSectionData.jsx"
 import "./AuthorPage.css"
+import { NoSectionData } from "../../components/npSectionData/NoSectionData.jsx"
 
 const IDsLinks = {
   amazon: { title: "Amazon ID", url: `https://www.amazon.com/-/e/LINK_ID` },

@@ -116,7 +116,6 @@ const SearchPaginList = ({ authorKey, totalWorks }) => {
     </>
   )
 
-
   return (
     <div className={"works-list" + (isLoading ? " inactive" : '') }>
       {sortingMenu}
