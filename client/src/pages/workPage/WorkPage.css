@@ -17,7 +17,7 @@
 
 /* details-grid */
 
-.details-grid { background: var(--light-greenish); }
+.details-grid { background: var(--sec-light-1); }
 
 .details-grid img { width: 100%; } 
 .details-grid .dotsLoader { border-color: #86b193; } 
@@ -96,7 +96,7 @@
   .book-details .cover { min-width: 200px; max-width: 300px; }
 
   .book-details .description { 
-    border-left: .2rem solid var(--sec-green-200);
+    border-left: .2rem solid var(--sec-200);
     padding-left: .6rem;
     height: fit-content;
   }

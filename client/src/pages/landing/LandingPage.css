@@ -15,15 +15,15 @@
   content: "";
   height: 2rem;
   width: .2rem;
-  background: var(--pri-blue-200);
+  background: var(--pri-200);
   margin-left: -0.75rem;
 }
 .carousel-section-header svg {
   height: 1rem;
   width: 1rem;
-  color: var(--pri-blue-200);
+  color: var(--pri-200);
   transition: color .15s ease 0s;
 }
-.carousel-section-header:hover svg { color: var(--pri-blue-600); }
+.carousel-section-header:hover svg { color: var(--pri-600); }
 
 .carousel-section .books-carousel { margin-bottom: 2rem; }

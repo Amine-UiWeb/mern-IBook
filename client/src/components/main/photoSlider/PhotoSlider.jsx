@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 
-import "./PhotoSlider.css"
 import useFetchImage from "../../../utils/hooks/useFetchImage"
+import DotsLoader from "../../../components/loading/dotsLoader/DotsLoader.jsx"
+import { ChevronLeft } from "../../svgs/ChevronLeft.jsx"
+import { ChevronRight } from "../../svgs/ChevronRight.jsx"
+import "./PhotoSlider.css"
 
 
 const PhotoSlider = ({ pathname, ids, height }) => {
@@ -13,7 +16,7 @@ const PhotoSlider = ({ pathname, ids, height }) => {
   useEffect(() => setCurrentImageId(ids[currentSlide - 1]), [currentSlide])
   
   const { image: authorPhoto, isImageLoading, isFetchError } = useFetchImage({ 
-    end: 'a_photos', dep: currentId, pathname, photoSize: 'L' 
+    end: 'a_photo', dep: currentId, pathname, imageSize: 'L' 
   })
 
   
@@ -28,16 +31,17 @@ const PhotoSlider = ({ pathname, ids, height }) => {
       <button 
         className="slider-arrow slider-prev-arrow" 
         onClick={prevSlide} disabled={currentSlide <= 1}
-      ></button>
+      ><ChevronLeft /></button>
       
       <div className="slide-wrapper">
-        <img src={authorPhoto} style={{ height: height }}/>
+        { <img src={authorPhoto} style={{ height: height }}/>
+        }
       </div>
       
       <button 
         className="slider-arrow slider-next-arrow" 
         onClick={nextSlide} disabled={currentSlide >= ids.length}
-      ></button>
+      ><ChevronRight /></button>
     
     </div>
   )

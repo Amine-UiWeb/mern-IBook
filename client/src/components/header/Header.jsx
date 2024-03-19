@@ -2,8 +2,6 @@ import { useState, useEffect, useCallback, memo } from "react"
 import { Link, NavLink } from "react-router-dom"
 import axios from "axios"
 
-import { debounce } from "../../utils/helpers/debounce.js"
-
 import Nav from "./Nav"
 import Logo from "../../assets/icons/logo.svg"
 import { Menu } from "../svgs/Menu"
@@ -13,7 +11,7 @@ import "./Header.css"
 
 const BASE_URL = 'https://openlibrary.org/search.json?'
 const fields = 'title,author_name,key,cover_edition_key'
-const COVER_URL = (value) => `https://covers.openlibrary.org/b/olid/${value}-S.jpg`
+const COVER_URL = (coverID) => `https://covers.openlibrary.org/b/olid/${coverID}-S.jpg`
 
 
 const Header = () => {
@@ -21,12 +19,11 @@ const Header = () => {
   const [isPanelOpen, setIsPanelOpen] = useState(false)
 
   const [searchText, setSearchText] = useState('')
-
   const [isSearching, setIsSearching] = useState(false)
   const [searchResults, setSearchResults] = useState([])
 
 
-  const handleToggler = () => setIsPanelOpen(prev => !prev)
+  const togglePanel = () => setIsPanelOpen(prev => !prev)
 
   const onSearchChange = (e) => setSearchText(e.target.value)
 
@@ -40,9 +37,9 @@ const Header = () => {
         to = setTimeout(async () => {
           try { 
             setIsSearching(true)
-            const encodedTitle = encodeURIComponent(val)
-            const url = `${BASE_URL}q=${encodedTitle}&fields=${fields}&limit=5`
-            const { data } = await axios.get(url,
+            let encodedTitle = encodeURIComponent(val)
+            let url = `${BASE_URL}q=${encodedTitle}&fields=${fields}&limit=5`
+            let { data } = await axios.get(url, 
               { headers: { 'Content-Type': 'application/json' } }
             );
             setSearchResults(data?.docs)
@@ -70,7 +67,7 @@ const Header = () => {
 
         <div 
           className={"panel-toggler" + (isPanelOpen ? " active" : "")}
-          onClick={handleToggler}
+          onClick={togglePanel}
         >
           <Menu />
         </div>
@@ -81,11 +78,7 @@ const Header = () => {
           </NavLink>
         </div>
 
-        <div 
-          className="search-container"
-          onMouseLeave={hideSearchResults}
-        >
-          {/* todo: add a dropdown to use search queries */}
+        <div className="search-container" onMouseLeave={hideSearchResults}>
           
           <span className="search-icon relative">
             {!isSearching ? <MagnifyingGlass /> : <Spinner />}
@@ -105,30 +98,29 @@ const Header = () => {
 
           <div className="search-results">
             <ul>
-
               {
                 searchResults.map((doc, i) => (
                   <li key={i}>
+
                     <div className="thumbnail">
                       <img src={COVER_URL(doc?.cover_edition_key)} />
                     </div>
+                    
                     <div>
-                      <Link to={doc?.key}>
-                        <h5 className="h5">{doc?.title}</h5>
-                      </Link>
+                      <Link to={doc?.key}><h5 className="h5">{doc?.title}</h5></Link>
                       <Link to={'/author/' + doc?.author_key?.[0]}>
                         <span>{doc?.author_name?.[0]}</span>
                       </Link>
                     </div>
+
                   </li>
                 ))
               }
-              
             </ul>
           </div>
         </div>
 
-        <Nav isPanelOpen={isPanelOpen} handleToggler={handleToggler} />
+        <Nav isPanelOpen={isPanelOpen} setIsPanelOpen={setIsPanelOpen} />
 
     </header>
   )

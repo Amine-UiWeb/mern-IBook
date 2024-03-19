@@ -1,21 +1,22 @@
 import { Fragment } from "react"
 import { Link, useLocation } from "react-router-dom"
 
-import NoData from "../../components/noData/NoData.jsx"
+import useFetchData from "../../utils/hooks/useFetchData.js"
+
+import SearchPaginList from "../../components/main/searchPagination/searchPaginList.jsx"
 import PhotoSlider from "../../components/main/photoSlider/PhotoSlider.jsx"
-import DotsLoader from "../../components/loading/dotsLoader/DotsLoader.jsx"
-import useFetchData from "../../utils/hooks/useFetchData"
-import useFetchImage from "../../utils/hooks/useFetchImage.js"
+import NoPageData from "../../components/noPageData/NoPageData.jsx"
+import { NoSectionData } from "../../components/npSectionData/NoSectionData.jsx"
 import "./AuthorPage.css"
 
 const IDsLinks = {
-  amazon: { name: "Amazon ID", url: `https://www.amazon.com/-/e/LINK_ID` },
-  goodreads: { name: "GoodReads", url: `https://www.goodreads.com/author/show/LINK_ID` },
-  isni: { name: "ISNI", url: `https://isni.org/isni/LINK_ID` },
-  librarything: { name: "LibraryThing", url: `https://www.librarything.com/author/LINK_ID` },
-  storygraph: { name: "Storygraph", url: `https://app.thestorygraph.com/authors/LINK_ID` },
-  viaf: { name: "VIAF", url: `https://viaf.org/viaf/LINK_ID` },
-  wikidata: { name: "Wikidata", url: `https://www.wikidata.org/wiki/LINK_ID` },
+  amazon: { title: "Amazon ID", url: `https://www.amazon.com/-/e/LINK_ID` },
+  goodreads: { title: "GoodReads", url: `https://www.goodreads.com/author/show/LINK_ID` },
+  isni: { title: "ISNI", url: `https://isni.org/isni/LINK_ID` },
+  librarything: { title: "LibraryThing", url: `https://www.librarything.com/author/LINK_ID` },
+  storygraph: { title: "Storygraph", url: `https://app.thestorygraph.com/authors/LINK_ID` },
+  viaf: { title: "VIAF", url: `https://viaf.org/viaf/LINK_ID` },
+  wikidata: { title: "Wikidata", url: `https://www.wikidata.org/wiki/LINK_ID` },
 }
 
 
@@ -25,9 +26,9 @@ const AuthorPage = () => {
 
   const { data: authorData, isFetched, isFetchError } 
     = useFetchData({ end: 'a_authordata', dep: pathname, pathname })
-  const ids = authorData?.remote_ids
-  const photos = authorData?.photos
-
+  let ids = authorData?.remote_ids
+  let photos = authorData?.photos
+  let bio = authorData?.bio?.value ?? authorData?.bio
   
   const { data: authorInfo, isFetched: isInfoFetched, isFetchError: isInfoError } 
     = useFetchData({ end: 'a_authorinfo', dep: authorData, pathname })
@@ -35,7 +36,7 @@ const AuthorPage = () => {
   
 
   // authorData fetching failed
-  if (isFetched && isFetchError)  return <NoData />
+  if (isFetched && isFetchError)  return <NoPageData />
 
 
   return (
@@ -61,32 +62,36 @@ const AuthorPage = () => {
       <div className="content-body relative">
 
         <div className="contentTwothird">
-          { authorData?.bio && (
-            <section className="description mb-1">
-              {authorData?.bio?.split('\n').map((par, i) => 
-                <p key={i}>{par}</p>
-              )}
-            </section>
-          )}
-
-          { info?.work_count && (
-              <section className="works mb-1-5">
-                <h2 className="m-bl-1 fs-1-1 fw-7">{info.work_count} works</h2>
+          
+          { bio && (
+              <section className="description">
+                {bio?.split('\n').map((par, i) => 
+                  <p key={i}>{par}</p>
+                )}
               </section>
             )
           }
+
+          { info?.work_count && (
+              <section className="search-pagin-container">
+                <h2 className="m-bl-1 fs-1-3 fw-7">{info.work_count} works</h2>
+                <SearchPaginList authorKey={pathname} totalWorks={info?.work_count} />
+              </section>
+            )
+          }
+
         </div>
         
         <div className="contentOnethird">
 
           { photos && (
-              <div className="author_photo">
+              <section className="author_photo">
                 <PhotoSlider 
                   pathname={pathname}
                   ids={photos.slice(0, 5).filter(val => val != -1)}
-                  height="300px"
+                  height="280px"
                 />
-              </div>
+              </section>
             ) 
           }
 
@@ -130,13 +135,13 @@ const AuthorPage = () => {
             ) 
           }
 
-          { ids?.[0] && (
+          { (typeof ids == 'object' && Object.keys(ids).length > 0) && (
               <section className="id_numbers">
                 <h3>ID Numbers:</h3>
                 <ul>
                   { Object.keys(ids).map((key, i) => (
                       <li key={i}>
-                        <span>{IDsLinks[key]?.name}: </span>
+                        <span>{IDsLinks[key]?.title}: </span>
                         <Link
                           className="a" 
                           to={IDsLinks[key]?.url?.replace('LINK_ID', ids[key])}

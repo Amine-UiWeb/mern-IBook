@@ -113,7 +113,7 @@ const LoginPage = () => {
             type="checkbox" 
             id="persist" 
             className="d-in" 
-            checked={persist ?? false}
+            checked={persist || false}
             onChange={togglePersist}
           />
           <label htmlFor="persist" className="d-in ml-0-5 fs-0-85">Remember Me</label>

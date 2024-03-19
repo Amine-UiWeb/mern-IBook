@@ -10,7 +10,7 @@ import { SUBJECTS } from "../../utils/constants"
 import "./Nav.css"
 
 
-const Nav = ({ isPanelOpen, handleToggler }) => {
+const Nav = ({ isPanelOpen, setIsPanelOpen }) => {
 
   const token = useSelector(selectToken)
 
@@ -29,7 +29,7 @@ const Nav = ({ isPanelOpen, handleToggler }) => {
 
   return (
     <nav 
-      onMouseLeave={handleToggler} 
+      onMouseLeave={() => setIsPanelOpen(false)} 
       className={isPanelOpen ? 'nav open' : 'nav'}
     >
       
@@ -76,7 +76,7 @@ const Nav = ({ isPanelOpen, handleToggler }) => {
       </div>
 
       <div className="mode-toggler" style={{ 
-          "--theme": theme === 'light' ? '##7e7e7e' : 'var(--pri-blue-200)' 
+          "--theme": theme === 'light' ? '##7e7e7e' : 'var(--pri-200)' 
       }}>
         { theme === 'light' ? <Sun /> : <Moon /> }
         <input 

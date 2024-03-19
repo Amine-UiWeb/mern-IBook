@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom"
 
-import "./NoData.css"
+import "./NoPageData.css"
 
 
-const NoData = ({ error }) => {
+const NoPageData = ({ error }) => {
 
   const navigate = useNavigate()
   const goBack = () => navigate(-1)
 
   return (
-    <div className="no-data">
+    <div className="no-page-data">
       <p>
         <span className="fw-6">Sorry. </span>
         <span className="fs-0-9">
@@ -23,4 +23,4 @@ const NoData = ({ error }) => {
     </div>
   )
 }
-export default NoData
+export default NoPageData

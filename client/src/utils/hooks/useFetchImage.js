@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 
+let BASE_URL = 'https://covers.openlibrary.org'
 
-const useFetchImage = ({ end, dep, pathname, coverSize, photoSize }) => {
+
+const useFetchImage = ({ end, dep, pathname, imageSize }) => {
   
   const [image, setImage] = useState(null)
   const [isImageLoading, setIsImageLoading] = useState(false)
@@ -9,37 +11,51 @@ const useFetchImage = ({ end, dep, pathname, coverSize, photoSize }) => {
   
   useEffect(() => {
     if (dep !== pathname && !dep) setIsImageLoading(true) 
+
     else {
-      (async () => {
-        try {
-          setIsImageLoading(prev => true)
-          setIsFetchError(prev => false)
+      setIsImageLoading(prev => true)
+      setIsFetchError(prev => false)
 
-          let url
+      let url
 
-          // BookDetails page
-          if (end == 'b_cover')
-            url = `https://covers.openlibrary.org/b/id/${dep?.covers?.[0]}-${coverSize}.jpg`
-        
-          else if (end == 'b_photo') {
-            let authorKey = dep?.authors?.[0]?.author?.key || dep?.author?.key
-            let olid = authorKey?.split('/authors/')[1]
-            url = `https://covers.openlibrary.org/a/olid/${olid}-${photoSize}.jpg`
-          } 
+      // landing page (carousel card)
+      if (end == 'carousel_cover') {
+        url = `${BASE_URL}/b/id/${dep?.cover_id || dep?.cover_i}-${imageSize}.jpg`
+      }
 
-          // AuthorDetails page
-          else if (end == 'a_photos')
-            url = `https://covers.openlibrary.org/b/id/${dep}-${photoSize}.jpg`
-          
-          let res = await fetch(url, { cache: "force-cache" })
-          let blob = await res.blob()
+      // Work page
+      else if (end == 'b_cover')
+        url = `${BASE_URL}/b/id/${dep?.covers?.[0]}-${imageSize}.jpg`
+    
+      else if (end == 'b_photo') {
+        let authorKey = dep?.authors?.[0]?.author?.key || dep?.author?.key
+        let olid = authorKey?.split('/authors/')[1]
+        url = `${BASE_URL}/a/olid/${olid}-${imageSize}.jpg`
+      } 
+
+      // Author page
+      else if (end == 'a_photo' || end == 'a_cover')
+        url = `${BASE_URL}/b/id/${dep}-${imageSize}.jpg`
+
+      else if (end == 'edition_cover')
+        url = `https://archive.org/services/img/${dep}`
+    
+
+      fetch(url, { cache: "force-cache" })
+        .then(res => res.blob())
+        .then(blob => {
           let reader = new FileReader()  
-          reader.onload = function () { setImage(this.result) }
+          reader.onload = function () { 
+            setImage(this.result) 
+            setIsImageLoading(prev => false)
+          }
           reader.readAsDataURL(blob)
-        }
-        catch(err) { setIsFetchError(true) }
-        finally { setIsImageLoading(false) }
-      })()
+        })
+        .catch(err => {
+          setIsFetchError(true)
+          setImage(prev => null)
+          setIsImageLoading(prev => false)
+        })
     }
   }, [dep, pathname])
 

@@ -5,14 +5,14 @@ import useFetchImage from "../../utils/hooks/useFetchImage.js"
 import useFetchData from "../../utils/hooks/useFetchData.js"
 
 import BooksCarousel from "../../components/main/booksCarousel/BooksCarousel.jsx"
-import NoData from "../../components/noData/NoData.jsx"
+import NoData from "../../components/noPageData/NoPageData.jsx"
 import DotsLoader from "../../components/loading/dotsLoader/DotsLoader.jsx"
 import { HeaderSkeleton, ParagrahSkeleton, TextSkeleton } from 
   "../../components/loading/SkeletonLoaders/Skeleton.jsx"
-import "./BookDetailsPage.css"
+import "./WorkPage.css"
 
 
-const BookDetailsPage = () => {
+const WorkPage = () => {
 
   const { pathname } = useLocation() // pathname is structured as: /works/<workId>
 
@@ -32,7 +32,7 @@ const BookDetailsPage = () => {
   // Fetch book cover, ratings, author name
   /* -------------------------------------- */
   let { image: bookCover } = useFetchImage({ 
-    end: 'b_cover', dep: workData, pathname: pathname, coverSize: 'L'
+    end: 'b_cover', dep: workData, pathname: pathname, imageSize: 'L'
   })
 
   // todo: add number_of_pages_median to bookdetails page
@@ -50,7 +50,7 @@ const BookDetailsPage = () => {
   // Fetch author photo and info
   /* --------------------------- */
   let { image: authorPhoto } = useFetchImage({ 
-    end: 'b_photo', dep: workData, pathname: pathname, photoSize: 'M'
+    end: 'b_photo', dep: workData, pathname: pathname, imageSize: 'M'
   })
 
   // let { data: authorData } 
@@ -75,7 +75,7 @@ const BookDetailsPage = () => {
   return (
     <div className="book-details">
       
-      <h3 className="h3 title">{ title ?? <HeaderSkeleton /> }</h3>
+      <h3 className="h3 title">{ title || <HeaderSkeleton /> }</h3>
 
 
       {/* details */}
@@ -193,4 +193,4 @@ const BookDetailsPage = () => {
     </div>
   )
 }
-export default BookDetailsPage
+export default WorkPage
